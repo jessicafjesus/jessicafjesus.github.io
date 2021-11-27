@@ -1,13 +1,13 @@
 import React from 'react';
 import {Nav, NavLink, Bars, NavMenu, NavBtn, NavBtnLink} from './NavbarElements';
-import logo from '../../images/amusefinal2.svg';
+import logo from '../../images/amuseBranco.png';
 
 const Navbar = () => {
     return (
         <>
           <Nav>
               <NavLink to="/">
-              <img src={logo}  className="App-logo" alt="logo"/>
+              <img src={logo}  className="App-logo" alt="logo" width="163" height="40"/>
               </NavLink>
               <Bars/>
               <NavMenu>
@@ -22,7 +22,7 @@ const Navbar = () => {
                   </NavLink>
               </NavMenu>
               <NavBtn>
-                  <NavBtnLink to="/signin">Log in</NavBtnLink>
+                  <NavBtnLink to="/signin" activeStyle>Log in</NavBtnLink>
               </NavBtn>
           </Nav>
         </>

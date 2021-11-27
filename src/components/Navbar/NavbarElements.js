@@ -15,7 +15,7 @@ export const NavLink = styled(Link)`
     color: #191F24;
     display: flex;
     align-items: center;
-    padding: 20px;
+    padding: 10px;
     height: 100%;
     outline: none;
     border: none;
@@ -84,4 +84,14 @@ export const NavBtnLink = styled(Link)`
     background: #fff;
     color: #010606;
   }
+`
+
+export const SignDesign = styled.h1`
+color: #47525E;
+font-family: Lato, sans-serif;
+font-weight:bold;
+font-size: 35px;
+line-height: 71px;
+width: 400px;
+text-align: center;
 `
