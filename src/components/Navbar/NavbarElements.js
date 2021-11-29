@@ -4,14 +4,44 @@ import {FaBars}  from 'react-icons/fa';
 
 export const Nav = styled.nav`
     background: #00A3A3;
-    height: 80px;
+    height: 100px;
     display: flex;
     justify-content: space-between;
+    padding: 50px;
+    z-index:10;
+`
+export const SecondNav = styled.nav`
+    background: #00A3A3;
+    height: 100px;
+    display: flex;
+    justify-content: center;
     padding: 0.5rem calc((100vw - 1000px) / 2);
     z-index:10;
 `
 
+
 export const NavLink = styled(Link)`
+    color: #191F24;
+    display: flex;
+    align-items: center;
+    padding: 30px;
+    height: 100%;
+    outline: none;
+    border: 0px;
+    border-radius:10px;
+    cursor: pointer;
+    background-color:#fff;
+    transition: all 0.5s ease-in-out;
+    text-decoration: none;
+    &.active {
+        color: #fff;
+        background-color:#191F24;
+        outline: auto;
+        border: 3px;
+        font-weight:bold;
+      }
+`
+export const NavLinkLogo = styled(Link)`
     color: #191F24;
     display: flex;
     align-items: center;
@@ -45,12 +75,7 @@ export const Bars = styled(FaBars)`
 export const NavMenu = styled.div`
   display: flex;
   align-items: center;
-  margin-right: -24px;
-  /* Second Nav */
-  /* margin-right: 24px; */
-  /* Third Nav */
-  /* width: 100vw;
-  white-space: nowrap; */
+  margin-right: 24px;
   @media screen and (max-width: 768px) {
     display: none;
   }
@@ -94,4 +119,15 @@ font-size: 35px;
 line-height: 71px;
 width: 400px;
 text-align: center;
+`
+
+export const SearchBar = styled.input`
+background-color: white;
+border: 2px;
+border-radius: 7px;
+font-size: 18px;
+padding: 15px;
+height: 30px;
+width: 300px;
+align-text:center;
 `
