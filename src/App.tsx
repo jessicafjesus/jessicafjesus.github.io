@@ -1,14 +1,15 @@
 import './App.css';
 import ReactDOM from "react-dom";
+import React from "react";
 import Navbar from './components/Navbar';
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Routes, Route} from "react-router-dom";
 import {Activities, Home, Museums, SignIn, VisitTogether} from "./pages";
+import { Fragment } from 'react';
 
 
 function App() {
   return (
-    ReactDOM.render(
-    <Router>
+    <Fragment>
       <Navbar/>
     <Routes>
         <Route path='/' element={<Home/>} />
@@ -16,10 +17,9 @@ function App() {
         <Route path='/museums' element={<Museums/>} />
         <Route path='/visitTogether' element={<VisitTogether/>} />
         <Route path='/signin' element={<SignIn/>} />
-      </Routes>
-    </Router>,document.getElementById("root")
+    </Routes>
+    </Fragment>
  )
-);
 }
 
 export default App;
