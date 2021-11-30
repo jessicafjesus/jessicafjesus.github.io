@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 // React Bootstrap
 import { Form, Button } from "react-bootstrap"
 import { SignDesign } from '../components/Navbar/NavbarElements'
