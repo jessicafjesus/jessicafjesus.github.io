@@ -9,11 +9,21 @@ const Museums = () => {
         <CatImageM className="categoriesBtn">Modern Art</CatImageM>
         <CatImageH className="categoriesBtn">History</CatImageH>
         <CatImageS className="categoriesBtn">Science</CatImageS>
+        <div horizontal>
+          <ViewAllStyle>
+            View All
+            <img
+              src="https://marvel-live.freetls.fastly.net/canvas/2021/10/e27467627666434985412fa7811db91c?quality=95&fake=.png"
+              alt="arrow"
+              width="40"
+              height="25"
+            />
+          </ViewAllStyle>
+        </div>
       </LeftBlock>
       <RightBlock>
         <CatStyle>Don't know what to visit?</CatStyle>
         <TakeQuizBtn className="categoriesBtn">Take our quiz</TakeQuizBtn>
-
       </RightBlock>
     </>
   );
@@ -83,14 +93,14 @@ export const RightBlock = styled.div`
 export const TakeQuizBtn = styled.button`
   padding: 10px;
   border-radius: 6px;
-  border: 3px solid #FFA552;    
+  border: 3px solid #ffa552;
   left-margin: 20px;
-  width: 184px;
-  height: 53px;
+  width: 194px;
+  height: 73px;
   color: #fff;
-  background-color:#FFA552;
+  background-color: #ffa552;
   font-family: Lato, sans-serif;
-  font-size: 20px;
+  font-size: 23px;
   text-align: center;
   cursor: pointer;
   transition: all 0.5s ease-in-out;
@@ -98,4 +108,14 @@ export const TakeQuizBtn = styled.button`
     outline: auto;
     font-weight: bold;
   }
+`;
+
+export const ViewAllStyle = styled.h1`
+  color: #00a3a3;
+  font-family: Lato, sans-serif;
+  font-size: 23px;
+  line-height: 35px;
+  text-align: left;
+  padding: 40px;
+  font-weight: bold;
 `;
