@@ -1,14 +1,11 @@
 import React from 'react'
 
-const 
-Activities = () => {
+function activities({aaaa}) {
     return (
-        <div>
-            <h1>Activities</h1>
-        </div>
+        <h1>
+            Activities
+        </h1>
     )
 }
 
-export default Activities;
-
-
+export default activities
