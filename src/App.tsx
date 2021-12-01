@@ -1,7 +1,6 @@
 import './App.css';
-import ReactDOM from "react-dom";
 import React from "react";
-import Navbar from './components/Navbar';
+import Header from './components/header/Header';
 import { Routes, Route} from "react-router-dom";
 import {Activities, Home, Museums, SignIn, VisitTogether} from "./pages";
 import { Fragment } from 'react';
@@ -10,7 +9,7 @@ import { Fragment } from 'react';
 function App() {
   return (
     <Fragment>
-      <Navbar/>
+      <Header/>
     <Routes>
         <Route path='/' element={<Home/>} />
         <Route path='/activities' element={<Activities/>} />

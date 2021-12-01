@@ -1,8 +1,8 @@
 import React from 'react';
 import {Nav, NavLink, Bars, NavMenu, NavBtn, NavBtnLink, SearchBar, SecondNav, NavLinkLogo} from './NavbarElements';
 import logo from '../../images/amuseBranco.png';
-import SearchIcon from "@material-ui/icons/Search";
-import TuneIcon from '@material-ui/icons/Tune';
+import SearchIcon from "@mui/icons-material/Search";
+import TuneIcon from '@mui/icons-material/Tune';
 
 const Navbar = () => {
     return (
