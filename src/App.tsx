@@ -3,12 +3,20 @@ import React from "react";
 import Header from './components/header/Header';
 import { Routes, Route} from "react-router-dom";
 import {Activities, Home, Museums, SignIn, VisitTogether} from "./pages";
-import { Fragment } from 'react';
+import { createTheme, ThemeProvider } from '@mui/material/styles'
 
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#00A3A3'
+    }
+  }
+});
 
 function App() {
   return (
-    <Fragment>
+    <ThemeProvider theme={theme}>
       <Header/>
     <Routes>
         <Route path='/' element={<Home/>} />
@@ -17,7 +25,7 @@ function App() {
         <Route path='/visitTogether' element={<VisitTogether/>} />
         <Route path='/signin' element={<SignIn/>} />
     </Routes>
-    </Fragment>
+    </ThemeProvider>
  )
 }
 

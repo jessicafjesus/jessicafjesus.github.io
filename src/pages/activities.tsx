@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import Activity from '../components/activity/Activity';
+import ActivitiesJson from "../json/ActivitiesJson.json"
 
 function activities() {
+    const data = ActivitiesJson
+    const activitiesMap = data.activities.map((act) => {return (<Activity aProps={act}/>)})
     return (
-        <h1>
-            Activities
-        </h1>
+        <Fragment>
+            {activitiesMap}
+        </Fragment>
     )
 }
 

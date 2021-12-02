@@ -1,9 +1,8 @@
 import { Fragment, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {
   AppBar,
-  Avatar,
   Button,
   Grid,
   InputAdornment,
@@ -30,20 +29,17 @@ const useStyles = makeStyles((theme) => ({
   },
 
   AppBar: {
-    backgroundColor: "#e6ffff",
+    colorPrimary: "#00A3A3",
     backgroundSize: "cover",
   },
-  mainLogo: {
+
+  logo: {
+    maxWidth: 160,
     color: "#a1a1a1",
     justifyContent: "left",
     "&:hover": {
       background: "transparent",
     },
-  },
-
-  avatar: {
-    height: "100%",
-    borderRadius: 0,
   },
 
   typo: {
@@ -80,7 +76,7 @@ const useStyles = makeStyles((theme) => ({
 const Header = () => {
   const [search,setSearch] = useState("");
   const [visible,setVisible] = useState(false);
-  const isLoggedIn = true;
+  const isLoggedIn = false;
   const history = useNavigate();
 
   const logoutHandler = () => {
@@ -96,11 +92,11 @@ const Header = () => {
   };
 
   const loginHandler = () => {
-    history("/login");
+    history("/activities");
   };
 
   const registerHandler = () => {
-    history("/register");
+    history("/museums");
   };
 
 
@@ -108,15 +104,11 @@ const Header = () => {
 
   return (
     <Fragment>
-      <AppBar position="static" color="default" className={classes.AppBar}>
+      <AppBar position="static" color="primary" className={classes.AppBar}>
         <Grid item sm={12} xs={12} className={classes.container}>
           <Toolbar>
             <Grid className={classes.grow}>
-              <Button className={classes.mainLogo}>
-                <Link to="/">
-                  <Avatar src="logo.png" className={classes.avatar} />
-                </Link>
-              </Button>
+             <img src="amuseBranco.png" alt="logo" className={classes.logo} />
             </Grid>
             {isLoggedIn && (
               <Fragment>
@@ -202,14 +194,14 @@ const Header = () => {
                   className={classes.buttonFontSize && classes.loginButton}
                   onClick={loginHandler}
                 >
-                  Login
+                  Activities
                 </Button>
                 <Button
                   color="inherit"
                   className={classes.buttonFontSize && classes.registerButton}
                   onClick={registerHandler}
                 >
-                  Register
+                  Museums
                 </Button>
               </Fragment>
             )}
