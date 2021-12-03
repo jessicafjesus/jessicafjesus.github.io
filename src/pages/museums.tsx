@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState} from "react";
 import styled from "styled-components";
 //import ModalContent from "../components/modals/Modal";
 import Modal from "@mui/material/Modal";
@@ -7,6 +7,9 @@ import { IconButton } from "@mui/material";
 import LinearProgress from '@mui/material/LinearProgress';
 
 const Museums = () => {
+  const answers = ["","","","",""];
+  const backgroundColor2 = "#FFFFFF"
+  const [answer1Selected, setAnswer1Selected] = useState(false);
   const [showQuiz, setShowQuiz] = useState(false);
   const takeQuizHandler = (event: React.MouseEvent) => {
     event.preventDefault();
@@ -16,6 +19,14 @@ const Museums = () => {
     event.preventDefault();
     setShowQuiz(false);
   };
+  const answer1Handler = (event : React.MouseEvent) => {
+    event.preventDefault();
+    answers[0] = "bruh";
+    console.log(answer1Selected)
+    setAnswer1Selected(!answer1Selected)
+    console.log(answer1Selected)
+    console.log(answers);
+  }
   let now = 50
   return (
     <Fragment>
@@ -57,9 +68,10 @@ const Museums = () => {
                       <div
                         className="card m-2"
                         style={{
-                          backgroundColor: "#F1F7F3",
+                          backgroundColor: answer1Selected ? "#F1F7F3" : "#000000",
                           borderColor: "#00A3A3",
                         }}
+                        onClick={answer1Handler}
                       >
                         <div className="row">
                           <div className="col-sm">
