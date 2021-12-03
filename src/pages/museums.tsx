@@ -1,9 +1,169 @@
-import React from "react";
+import React, { Fragment, useState } from "react";
 import styled from "styled-components";
+//import ModalContent from "../components/modals/Modal";
+import Modal from "@mui/material/Modal";
+import CloseIcon from "@mui/icons-material/Close";
+import { IconButton } from "@mui/material";
+import LinearProgress from '@mui/material/LinearProgress';
 
 const Museums = () => {
+  const [showQuiz, setShowQuiz] = useState(false);
+  const takeQuizHandler = (event: React.MouseEvent) => {
+    event.preventDefault();
+    setShowQuiz(true);
+  };
+  const hideQuizHandler = (event: React.MouseEvent) => {
+    event.preventDefault();
+    setShowQuiz(false);
+  };
+  let now = 50
   return (
-    <>
+    <Fragment>
+      {showQuiz && (
+        <Modal
+          open={showQuiz}
+          onClose={() => setShowQuiz(false)}
+          aria-labelledby="qqcoisa"
+          aria-describedby="outracoisa"
+        >
+          <div className="row h-100 d-flex align-items-center">
+            <div className="col w-100 d-flex justify-content-center text-center">
+              <div className="container-sm d-inline-block ">
+                <div
+                  className="row"
+                  style={{
+                    backgroundColor: "#00A3A3",
+                    borderRadius: "7px 7px 0px 0px",
+                  }}
+                >
+                  <div className="row-sm text-right">
+                    <IconButton onClick={hideQuizHandler}>
+                      <CloseIcon fontSize="large" />
+                    </IconButton>
+                  </div>
+                  <div className="row-sm">
+                    {" "}
+                    <h1 className="mt-5 mb-4">
+                      If you had some time off, what would you rather be doing?
+                    </h1>
+                  </div>
+                </div>
+                <div
+                  className="row d-flex"
+                  style={{ backgroundColor: "#FFFFFF" }}
+                >
+                  <div className="col-md">
+                    <div className="row-md">
+                      <div
+                        className="card m-2"
+                        style={{
+                          backgroundColor: "#F1F7F3",
+                          borderColor: "#00A3A3",
+                        }}
+                      >
+                        <div className="row">
+                          <div className="col-sm">
+                            <img
+                              src="activity1.jpg"
+                              alt="option1"
+                              className="m-2 rounded img-fluid"
+                              style={{ height: "250px", width: "250px" }}
+                            ></img>
+                          </div>
+                          <div className="col-sm d-flex justify-content-center align-items-center">
+                            <h4>John Doe</h4>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="row-md">
+                      <div
+                        className="card m-2"
+                        style={{
+                          backgroundColor: "#F1F7F3",
+                          borderColor: "#00A3A3",
+                        }}
+                      >
+                        <div className="row">
+                          <div className="col-sm">
+                            <img
+                              src="activity1.jpg"
+                              alt="option1"
+                              className="m-2 rounded img-fluid"
+                              style={{ height: "250px", width: "250px" }}
+                            ></img>
+                          </div>
+                          <div className="col-sm d-flex justify-content-center align-items-center">
+                            <h4>John Doe</h4>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-md">
+                    <div className="row-md">
+                      <div
+                        className="card m-2"
+                        style={{
+                          backgroundColor: "#F1F7F3",
+                          borderColor: "#00A3A3",
+                        }}
+                      >
+                        <div className="row">
+                          <div className="col-sm">
+                            <img
+                              src="activity1.jpg"
+                              alt="option1"
+                              className="m-2 rounded img-fluid"
+                              style={{ height: "250px", width: "250px" }}
+                            ></img>
+                          </div>
+                          <div className="col-sm d-flex justify-content-center align-items-center">
+                            <h4>John Doe</h4>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="row-md">
+                      <div
+                        className="card m-2"
+                        style={{
+                          backgroundColor: "#F1F7F3",
+                          borderColor: "#00A3A3",
+                        }}
+                      >
+                        <div className="row">
+                          <div className="col-sm">
+                            <img
+                              src="activity1.jpg"
+                              alt="option1"
+                              className="m-2 rounded img-fluid"
+                              style={{ height: "250px", width: "250px" }}
+                            ></img>
+                          </div>
+                          <div className="col-sm d-flex justify-content-center align-items-center">
+                            <h4>John Doe</h4>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="row p-3 "
+                  style={{
+                    backgroundColor: "#00A3A3",
+                    borderRadius: "0px 0px 7px 7px",
+                  }}
+                >~
+                <div className="col p-3 text-center"><LinearProgress color="success" variant="determinate" style={{borderColor:"black"}} value={now} /></div>
+                <div className="col col-lg-2 text-right"><button className="btn" style={{backgroundColor:"#FFA552"}}><b>Next</b></button></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Modal>
+      )}
       <LeftBlock>
         <CatStyle> Suggested Categories</CatStyle>
         <CatImageM className="categoriesBtn">Modern Art</CatImageM>
@@ -12,10 +172,11 @@ const Museums = () => {
       </LeftBlock>
       <RightBlock>
         <CatStyle>Don't know what to visit?</CatStyle>
-        <TakeQuizBtn className="categoriesBtn">Take our quiz</TakeQuizBtn>
-
+        <TakeQuizBtn className="categoriesBtn" onClick={takeQuizHandler}>
+          Take our quiz
+        </TakeQuizBtn>
       </RightBlock>
-    </>
+    </Fragment>
   );
 };
 
@@ -83,12 +244,12 @@ export const RightBlock = styled.div`
 export const TakeQuizBtn = styled.button`
   padding: 10px;
   border-radius: 6px;
-  border: 3px solid #FFA552;    
+  border: 3px solid #ffa552;
   left-margin: 20px;
   width: 184px;
   height: 53px;
   color: #fff;
-  background-color:#FFA552;
+  background-color: #ffa552;
   font-family: Lato, sans-serif;
   font-size: 20px;
   text-align: center;
