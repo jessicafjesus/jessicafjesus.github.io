@@ -1,7 +1,7 @@
 import { Fragment, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../../components/style.scss";
+import useStyles from"./styles";
 import {
   AppBar,
   Button,
@@ -12,15 +12,13 @@ import {
   Typography,
 } from "@mui/material";
 import Link2 from "@mui/material/Link";
-import { makeStyles } from "@mui/styles";
 import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
 
 
-
 const Header = () => {
-  const [search, setSearch] = useState("");
-  const [visible, setVisible] = useState(false);
+  const [search,setSearch] = useState("");
+  const [visible,setVisible] = useState(false);
   const isLoggedIn = false;
   const history = useNavigate();
 
@@ -36,52 +34,41 @@ const Header = () => {
     history("/myprofile");
   };
 
-  const loginHandler = () => {
+  const activitiesHandler = () => {
     history("/activities");
   };
 
-  const registerHandler = () => {
+  const museumsHandler = () => {
     history("/museums");
   };
 
 
+  const classes = useStyles();
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-blueMuseum bg-blueMuseum">
-  <a className="navbar-brand" href="#">Navbar</a>
-  <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span className="navbar-toggler-icon"></span>
-  </button>
-
-  <div className="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul className="navbar-nav mr-auto">
-      <li className="nav-item active">
-        <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
-      </li>
-      <li className="nav-item">
-        <a className="nav-link" href="#">Link</a>
-      </li>
-      <li className="nav-item dropdown">
-        <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a className="dropdown-item" href="#">Action</a>
-          <a className="dropdown-item" href="#">Another action</a>
-          <div className="dropdown-divider"></div>
-          <a className="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-      <li className="nav-item">
-        <a className="nav-link disabled" href="#">Disabled</a>
-      </li>
-    </ul>
-    <form className="form-inline my-2 my-lg-0">
-      <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"></input>
-      <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </div>
-</nav>
+    <Fragment>
+      <AppBar position="static" color="primary" className="'{classes.AppBar}' py-2">
+        <Grid item sm={12} xs={12} className={classes.container}>
+          <Toolbar>
+            <Grid className={classes.grow}>
+             <img src="amuseBranco.png" alt="logo" className={classes.logo} />
+            </Grid>
+            {isLoggedIn && (
+              <Fragment>
+                <Button color="inherit" className={classes.buttonHeader} onClick={activitiesHandler}> Activities </Button>
+                <Button color="inherit" className={classes.buttonHeader} onClick={museumsHandler}> Museums </Button>
+              </Fragment>
+            )}
+            {!isLoggedIn && (
+              <Fragment>
+                <Button color="inherit" className={classes.buttonHeader} onClick={activitiesHandler}> Activities </Button>
+                <Button color="inherit" className={classes.buttonHeader} onClick={museumsHandler}> Museums </Button>
+              </Fragment>
+            )}
+          </Toolbar>
+        </Grid>
+      </AppBar>
+    </Fragment>
   );
 };
 

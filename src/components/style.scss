@@ -1,8 +1,5 @@
-@import "node_modules/bootstrap/scss/bootstrap";
+$primary: #00a3a3;
+$secondary: #f6ae2d;
+$dark: #191f24;
 
-$theme-colors: (
-  "blueMuseum": #00a3a3,
-  "orangeMuseum": #f6ae2d,
-  "darkMuseum": #191f24
-);
-
+@import "bootstrap";
