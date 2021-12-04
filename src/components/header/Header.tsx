@@ -9,12 +9,14 @@ import {
   InputAdornment,
   Tab,
   Tabs,
-  TextField,
   Toolbar,
   Typography,
 } from "@material-ui/core";
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
-import Link2 from "@mui/material/Link";
+import Stack from '@mui/material/Stack';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import Link from "@mui/material/Link";
 import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
 import useStyles from './styles'
@@ -24,7 +26,7 @@ const Header = () => {
   const classes = useStyles();
   const [search,setSearch] = useState("");
   const [visible,setVisible] = useState(false);
-  const isLoggedIn = true;
+  const isLoggedIn = false;
   const history = useNavigate();
 
   const [value, setValue] = useState('one');
@@ -61,17 +63,26 @@ const Header = () => {
               </Grid>
               </div>
               <div className={classes.div2}> 
-                <Button color="inherit" className={classes.buttonHeader} onClick={activitiesHandler}> Activities </Button>
+                  <Button color="inherit" className={classes.buttonHeader} onClick={activitiesHandler}> Activities </Button>
                   <Button color="inherit" className={classes.buttonHeader} onClick={museumsHandler}> Museums </Button>
                   <Button color="inherit" className={classes.buttonHeader} onClick={visitTogetherHandler}> Visit Together </Button>
               </div>
             {isLoggedIn ? (
               <div className={classes.div3}>
+                {/* <Box className="text-secondary bg-transparent" component="form" sx={{
+                  '& > :not(style)': { mx: 4, width: '10ch'},
+                }} noValidate autoComplete="off">
+                  <TextField id="standard-basic" label="Search" variant="standard" />
+                </Box> */}
                   <Button color="inherit" className={classes.loggedIn} onClick={profileHandler}><PermIdentityIcon className={classes.profile} fontSize="large" /> Profile </Button>
               </div>
             ):(
               <div className={classes.div3} >
-                  <Button color="inherit" className={classes.loggedIn} onClick={profileHandler}> Profile </Button>
+                <Stack spacing={0.1}>
+                <Button color="inherit" className={classes.login} variant="outlined" onClick={profileHandler}> Log in </Button>
+                  <p className={classes.smallText}>or</p>
+                  <a href="#" className={classes.smallText}>Sign up</a>
+                </Stack>
               </div>
             )}
             </div>
