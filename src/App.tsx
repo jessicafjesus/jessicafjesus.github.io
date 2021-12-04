@@ -3,7 +3,7 @@ import React from "react";
 import Header from './components/header/Header';
 import { Routes, Route} from "react-router-dom";
 import {Activities, Home, Museums, SignIn, VisitTogether} from "./pages";
-import { createTheme, ThemeProvider } from '@mui/material/styles'
+import { createTheme, ThemeProvider } from '@material-ui/core/styles'
 import ProfilePage from "./pages/profiles"
 
 
@@ -11,6 +11,9 @@ const theme = createTheme({
   palette: {
     primary: {
       main: '#00A3A3'
+    },
+    secondary: {
+      main: '#191f24'
     },
     success: {
       main: '#FFA552'

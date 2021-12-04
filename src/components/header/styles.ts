@@ -1,41 +1,35 @@
-import { makeStyles } from "@mui/styles";
+import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles((theme) => ({
-  row: {
-    flexGrow: 1,
-  },
+export default makeStyles((theme) => ({
+  
   grow: {
     flexGrow: 1,
   },
+  
   container: {},
+
   AppBar: {
-    colorPrimary: "#00A3A3",
+    colorSecondary: "#00a3a3",
+    height: "30px",
     backgroundSize: "cover",
   },
 
   logo: {
     maxWidth: 120,
-    color: "#a1a1a1",
     justifyContent: "left",
+
     "&:hover": {
       background: "transparent",
     },
   },
 
-  typo: {
-    marginRight: "10px",
-    fontSize: "11px",
-    color: "#a1a1a1",
-  },
-
-  
   buttonHeader: {
     fontSize: "16px",
-    background: "#ffffff",
-    marginRight: "10px",
-    color: "#fff",
+    background: "white",
+    marginRight: "-10px",
+    color: "#191f24",
     borderRadius: "5px",
-    padding: "10px 25px",
+    padding: "10px 20px",
 
     "&:hover": {
       background: "#191f24",
@@ -43,5 +37,3 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
-
-export default useStyles;
