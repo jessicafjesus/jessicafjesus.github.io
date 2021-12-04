@@ -13,7 +13,7 @@ import {
   Toolbar,
   Typography,
 } from "@material-ui/core";
-
+import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import Link2 from "@mui/material/Link";
 import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
@@ -24,8 +24,7 @@ const Header = () => {
   const classes = useStyles();
   const [search,setSearch] = useState("");
   const [visible,setVisible] = useState(false);
-  const [isLoggedIn,setIsLoggedIn] = useState(true);
-  // const isLoggedIn = true;
+  const isLoggedIn = true;
   const history = useNavigate();
 
   const [value, setValue] = useState('one');
@@ -46,34 +45,38 @@ const Header = () => {
     history("/visitTogether");
   };
 
-  useEffect(() => {
-    setIsLoggedIn(true)
-  })
-  
+  const profileHandler = () => {
+    history("/");
+  };
 
   return (
     <Fragment>
-      <AppBar position="static" color="primary" className="'{classes.AppBar}' py-2">
-        <Grid item sm={7} xs={7} className={classes.container}>
-          <Toolbar>
-            <Grid className={classes.grow}>
-             <img src="amuseBranco.png" alt="logo" className={classes.logo} />
-            </Grid>
-            {isLoggedIn ? (
-              <>
+      <AppBar position="static" color="primary" className={classes.AppBar}>
+        {/* <Grid  className={classes.container}> */}
+          {/* <Toolbar> */}
+          <div className={classes.divFora}> 
+            <div className={classes.div1}> 
+              <Grid className={classes.grow}>
+                <img src="amuseBranco.png" alt="logo" className={classes.logo} />
+              </Grid>
+              </div>
+              <div className={classes.div2}> 
                 <Button color="inherit" className={classes.buttonHeader} onClick={activitiesHandler}> Activities </Button>
-                <Button color="inherit" className={classes.buttonHeader} onClick={museumsHandler}> Museums </Button>
-                <Button color="inherit" className={classes.buttonHeader} onClick={visitTogetherHandler}> Visit Together </Button>
-              </>
+                  <Button color="inherit" className={classes.buttonHeader} onClick={museumsHandler}> Museums </Button>
+                  <Button color="inherit" className={classes.buttonHeader} onClick={visitTogetherHandler}> Visit Together </Button>
+              </div>
+            {isLoggedIn ? (
+              <div className={classes.div3}>
+                  <Button color="inherit" className={classes.loggedIn} onClick={profileHandler}><PermIdentityIcon className={classes.profile} fontSize="large" /> Profile </Button>
+              </div>
             ):(
-              <Tabs value={value} className={classes.buttonHeader}>
-              <Tab  value="one" label="Item One" />
-              <Tab value="two" label="Item Two" />
-              <Tab value="three" label="Item Three" />
-            </Tabs>
+              <div className={classes.div3} >
+                  <Button color="inherit" className={classes.loggedIn} onClick={profileHandler}> Profile </Button>
+              </div>
             )}
-          </Toolbar>
-        </Grid>
+            </div>
+          {/* </Toolbar> */}
+        {/* </Grid> */}
       </AppBar>
     </Fragment>
   );
