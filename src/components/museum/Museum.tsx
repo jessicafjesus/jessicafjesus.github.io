@@ -20,7 +20,6 @@ interface MuseumProps {
 }
 
 
-
 const Museum = (props: MuseumProps) => {
   return (
     <section

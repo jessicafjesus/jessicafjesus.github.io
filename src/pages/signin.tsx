@@ -7,7 +7,6 @@ const
     Login = () => {
         return (
             <div className="color-overlay d-flex justify-content-center align-items-center">
-
                 <Form className="rounded p-4 p-sm-3">
                     <SignDesign>Sign in</SignDesign>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
