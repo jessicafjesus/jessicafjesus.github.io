@@ -1,6 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
 
-
 export default makeStyles((theme) => ({
   
   grow: {
@@ -40,15 +39,26 @@ export default makeStyles((theme) => ({
       color: "white",
       height: "55px",
     },
+  },
 
-    "&:after": {
+  buttonHeaderActive: {
+    fontSize: "16px",
+    fontWeight: 600,
+    background: "#191f24",
+    marginRight: "-10px",
+    color: "white",
+    borderRadius: "5px",
+    padding: "10px 20px",
+    zIndex: 10,
+    height: "55px",
+
+    "&:hover": {
       background: "#191f24",
       boxShadow: "0px 2px 10px #888888",
       zIndex: "10",
       color: "white",
       height: "55px",
-    }
-
+    },
   },
 
   loggedIn: {
@@ -67,13 +77,13 @@ export default makeStyles((theme) => ({
   },
 
 login: {
-    fontSize: "10px",
+    fontSize: "12px",
     borderColor: "#191f24",
     borderWidth: "2px",
     color: "#191f24",
     borderRadius: "5px",
-    padding: "5px 10px",
     fontWeight: 600,
+    textTransform: "none",
 
     "&:hover": {
       background: "#191f24",
@@ -89,6 +99,11 @@ login: {
     alignContent: "center",
     justifyContent: "center",
     flex: 1,
+
+    "&:hover": {
+      color: "#000000",
+      textDecoration: "underline #000000"
+    },
   },
 
   profile: {
