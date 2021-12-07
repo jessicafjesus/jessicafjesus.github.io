@@ -1,25 +1,33 @@
-import { Button } from "@material-ui/core";
+import { Button, Modal } from "@material-ui/core";
+import { Box, Rating } from "@mui/material";
 import React, { Fragment, useState } from "react";
 import useStyles from "./styles";
 
-interface ActivityProps {
-  aProps: {
-    activityName: string;
-    activityType: string;
-    activityRating: number;
-    activityDate: string[];
-    activityDescription: string;
-    activityLocation: string;
-    activityReviews: string[];
-    activityImage: string;
+interface MuseumProps {
+  mProps: {
+    museumName: string;
+    museumType: string;
+    museumRating: number;
+    museumDescription: string;
+    museumLocation: string;
+    museumReviews: string[];
+    museumImage: string;
+    museumWebsite: string;
+    museumHours: string;
+    museumAdmission: string[];
+    museumDescriptionShort: string;
   };
 }
 
-const Profile = (props: ActivityProps) => {
+const Profile = (props: MuseumProps) => {
   const classes = useStyles();
   const [activitiesActive, setActivitiesActive] = useState(false);
   const [museumsActive, setMuseumsActive] = useState(true);
   const [visitTogetherActive, setVisitTogetherActive] = useState(false);
+  const [rated, setRated] = useState(false);
+  const [ratingModal, setRatingModal] = useState(false);
+  const [value, setValue] = useState(0);
+
 
   const profileActivitiesHandler = (event: React.MouseEvent) => {
     event.preventDefault();
@@ -42,12 +50,26 @@ const Profile = (props: ActivityProps) => {
     setVisitTogetherActive(true);
   };
 
+  const rateHandler = (event: React.MouseEvent) => {
+    event.preventDefault();
+    //abrir o modal para dar rate
+    setRatingModal(true);
+    //setRated(true);
+  };
+
+  const confirmRatingHandler = (event: React.MouseEvent) => {
+    event.preventDefault();
+    
+    setRatingModal(false);
+    setRated(true);
+  };
+
   return (
     <section style={{ backgroundColor: "#FFFFFF" }}>
       <div className="row bg-primary">
         <div className="col-5 bg-success">
           <img
-            src={props.aProps.activityImage}
+            src={props.mProps.museumImage}
             alt="imageActivity"
             style={{ borderRadius: "2%" }}
             className="img-fluid mx-auto d-block mt-3"
@@ -64,7 +86,7 @@ const Profile = (props: ActivityProps) => {
               }}
               className="mt-3 mb-3"
             />
-            <p className="text-left">{props.aProps.activityDescription}</p>
+            <p className="text-left">{props.mProps.museumDescription}</p>
           </div>
         </div>
         <div className="col-7 bg-warning">
@@ -76,58 +98,104 @@ const Profile = (props: ActivityProps) => {
             onClick={profileVisitTogetherHandler}>Visit Together &nbsp; 
             <span className="badge bg-danger">4</span></Button>
           </div>
-          <div  className="container" >
-            <div className = "row  mt-3 rounded " style={{borderColor : "#00a3a3", borderWidth : "2px", borderStyle : "solid", backgroundColor : "#ffffff"}}> 
+          
+
+            {museumsActive && (
+            
+            <div  className="container" >
+              <div className = "row  mt-3 rounded " style={{borderColor : "#00a3a3", borderWidth : "2px", borderStyle : "solid", backgroundColor : "#ffffff"}}> 
                 <div className="col-3 bg-success">
                   <img
-                   src={props.aProps.activityImage}
+                   src={props.mProps.museumImage}
                    alt="imageActivity"
                    style={{ borderRadius: "2%" }}
-                   className="img-fluid mx-auto d-block mt-3 mb-3"/>
+                   className="img-fluid center-block mx-auto d-block "/>
                 </div>
-                <div className="col-9 bg-dark">kk</div>
+                <div className="col-9 ">
+                  <h6 className="text-left mt-1" style={{ color: "#47525E" }}>
+                    <b>{props.mProps.museumName}</b>
+                  </h6>
+                  <h6 className="text-left mt-1" style={{ color: "#47525E" }}>
+                   <small className="text-left">{props.mProps.museumDescriptionShort}</small>
+                  </h6>
+                  <div className="row justify-content-end">
+                    <div className="col-6 align-self-end ">{(!rated) && (<Button className={classes.buttonNotRated}
+                        onClick={rateHandler}>Rate</Button>)}
+                        {rated && (
+                          <div className="row ">
+                        <div className="col-5 ">My rating: </div>
+                           <div className="col-7 ">
+                          <Rating
+                          readOnly
+                          name="simple-controlled" 
+                          value={value}
+                          /></div>
+                          </div>
+                          
+                        )}
+                      
+                    </div>
+                  </div>
+                </div>
              </div>
             </div>
+            
+            )} 
+            
+            {ratingModal && (
+              <Modal
+              open={ratingModal}
+              onClose={() => setRatingModal(false)}
+              aria-labelledby="qqcoisa"
+              aria-describedby="outracoisa">
+              
+              <div className="row h-100 d-flex align-items-center">
+                <div className="col d-flex justify-content-center text-center">
+                  <div className="container-sm d-inline-block w-25 rounded bg-white">
+                    <div className="row pt-4 pb-4">
+                      <h4>Rate</h4>
+                      <h6>{props.mProps.museumName}</h6>
+                    </div>
+                      <Rating
+                      className="simple-controlled size-large"
+                      value={value}
+                      size="large"
+                      onChange={(event, newValue) => {
+                        event.preventDefault();
+                        if (typeof newValue === "number") {
+                        setValue(newValue);
+                        } 
+                      }}/>
+                    <div className="row d-flex justify-content-center align-items-center  pt-4 pb-3">
+                      <Button className={classes.buttonConfirm} onClick={confirmRatingHandler}>Confirm</Button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              </Modal>
 
-          {museumsActive && (
-            <Fragment>
-              <h5 className="text-left pt-3" style={{ color: "#47525E" }}>
-                {props.aProps.activityType}
-              </h5>
-              <h2 className="text-left" style={{ color: "#47525E" }}>
-                <b>museum</b>
-              </h2>
-              <h5 className="text-left" style={{ color: "#47525E" }}>
-                {props.aProps.activityLocation}
-              </h5>
-            </Fragment>
-          )}
+            )}
                     {visitTogetherActive && (
             <Fragment>
-              <h5 className="text-left pt-3" style={{ color: "#47525E" }}>
-                {props.aProps.activityType}
-              </h5>
               <h2 className="text-left" style={{ color: "#47525E" }}>
-                <b>{props.aProps.activityName}</b>
+                <b>{props.mProps.museumName}</b>
               </h2>
               <h5 className="text-left" style={{ color: "#47525E" }}>
-                {props.aProps.activityLocation}
+                {props.mProps.museumLocation}
               </h5>
             </Fragment>
-          )}
+            )}
                     {activitiesActive && (
             <Fragment>
-              <h5 className="text-left pt-3" style={{ color: "#47525E" }}>
-                {props.aProps.activityType}
-              </h5>
               <h2 className="text-left" style={{ color: "#47525E" }}>
-                <b>{props.aProps.activityName}</b>
+                <b>{props.mProps.museumName}</b>
               </h2>
               <h5 className="text-left" style={{ color: "#47525E" }}>
-                {props.aProps.activityLocation}
+                {props.mProps.museumLocation}
               </h5>
             </Fragment>
-          )}
+           )}
         </div>
       </div>
     </section>

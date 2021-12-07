@@ -19,27 +19,8 @@
         "Visitors with disabilities - $18",
         "Members - Free",
         "Children under 12 - Free"
-      ]
-    },
-    {
-      "museumName": "The Metropolitan Museum of Art",
-      "museumLocation": "metLocation.jpeg",
-      "museumType": "Art",
-      "museumRating": 5,
-      "museumDescription": "The Metropolitan Museum of Art presents over 5,000 years of art from around the world for everyone to experience and enjoy. The Museum lives in two iconic sites in New York City—The Met Fifth Avenue and The Met Cloisters. Millions of people also take part in The Met experience online. Since its founding in 1870, The Met has always aspired to be more than a treasury of rare and beautiful objects. Every day, art comes alive in the Museum's galleries and through its exhibitions and events, revealing new ideas and unexpected connections across time and across cultures.",
-      "museumReviews": [
-        "I loved the museum, such a great exxperience!",
-        "review2"
       ],
-      "museumImage": "metMuseum.jpg",
-      "museumWebsite": "https://www.metmuseum.org/",
-      "museumHours": "Sunday–Tuesday, and Thursday: 10 am–5 pm Friday and Saturday: 10 am–9 pm Closed Wednesday",
-      "museumAdmission": [
-        "Adults - $25",
-        "Seniors 65+  - $17",
-        "Students - $12",
-        "Members, Patrons, Children - Free"
-      ]
+      "museumDescriptionShort": "Founded in 1937, the Solomon R. Guggenheim Foundation is dedicated to promoting the understanding and appreciation of art, primarily of the modern and contemporary periods, through exhibitions, education programs, research initiatives, and publications."
     }
   ]
 }
