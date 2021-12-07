@@ -1,4 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
+import { Bolt } from "@mui/icons-material";
+import { RightBlock } from "../../pages/museums";
 
 
 export default makeStyles((theme) => ({
@@ -55,6 +57,47 @@ export default makeStyles((theme) => ({
       zIndex: "10",
       color: "white",
       padding: "12px 20px",
+    },
+  },
+
+  buttonNotRated: {
+    fontSize: "14px",
+    background: "#191f24",
+    marginBottom: "5%",
+    color: "white",
+    borderRadius: "5px",
+    padding: "5px 20px",
+    float:"right",
+
+    "&:hover": {
+      background: "white" ,
+      boxShadow: "0px 2px 10px #888888",
+      zIndex: "10",
+      color: "#191f24",
+      fontWeight: "bold",
+      borderColor: "#191f24",
+      borderWidth: "2px",
+    },
+  },
+
+  buttonConfirm: {
+    fontSize: "14px",
+    background: "#191f24",
+    marginRight: "2%",
+    marginBottom: "3%",
+    color: "white",
+    borderRadius: "5px",
+    padding: "8px 20px",
+    width: "25%",
+
+    "&:hover": {
+      background: "white" ,
+      boxShadow: "0px 2px 10px #888888",
+      zIndex: "10",
+      color: "#191f24",
+      fontWeight: "bold",
+      borderColor: "#191f24",
+      borderWidth: "2px",
     },
   },
 

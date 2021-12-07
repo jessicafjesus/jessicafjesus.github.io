@@ -1,13 +1,16 @@
 import React, { Fragment } from 'react';
-import ActivitiesJson from "../json/ActivitiesJson.json"
+import MuseumsJson from "../json/MuseumsJson.json"
+import ProfilesJson from "../json/ProfilesJson.json"
 import Profile from "../components/profile/Profile"
 
+
 const ProfilePage = () => {
-    const data = ActivitiesJson
-    const activitiesMap = data.activities.map((act) => {return (<Profile aProps={act}/>)})
+    const data = MuseumsJson
+    const pData = ProfilesJson
+    const museumsMap = data.museums.map((act) => {return (<Profile museumP={act} profileP={pData.profiles[0]}/>)})
     return (
         <Fragment>
-            {activitiesMap}
+            {museumsMap}
         </Fragment>
     )
 }
