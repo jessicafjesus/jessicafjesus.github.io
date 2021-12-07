@@ -33,8 +33,8 @@ const Museum = (props: MuseumProps) => {
             alt="imageMuseum"
             style={{ borderRadius: "1%" }}
             className="img-fluid mx-auto d-block mt-3"
-          />
-          <div className="row">
+           />
+         <div className="row">
             <div className="col-4 pt-2">
               <Rating
                 value={props.mProps.museumRating}

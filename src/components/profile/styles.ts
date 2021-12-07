@@ -1,6 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
 import { Bolt } from "@mui/icons-material";
-import { RightBlock } from "../../pages/museums";
 
 
 export default makeStyles((theme) => ({
