@@ -2,7 +2,7 @@ import './App.css';
 import React from "react";
 import Header from './components/header/Header';
 import { Routes, Route} from "react-router-dom";
-import {Activities, Home, Museums, SignIn, VisitTogether} from "./pages";
+import {Activities, Museums, SignIn, VisitTogether} from "./pages";
 import { createTheme, ThemeProvider } from '@material-ui/core/styles'
 import ProfilePage from "./pages/profiles"
 
@@ -26,7 +26,6 @@ function App() {
     <ThemeProvider theme={theme}>
       <Header/>
     <Routes>
-        <Route path='/' element={<Home/>} />
         <Route path='/activities' element={<Activities/>} />
         <Route path='/museums' element={<Museums/>} />
         <Route path='/visitTogether' element={<VisitTogether/>} />
