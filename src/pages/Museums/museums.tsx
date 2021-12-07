@@ -26,6 +26,11 @@ const Museums = () => {
     // history("/quiz");
   };
 
+  const hideQuizHandler = (event: React.MouseEvent) => {
+    event.preventDefault();
+    setShowQuiz(false);
+  };
+
   const filtersHandler = (event: React.MouseEvent) => {
     event.preventDefault();
     
@@ -34,7 +39,7 @@ const Museums = () => {
   let now = 50
   return (
     <Fragment>
-      <Quiz quiz={showQuiz} />
+      {showQuiz && <Quiz showQuiz={showQuiz} setShowQuiz={setShowQuiz} hideQuizHandler={hideQuizHandler} />}
       <Grid container spacing={2} className="mt-3 ml-4">
         <div className={classes.leftBlock}>
           <a className={`${classes.catStyle} ${classes.alignLeft}`}> Suggested Categories</a>

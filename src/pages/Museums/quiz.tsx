@@ -1,22 +1,18 @@
-import React, {useState} from "react";
+import React, {Fragment, useState} from "react";
 import Modal from "@mui/material/Modal";
 import CloseIcon from "@mui/icons-material/Close";
 import { IconButton } from "@mui/material";
 import LinearProgress from '@mui/material/LinearProgress';
 
 interface QuizProps {
-    quiz: boolean;
+    showQuiz : boolean;
+    setShowQuiz : React.Dispatch<React.SetStateAction<boolean>>;
+    hideQuizHandler : (event: React.MouseEvent) => void;
 }
 
 const Quiz = (qProps: QuizProps) => {
     const answers = ["","","","",""];
     const [answer1Selected, setAnswer1Selected] = useState(false);
-    const [showQuiz, setShowQuiz] = useState(true);
-
-    const hideQuizHandler = (event: React.MouseEvent) => {
-        event.preventDefault();
-        setShowQuiz(false);
-    };
     
     const answer1Handler = (event : React.MouseEvent) => {
         event.preventDefault();
@@ -29,10 +25,10 @@ const Quiz = (qProps: QuizProps) => {
 
     let now = 50
     return (
-        <>
+        <Fragment>
         { <Modal
-              open={qProps.quiz}
-              onClose={() => setShowQuiz(false)}
+              open={qProps.showQuiz}
+              onClose={() => qProps.setShowQuiz(false)}
               aria-labelledby="qqcoisa"
               aria-describedby="outracoisa"
             >
@@ -47,7 +43,7 @@ const Quiz = (qProps: QuizProps) => {
                       }}
                     >
                       <div className="row-sm text-right">
-                        <IconButton onClick={hideQuizHandler}>
+                        <IconButton onClick={qProps.hideQuizHandler}>
                           <CloseIcon fontSize="large" />
                         </IconButton>
                       </div>
@@ -175,7 +171,7 @@ const Quiz = (qProps: QuizProps) => {
               </div>
             </Modal>
         }
-        </>
+        </Fragment>
     );
   }
 
