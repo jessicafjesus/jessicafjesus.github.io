@@ -1,7 +1,9 @@
-import { Button, Modal } from "@material-ui/core";
+import { Badge, Button, Modal } from "@material-ui/core";
 import { Box, Rating } from "@mui/material";
 import React, { Fragment, useState } from "react";
 import useStyles from "./styles";
+import EventIcon from '@mui/icons-material/Event';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
 
 interface MuseumProps {
     museumName: string;
@@ -38,6 +40,9 @@ const Profile = (props: DualProps) => {
   const [rated, setRated] = useState(false);
   const [ratingModal, setRatingModal] = useState(false);
   const [value, setValue] = useState(0);
+  const [createdVisits, setCreatedVisits] = useState(true);
+  const [notifValue, setNotifValue] = useState(3);
+  
 
 
   const profileActivitiesHandler = (event: React.MouseEvent) => {
@@ -65,19 +70,28 @@ const Profile = (props: DualProps) => {
     event.preventDefault();
     //abrir o modal para dar rate
     setRatingModal(true);
-    //setRated(true);
+
   };
 
   const confirmRatingHandler = (event: React.MouseEvent) => {
     event.preventDefault();
-    
     setRatingModal(false);
     setRated(true);
   };
 
+  const joinedVisitsHandler = (event: React.MouseEvent) => {
+    event.preventDefault();
+    setCreatedVisits(true);
+  };
+
+  const createdVisitsHandler = (event: React.MouseEvent) => {
+    event.preventDefault();
+    setCreatedVisits(false);
+  };
+
   return (
     <section style={{ backgroundColor: "#FFFFFF" }}>
-      <div className="row bg-danger pl-5 pr-4">
+      <div className="row h-100 bg-danger pl-5 pr-4 ">
         <div className="col-5 bg-success">
             <img
                 src={props.profileP.profileImage}
@@ -107,28 +121,30 @@ const Profile = (props: DualProps) => {
           <div className={classes.div2} >
             <Button color="inherit" className={activitiesActive ? classes.buttonHeaderActive : classes.buttonHeader} onClick={profileActivitiesHandler}>Activities</Button>
             <Button color="inherit" className={museumsActive ? classes.buttonHeaderActive : classes.buttonHeader} onClick={profileMuseumsHandler}> Museums</Button>
+            
+            <Badge color="error"  badgeContent={notifValue }>
             <Button color="inherit" 
             className={visitTogetherActive ? classes.buttonHeaderActive : classes.buttonHeader} 
             onClick={profileVisitTogetherHandler}>Visit Together &nbsp; 
-            <span className="badge bg-danger">4</span></Button>
+            </Button></Badge>
           </div>
           
 
             {museumsActive && (
             
-            <div  className="container" >
-              <div className = "row  mt-3 rounded " style={{borderColor : "#00a3a3", borderWidth : "2px", borderStyle : "solid", backgroundColor : "#ffffff"}}> 
-                <div className="col-3 pr-0 ">
-                <div className="row h-100 d-flex align-items-center">
-            <div className="col w-100 d-flex justify-content-center text-center">
-                  <img
-                   src={props.museumP.museumImage}
-                   alt="imageActivity"
-                   style={{ borderRadius: "2%" }}
-                   className="img-fluid center-block d-block "/>
-                </div>
-                </div>
-                </div>
+              <div  className="container" >
+                <div className = "row  mt-3 rounded " style={{borderColor : "#00a3a3", borderWidth : "2px", borderStyle : "solid", backgroundColor : "#ffffff"}}> 
+                  <div className="col-3 pr-0 ">
+                    <div className="row h-100 d-flex align-items-center">
+                      <div className="col w-100 d-flex justify-content-center text-center">
+                        <img
+                        src={props.museumP.museumImage}
+                        alt="imageActivity"
+                        style={{ borderRadius: "2%" }}
+                        className="img-fluid center-block d-block "/>
+                      </div>
+                    </div>
+                  </div>
                
                 <div className="col-9 ">
                   <h6 className="text-left mt-3" style={{ color: "#47525E" }}>
@@ -196,14 +212,50 @@ const Profile = (props: DualProps) => {
 
             )}
                     {visitTogetherActive && (
-            <Fragment>
-              <h2 className="text-left" style={{ color: "#47525E" }}>
-                <b>{props.museumP.museumName}</b>
-              </h2>
-              <h5 className="text-left" style={{ color: "#47525E" }}>
-                {props.museumP.museumLocation}
-              </h5>
-            </Fragment>
+            <div  className="container h-75 rounded  mt-3 mr-1 ml-1 mb-2 pl-0 pr-0 overflow-hidden" 
+            style={{ backgroundColor : "#cbd1d1"}} > 
+              <div className="row bg-white rounded-top  ">
+              <div  className= "col-6  overflow-hidden pr-0" style={{ backgroundColor : "#f6f7f7"}}>
+                <Button disableRipple className={createdVisits ? classes.selectedTabLeft : classes.notSelectedTab} 
+                onClick={joinedVisitsHandler}> Created visits &nbsp; <Badge color="error"  badgeContent={" " + notifValue }></Badge></Button>
+              </div>
+              <div className="col-6  overflow-hidden pl-0" style={{ backgroundColor : "#f6f7f7"}}>
+              <Button disableRipple className={!createdVisits ? classes.selectedTabRight : classes.notSelectedTab}
+              onClick={createdVisitsHandler}> Joined Visits  </Button>
+              
+              </div>
+              </div>
+              
+              <div className="container bg-success" >
+              <div className = "row rounded  mt-3  " style={{borderColor : "#00a3a3", borderWidth : "2px", borderStyle : "solid", backgroundColor : "#ffffff"}}> 
+              <div className="col-3 pr-0 bg-warning">
+                    <div className="row h-100 d-flex align-items-center">
+                      <div className="col w-100 d-flex justify-content-center text-center">
+                        <img
+                        src={props.museumP.museumImage}
+                        alt="imageActivity"
+                        style={{ borderRadius: "2%" }}
+                        className="img-fluid center-block d-block "/>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-9">
+                  <h6 className="text-left mt-2" style={{ color: "#47525E" }}>
+                    <small><b>{props.museumP.museumName}</b></small>
+                  </h6>
+                  <div className="row bg-success">
+                   <EventIcon style={{fill: "#FFA552"}}/> 
+                   kk
+                   </div>
+                   <div className="row bg-dark">
+                   <AccessTimeIcon style={{fill: "#FFA552"}}/>
+                   jj
+                   </div>
+                  </div>
+              </div>
+              </div>
+                    
+            </div>
             )}
                     {activitiesActive && (
             <Fragment>

@@ -100,6 +100,55 @@ export default makeStyles((theme) => ({
     },
   },
 
+  selectedTabLeft: {
+    background: "#cbd1d1",
+    color: "#191F34",
+    fontWeight: "bold",
+    borderRadius : "0px 13px 0px 0px",
+    width: "100%",
+
+    "&:hover": {
+    background: "#cbd1d1",
+    color: "#191F34",
+    fontWeight: "bold",
+    borderRadius : "0px 13px 0px 0px",
+    width: "100%",
+    },
+  },
+
+  selectedTabRight: {
+    background: "#cbd1d1",
+    color: "#191F34",
+    fontWeight: "bold",
+    borderRadius : "13px 0px 0px 0px",
+    width: "100%",
+
+    "&:hover": {
+      background: "#cbd1d1",
+      color: "#191F34",
+      fontWeight: "bold",
+      borderRadius : "13px 0px 0px 0px",
+      width: "100%",
+    },
+  },
+
+  notSelectedTab: {
+    
+    background: "#f6f7f7",
+    color: "#47525e",
+    fontWeight: "normal",
+    borderRadius : "0px 0px 0px 0px",
+    width: "100%",
+
+    "&:hover": {
+      background: "white" ,
+      boxShadow: "0px 2px 10px #888888",
+      color: "#191f24",
+      fontWeight: "bold",
+      
+    },
+  },
+
   loggedIn: {
     fontSize: "14px",
     background: "#191f24",
@@ -139,7 +188,7 @@ export default makeStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
     flex: "1",
-    paddingTop: "10%"
+    paddingTop: "3%"
   },
   
   div3: {
