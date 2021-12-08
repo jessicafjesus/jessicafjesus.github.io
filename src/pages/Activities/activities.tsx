@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
-import Activity from '../components/activity/Activity';
-import ActivitiesJson from "../json/ActivitiesJson.json"
+import Activity from '../../components/activity/Activity';
+import ActivitiesJson from "../../json/ActivitiesJson.json"
 
 function activities() {
     const data = ActivitiesJson
