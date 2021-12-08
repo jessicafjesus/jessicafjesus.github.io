@@ -118,7 +118,7 @@ const Profile = (props: DualProps) => {
             
             <div  className="container" >
               <div className = "row  mt-3 rounded " style={{borderColor : "#00a3a3", borderWidth : "2px", borderStyle : "solid", backgroundColor : "#ffffff"}}> 
-                <div className="col-3 bg-success">
+                <div className="col-3 pr-0 ">
                 <div className="row h-100 d-flex align-items-center">
             <div className="col w-100 d-flex justify-content-center text-center">
                   <img
@@ -131,7 +131,7 @@ const Profile = (props: DualProps) => {
                 </div>
                
                 <div className="col-9 ">
-                  <h6 className="text-left mt-1" style={{ color: "#47525E" }}>
+                  <h6 className="text-left mt-3" style={{ color: "#47525E" }}>
                     <b>{props.museumP.museumName}</b>
                   </h6>
                   <h6 className="text-left mt-1" style={{ color: "#47525E" }}>
