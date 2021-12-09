@@ -5,14 +5,21 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import {
   Button,
   ButtonGroup,
+  FormControlLabel,
   Grid,
   InputLabel,
   MenuItem,
   OutlinedInput,
+  Radio,
+  RadioGroup,
   Select,
   TextField,
 } from "@mui/material";
 import useStyles from "./styles";
+import DatePicker from "@mui/lab/DatePicker";
+import AdapterDateFns from "@mui/lab/AdapterDateFns";
+import LocalizationProvider from "@mui/lab/LocalizationProvider";
+import CountriesJson from "../../json/CountriesJson.json";
 
 interface ActivityProps {
   aProps: {
@@ -36,17 +43,28 @@ const BuyTicketsActivity = (props: ActivityProps) => {
   const adultPrice = 18.0;
   const studentPrice = 13.0;
   const seniorPrice = 13.0;
-  const countries = ["Portugal", "Spain"];
+  const countries = CountriesJson.countries;
   const [country, setCountry] = useState("");
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [cardName, setCardName] = useState("");
+  const [cardNumber, setCardNumber] = useState("");
+  const [cvc, setCVC] = useState("");
+  const [date, setDate] = useState<Date>();
+  const [dateInString, setDateInString] = useState("");
+  const [type, setType] = useState("");
   const buttonHandler = (event: React.MouseEvent) => {
     event.preventDefault();
     setStepValue(stepValue + 1);
   };
 
   const payHandler = (event: React.FormEvent) => {
+    event.preventDefault();
+    setStepValue(stepValue + 1);
+  };
+
+  const completeHandler = (event: React.FormEvent) => {
     event.preventDefault();
     setStepValue(stepValue + 1);
   };
@@ -345,11 +363,12 @@ const BuyTicketsActivity = (props: ActivityProps) => {
                   <h1 className="text-left" style={{ color: "#FFA552" }}>
                     <b>Guest</b>
                   </h1>
-                  <form className={classes.form} onSubmit={payHandler}  style={{ backgroundColor: "#F3F4F4" }}>
-                    <Grid
-                      container
-                      spacing={2}
-                    >
+                  <form
+                    className={classes.form}
+                    onSubmit={payHandler}
+                    style={{ backgroundColor: "#F3F4F4" }}
+                  >
+                    <Grid container spacing={2}>
                       <Grid item xs={12}>
                         <h3 className="text-left" style={{ color: "#47525E" }}>
                           <b>E-mail</b>
@@ -428,7 +447,10 @@ const BuyTicketsActivity = (props: ActivityProps) => {
                         </TextField>
                       </Grid>
                     </Grid>
-                    <div className="text-right mt-5" style={{backgroundColor: "#F3F4F4"}}>
+                    <div
+                      className="text-right mt-5"
+                      style={{ backgroundColor: "#F3F4F4" }}
+                    >
                       <button
                         className="btn btn-lg"
                         style={{ backgroundColor: "#00A3A3", color: "white" }}
@@ -442,7 +464,267 @@ const BuyTicketsActivity = (props: ActivityProps) => {
             </div>
           </Fragment>
         )}
-        {stepValue === 2 && <Fragment></Fragment>}
+        {stepValue === 2 && (
+          <Fragment>
+            <div className="row mt-5">
+              <div className="col justify-content-center align-items-center">
+                <div
+                  className="rounded m-5 p-3"
+                  style={{ backgroundColor: "#00A3A3" }}
+                >
+                  <h1 style={{ color: "white" }}>
+                    <b>Basket</b>
+                  </h1>
+                  <h5 className="mt-3" style={{ color: "white" }}>
+                    Number of items:{" "}
+                    {studentAmount + adultAmount + seniorAmount}
+                  </h5>
+                  <div
+                    className="rounded m-1 p-1"
+                    style={{ backgroundColor: "#FFFFFF" }}
+                  >
+                    <h5
+                      className="pl-3 pr-3 pt-3 pb-1"
+                      style={{ color: "#00A3A3" }}
+                    >
+                      {adultAmount} x Individual Ticket (Adult) for the workshop
+                      Power To Change
+                    </h5>
+                    <h6
+                      className="pl-3 pr-3 pt-1 pb-1"
+                      style={{ color: "#47525E" }}
+                    >
+                      16 November 2021, 17.30
+                    </h6>
+                    <h6
+                      className="pl-3 pr-3 pt-1 pb-3"
+                      style={{ color: "#47525E" }}
+                    >
+                      Adult: {adultPrice} €
+                    </h6>
+                  </div>
+                  <div
+                    className="rounded m-1 p-1"
+                    style={{ backgroundColor: "#FFFFFF" }}
+                  >
+                    <h5
+                      className="pl-3 pr-3 pt-3 pb-1"
+                      style={{ color: "#00A3A3" }}
+                    >
+                      {studentAmount} x Individual Ticket (Student) for the
+                      workshop Power To Change
+                    </h5>
+                    <h6
+                      className="pl-3 pr-3 pt-1 pb-1"
+                      style={{ color: "#47525E" }}
+                    >
+                      16 November 2021, 17.30
+                    </h6>
+                    <h6
+                      className="pl-3 pr-3 pt-1 pb-3"
+                      style={{ color: "#47525E" }}
+                    >
+                      Student: {studentPrice} €
+                    </h6>
+                  </div>
+                  <div
+                    className="rounded m-1 p-1"
+                    style={{ backgroundColor: "#FFFFFF" }}
+                  >
+                    <h5
+                      className="pl-3 pr-3 pt-3 pb-1"
+                      style={{ color: "#00A3A3" }}
+                    >
+                      {seniorAmount} x Individual Ticket (Senior) for the
+                      workshop Power To Change
+                    </h5>
+                    <h6
+                      className="pl-3 pr-3 pt-1 pb-1"
+                      style={{ color: "#47525E" }}
+                    >
+                      16 November 2021, 17.30
+                    </h6>
+                    <h6
+                      className="pl-3 pr-3 pt-1 pb-3"
+                      style={{ color: "#47525E" }}
+                    >
+                      Senior: {seniorPrice} €
+                    </h6>
+                  </div>
+                  <div className="text-right">
+                    <h1 className="mt-3" style={{ color: "white" }}>
+                      Total :{" "}
+                      {seniorAmount * seniorPrice +
+                        studentAmount * studentPrice +
+                        adultPrice * adultAmount}{" "}
+                      €
+                    </h1>
+                  </div>
+                </div>
+              </div>
+              <div className="col text-left justify-content-center align-items-center">
+                <div className="rounded m-5">
+                  <h1 className="text-left" style={{ color: "#FFA552" }}>
+                    <b>Guest</b>
+                  </h1>
+                  <form
+                    className={classes.form}
+                    onSubmit={completeHandler}
+                    style={{ backgroundColor: "#F3F4F4" }}
+                  >
+                    <Grid container spacing={2}>
+                      <Grid item xs={12}>
+                        <RadioGroup row>
+                          <Grid
+                            item
+                            xs={4}
+                          >
+                            <div style={{display:"inline-block",position:"relative"}}>
+                            <img src="mastercard.png" alt="mastercard" style={{borderRadius:"2%",width:"80%"}} className="img-fluid mx-auto d-block"/>
+                            <Radio
+                              value="animals"
+                              onClick={() => {
+                                setType("animals");
+                              }}
+                              color="primary"
+                              style={{position:"absolute",top:"0%",right:"0%"}}
+                            /></div>
+                          </Grid>
+                          <Grid item xs={4}>
+                          <div style={{display:"inline-block",position:"relative"}}>
+                            <img src="visa.png" alt="visa" style={{borderRadius:"2%",width:"80%"}} className="img-fluid mx-auto d-block"/>
+                            <Radio
+                              value="animals"
+                              onClick={() => {
+                                setType("animals");
+                              }}
+                              color="primary"
+                              style={{position:"absolute",top:"0%",right:"0%"}}
+                            /></div>
+                          </Grid>
+                          <Grid item xs={4}>
+                          <div style={{display:"inline-block",position:"relative"}}>
+                            <img src="paypal.png" alt="paypal" style={{borderRadius:"2%",width:"80%"}} className="img-fluid mx-auto d-block"/>
+                            <Radio
+                              value="animals"
+                              onClick={() => {
+                                setType("animals");
+                              }}
+                              color="primary"
+                              style={{position:"absolute",top:"0%",right:"0%"}}
+                            /></div>
+                          </Grid>
+                        </RadioGroup>
+                      </Grid>
+                      <Grid item xs={12}>
+                        <h3 className="text-left" style={{ color: "#47525E" }}>
+                          <b>Card Name</b>
+                        </h3>
+                        <TextField
+                          variant="outlined"
+                          required
+                          fullWidth
+                          id="cardname"
+                          type="text"
+                          label="Card Name"
+                          name="cardname"
+                          value={cardName}
+                          onChange={(event) => {
+                            setCardName(event.target.value);
+                          }}
+                          autoComplete="cardname"
+                        />
+                      </Grid>
+                      <Grid item xs={12}>
+                        <h3 className="text-left" style={{ color: "#47525E" }}>
+                          <b>Card Number</b>
+                        </h3>
+                        <TextField
+                          variant="outlined"
+                          required
+                          fullWidth
+                          id="cardnumber"
+                          type="text"
+                          label="Card Number"
+                          name="cardnumber"
+                          value={cardNumber}
+                          onChange={(event) => {
+                            setCardNumber(event.target.value);
+                          }}
+                          autoComplete="cardnumber"
+                        />
+                      </Grid>
+                      <Grid item xs={6}>
+                        <h3 className="text-left" style={{ color: "#47525E" }}>
+                          <b>Expiration Date</b>
+                        </h3>
+                        <LocalizationProvider dateAdapter={AdapterDateFns}>
+                          <DatePicker
+                            views={["year", "month"]}
+                            label="Expiration Date"
+                            minDate={new Date()}
+                            maxDate={new Date(Date.now() + 220898482000)}
+                            value={date}
+                            onChange={(newValue) => {
+                              if (newValue?.getMonth) {
+                                console.log(
+                                  newValue!.getMonth() +
+                                    1 +
+                                    " " +
+                                    newValue?.getFullYear()
+                                );
+                                setDateInString(
+                                  newValue.getMonth() +
+                                    1 +
+                                    "/" +
+                                    newValue.getFullYear()
+                                );
+                                setDate(newValue);
+                              }
+                            }}
+                            renderInput={(params) => (
+                              <TextField {...params} helperText={null} />
+                            )}
+                          />
+                        </LocalizationProvider>
+                      </Grid>
+                      <Grid item xs={6}>
+                        <h3 className="text-left" style={{ color: "#47525E" }}>
+                          <b>CVC</b>
+                        </h3>
+                        <TextField
+                          variant="outlined"
+                          required
+                          fullWidth
+                          id="cvc"
+                          label="CVC"
+                          name="cvc"
+                          type="text"
+                          value={cvc}
+                          onChange={(event) => {
+                            setCVC(event.target.value);
+                          }}
+                          autoComplete="cvc"
+                        />
+                      </Grid>
+                    </Grid>
+                    <div
+                      className="text-right mt-5"
+                      style={{ backgroundColor: "#F3F4F4" }}
+                    >
+                      <button
+                        className="btn btn-lg"
+                        style={{ backgroundColor: "#00A3A3", color: "white" }}
+                      >
+                        Make a Payment
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </Fragment>
+        )}
         {stepValue === 3 && <h1>Great Success</h1>}
       </div>
     </Fragment>

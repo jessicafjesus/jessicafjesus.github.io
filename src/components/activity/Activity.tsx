@@ -17,7 +17,7 @@ interface ActivityProps {
 const Activity = (props: ActivityProps) => {
   const DateSet = props.aProps.activityDate.map((date) => {
     return (
-      <h4>{date}</h4>
+      <h4 key={Math.random()}>{date}</h4>
     )
   })
   const [defaultView,setDefaultView] = useState(true)
