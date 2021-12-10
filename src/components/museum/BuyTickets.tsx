@@ -2,16 +2,17 @@ import React, { useState } from "react";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { IconButton } from "@material-ui/core";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-import "react-datepicker/dist/react-datepicker-cssmodules.css";
+import DatePicker from "@mui/lab/DatePicker";
+import AdapterDateFns from "@mui/lab/AdapterDateFns";
+import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import useStyles from "./styles";
+
+import { TextField} from "@mui/material";
+
+
 
 function BuyTickets() {
   const classes = useStyles();
-
-  //const [startDate, setStartDate] = useState(new Date());
-  const [selectedDate, setSelectedDate] = useState<Date | null>(new Date());
 
   const listAdmission = [
     "Adults - $25",
@@ -22,6 +23,9 @@ function BuyTickets() {
 
   const [numTickets, setNumTickets] = useState(0);
   const [time, setTime] = useState(0);
+  
+  const [date, setDate] = useState<Date>();
+  const [dateInString, setDateInString] = useState("");
 
   const addTicketHandler = (event: React.MouseEvent) => {
     event.preventDefault();
@@ -37,7 +41,7 @@ function BuyTickets() {
     <>
       <section >
         <h1 className="mt-5" style={{ color: "#47525E", marginLeft:"110px" }}>
-          <b>Get Tickets - Solomon</b>
+          <b>Get Tickets</b>
         </h1>
       </section>
       <section
@@ -48,14 +52,32 @@ function BuyTickets() {
           <div className="col">
             <h5 style={{ color: "#47525E" }}>
               <b>Choose a Date:</b>
-            </h5>{" "}
+            </h5>
             <br />
-            <DatePicker
-              selected={selectedDate}
-              onChange={(date: Date) => setSelectedDate(date)}
-              dateFormat="dd/MM/yyyy"
-              minDate={new Date()}
-            />
+            <LocalizationProvider dateAdapter={AdapterDateFns}>
+                  <DatePicker
+                    label="Date:"
+                    minDate={new Date()}
+                    maxDate={new Date(Date.now() + 220898482000)}
+                    value={date}
+                    onChange={(newValue) => {
+                      if (newValue?.getMonth && newValue?.getDay) {
+                        setDateInString(
+                          newValue.getDay +
+                            " " +
+                            newValue.getMonth() +
+                            1 +
+                            " " +
+                            newValue.getFullYear()
+                        );
+                        setDate(newValue);
+                      }
+                    }}
+                    renderInput={(params) => (
+                      <TextField {...params} helperText={null} />
+                    )}
+                  />
+                </LocalizationProvider>
           </div>
           <div className="col">
             <h5 style={{ color: "#47525E" }}>

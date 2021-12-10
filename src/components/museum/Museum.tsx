@@ -25,6 +25,9 @@ const Museum = (props: MuseumProps) => {
   const handleCreateVisit = () => {
     navigateTo("/createVisit");
   };
+  const handleGetTickets = () => {
+    navigateTo("/getTickets");
+  };
 
   return (
     <section
@@ -111,6 +114,7 @@ const Museum = (props: MuseumProps) => {
               <button
                 className="mt-3 btn btn-sm btn-block"
                 style={{ backgroundColor: "#00A3A3", color: "#FFFFFF" }}
+                onClick={handleGetTickets}
               >
                 Get Tickets
               </button>

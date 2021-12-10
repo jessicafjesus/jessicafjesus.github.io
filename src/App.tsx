@@ -7,6 +7,8 @@ import { createTheme, ThemeProvider } from '@material-ui/core/styles'
 import ProfilePage from "./pages/profiles";
 import CreateVisit from "./components/museum/CreateVisit";
 
+import GetTickets from "./components/museum/BuyTickets";
+
 
 const theme = createTheme({
   palette: {
@@ -34,6 +36,8 @@ function App() {
         <Route path='/profile' element={<ProfilePage/>} />
         
         <Route path='/createVisit' element={<CreateVisit/>} />
+        
+        <Route path='/getTickets' element={<GetTickets/>} />
 
     </Routes>
     </ThemeProvider>
