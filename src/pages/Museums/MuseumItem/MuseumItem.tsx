@@ -9,10 +9,10 @@ const MuseumItem = ({museum}:{museum:Museum}) => {
 
     return (
         <Box >
-        <Card >
-            <div className={classes.title}>
-            <img src={museum.museumImage} style={{ borderRadius: "2%", width: "25%", borderColor : "white", borderWidth : "3px", borderStyle : "solid"}}
-                className={`"ml-1 position-relative " ${classes.imageBox}`}></img>
+        <Card className={classes.card}>
+            <div className={classes.titleColor}>
+            <img src={museum.museumImage} style={{ borderRadius: "2%", width: "35%", borderColor : "white", borderWidth : "3px", borderStyle : "solid"}}
+                className={`"ml-1 position-relative align-middle" ${classes.imageBox}`}></img>
             </div>
             
             
