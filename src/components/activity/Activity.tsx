@@ -1,6 +1,7 @@
 import Rating from "@mui/material/Rating"
 import React, { Fragment, useState } from "react";
 import BuyTicketsActivity from "./BuyTicketsActivity";
+import Filters from "./Filters";
 interface ActivityProps {
   aProps: {
     activityName: string;
@@ -74,6 +75,7 @@ const Activity = (props: ActivityProps) => {
       )}
       {createVisit && (<Fragment></Fragment>)}
       {buyTickets && (<BuyTicketsActivity aProps={props.aProps} setBack={defaultHandler}/>)}
+      <Filters/>
     </Fragment>
   );
 };
