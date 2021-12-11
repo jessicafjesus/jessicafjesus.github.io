@@ -6,7 +6,9 @@ export default makeStyles((theme) => ({
     flexGrow: 1,
   },
   
-  container: {},
+  container: {
+    margin: "0px 240px",
+},
 
   AppBar: {
     colorSecondary: "#00a3a3",
@@ -29,7 +31,7 @@ export default makeStyles((theme) => ({
     marginRight: "-10px",
     color: "#191f24",
     borderRadius: "5px",
-    padding: "10px 20px",
+    padding: "0px 30px",
     height: "50px",
 
     "&:hover": {
@@ -48,7 +50,7 @@ export default makeStyles((theme) => ({
     marginRight: "-10px",
     color: "white",
     borderRadius: "5px",
-    padding: "10px 20px",
+    padding: "10px 30px",
     zIndex: 10,
     height: "55px",
 
@@ -99,10 +101,12 @@ login: {
     alignContent: "center",
     justifyContent: "center",
     flex: 1,
+    fontWeight: 600,
 
     "&:hover": {
       color: "#000000",
-      textDecoration: "underline #000000"
+      textDecoration: "underline #000000",
+      fontWeight: 600,
     },
   },
 
@@ -122,7 +126,7 @@ login: {
     display: "flex",
     alignItems: "center",
     flex: "1",
-    marginLeft: "40px",
+    // marginLeft: "40px",
   },
 
   div2: {
@@ -137,7 +141,7 @@ login: {
     alignItems: "center",
     justifyContent: "flex-end",
     flex: "1",
-    marginRight: "40px",
+    // marginRight: "0px",
     textAlign: "center",
   }
   

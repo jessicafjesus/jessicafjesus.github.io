@@ -5,6 +5,7 @@ import {
   AppBar,
   Button,
   Grid,
+  Box,
 } from "@material-ui/core";
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import Stack from '@mui/material/Stack';
@@ -58,19 +59,19 @@ const Header = () => {
   return (
     <Fragment>
       <AppBar position="static" color="primary" className={classes.AppBar}>
-        {/* <Grid  className={classes.container}> */}
+        <Box  className={classes.container}>
           {/* <Toolbar> */}
           <div className={classes.divFora}> 
             <div className={classes.div1}> 
               <Grid className={classes.grow}>
                 <img src="amuseBranco.png" alt="logo" className={classes.logo} />
               </Grid>
-              </div>
-              <div className={classes.div2}> 
-                  <Button color="inherit" className={activitiesActive ? classes.buttonHeaderActive : classes.buttonHeader} onClick={activitiesHandler}> Activities </Button>
-                  <Button color="inherit" className={museumsActive ? classes.buttonHeaderActive : classes.buttonHeader} onClick={museumsHandler}> Museums </Button>
-                  <Button color="inherit" className={visitTogetherActive ? classes.buttonHeaderActive : classes.buttonHeader} onClick={visitTogetherHandler}> Visit Together </Button>
-              </div>
+            </div>
+            <div className={classes.div2}> 
+                <Button color="inherit" className={activitiesActive ? classes.buttonHeaderActive : classes.buttonHeader} onClick={activitiesHandler}> Activities </Button>
+                <Button color="inherit" className={museumsActive ? classes.buttonHeaderActive : classes.buttonHeader} onClick={museumsHandler}> Museums </Button>
+                <Button color="inherit" className={visitTogetherActive ? classes.buttonHeaderActive : classes.buttonHeader} onClick={visitTogetherHandler}> Visit Together </Button>
+            </div>
             {isLoggedIn ? (
               <div className={classes.div3}>
                 {/* <Box className="text-secondary bg-transparent" component="form" sx={{
@@ -91,7 +92,7 @@ const Header = () => {
             )}
             </div>
           {/* </Toolbar> */}
-        {/* </Grid> */}
+        </Box>
       </AppBar>
     </Fragment>
   );

@@ -3,8 +3,9 @@ import React from "react";
 import Header from './components/header/Header';
 import { Routes, Route} from "react-router-dom";
 import {Activities, Museums, SignIn, VisitTogether} from "./pages";
-import { createTheme, ThemeProvider } from '@material-ui/core/styles'
-import ProfilePage from "./pages/profiles"
+import { createTheme, ThemeProvider, withStyles } from '@material-ui/core/styles'
+import ProfilePage from "./pages/Profiles"
+import { Typography } from '@material-ui/core';
 
 
 const theme = createTheme({
