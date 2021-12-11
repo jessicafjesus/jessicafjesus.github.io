@@ -20,6 +20,7 @@ import DatePicker from "@mui/lab/DatePicker";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import CountriesJson from "../../json/CountriesJson.json";
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 interface ActivityProps {
   aProps: {
@@ -32,6 +33,7 @@ interface ActivityProps {
     activityReviews: string[];
     activityImage: string;
   };
+  setBack : (event: React.MouseEvent) => void;
 }
 
 const BuyTicketsActivity = (props: ActivityProps) => {
@@ -565,7 +567,7 @@ const BuyTicketsActivity = (props: ActivityProps) => {
               <div className="col text-left justify-content-center align-items-center">
                 <div className="rounded m-5">
                   <h1 className="text-left" style={{ color: "#FFA552" }}>
-                    <b>Guest</b>
+                    <b>Payment Checkout</b>
                   </h1>
                   <form
                     className={classes.form}
@@ -580,38 +582,38 @@ const BuyTicketsActivity = (props: ActivityProps) => {
                             xs={4}
                           >
                             <div style={{display:"inline-block",position:"relative"}}>
-                            <img src="mastercard.png" alt="mastercard" style={{borderRadius:"2%",width:"80%"}} className="img-fluid mx-auto d-block"/>
+                            <img src="mastercard.png" alt="mastercard" style={{borderRadius:"2%",width:"60%"}} className="img-fluid mx-auto d-block"/>
                             <Radio
-                              value="animals"
+                              value="mastercard"
                               onClick={() => {
-                                setType("animals");
+                                setType("mastercard");
                               }}
-                              color="primary"
-                              style={{position:"absolute",top:"0%",right:"0%"}}
+                              checkedIcon={<CheckCircleIcon/>}
+                              style={{position:"absolute",top:"0%",right:"0%",color:"#47525E"}}
                             /></div>
                           </Grid>
                           <Grid item xs={4}>
                           <div style={{display:"inline-block",position:"relative"}}>
-                            <img src="visa.png" alt="visa" style={{borderRadius:"2%",width:"80%"}} className="img-fluid mx-auto d-block"/>
+                            <img src="visa.png" alt="visa" style={{borderRadius:"2%",width:"60%"}} className="img-fluid mx-auto d-block"/>
                             <Radio
-                              value="animals"
+                              value="visa"
                               onClick={() => {
-                                setType("animals");
+                                setType("visa");
                               }}
-                              color="primary"
-                              style={{position:"absolute",top:"0%",right:"0%"}}
+                              checkedIcon={<CheckCircleIcon/>}
+                              style={{position:"absolute",top:"0%",right:"0%",color:"#47525E"}}
                             /></div>
                           </Grid>
                           <Grid item xs={4}>
                           <div style={{display:"inline-block",position:"relative"}}>
-                            <img src="paypal.png" alt="paypal" style={{borderRadius:"2%",width:"80%"}} className="img-fluid mx-auto d-block"/>
+                            <img src="paypal.png" alt="paypal" style={{borderRadius:"2%",width:"60%"}} className="img-fluid mx-auto d-block"/>
                             <Radio
-                              value="animals"
+                              value="paypal"
                               onClick={() => {
-                                setType("animals");
+                                setType("paypal");
                               }}
-                              color="primary"
-                              style={{position:"absolute",top:"0%",right:"0%"}}
+                              checkedIcon={<CheckCircleIcon/>}
+                              style={{position:"absolute",top:"0%",right:"0%",color:"#47525E"}}
                             /></div>
                           </Grid>
                         </RadioGroup>
@@ -725,7 +727,8 @@ const BuyTicketsActivity = (props: ActivityProps) => {
             </div>
           </Fragment>
         )}
-        {stepValue === 3 && <h1>Great Success</h1>}
+        {stepValue === 3 && <div className="row h-100 d-flex align-items-center"><div className="col w-100 d-flex justify-content-center text-center">
+          <div className="mt-5 pt-5" onClick={props.setBack}><h1 style={{ color: "#343F4B"}}><b>Purchase successful</b></h1><CheckCircleIcon sx={{ color: "##343F4B", fontSize: "15vh" }}/></div></div></div>}
       </div>
     </Fragment>
   );

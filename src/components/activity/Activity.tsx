@@ -38,6 +38,13 @@ const Activity = (props: ActivityProps) => {
     setCreateVisit(true)
   }
 
+  const defaultHandler = (event : React.MouseEvent) => {
+    event.preventDefault()
+    setBuyTickets(false)
+    setCreateVisit(false)
+    setDefaultView(true)
+  }
+
   return (
     <Fragment>
       {defaultView && (
@@ -66,7 +73,7 @@ const Activity = (props: ActivityProps) => {
       </section>
       )}
       {createVisit && (<Fragment></Fragment>)}
-      {buyTickets && (<BuyTicketsActivity aProps={props.aProps}/>)}
+      {buyTickets && (<BuyTicketsActivity aProps={props.aProps} setBack={defaultHandler}/>)}
     </Fragment>
   );
 };
