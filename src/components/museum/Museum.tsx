@@ -1,8 +1,8 @@
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import Rating from "@mui/material/Rating";
 import React from "react";
-import {Button} from "@material-ui/core";
-
+import { Button } from "@material-ui/core";
+import { useNavigate } from "react-router-dom";
 
 interface MuseumProps {
   mProps: {
@@ -19,8 +19,16 @@ interface MuseumProps {
   };
 }
 
-
 const Museum = (props: MuseumProps) => {
+  const navigateTo = useNavigate();
+
+  const handleCreateVisit = () => {
+    navigateTo("/createVisit");
+  };
+  const handleGetTickets = () => {
+    navigateTo("/getTickets");
+  };
+
   return (
     <section
       className="container pr-5 pl-5 pb-3 pt-3 pb-1 border bg rounded-3 shadow mx-auto mt-5 mb-5"
@@ -33,8 +41,8 @@ const Museum = (props: MuseumProps) => {
             alt="imageMuseum"
             style={{ borderRadius: "1%" }}
             className="img-fluid mx-auto d-block mt-3"
-           />
-         <div className="row">
+          />
+          <div className="row">
             <div className="col-4 pt-2">
               <Rating
                 value={props.mProps.museumRating}
@@ -103,8 +111,20 @@ const Museum = (props: MuseumProps) => {
                   return <li>{child}</li>;
                 })}
               </ul>
-              <button className="mt-3 btn btn-sm btn-block" style={{backgroundColor:"#00A3A3", color:"#FFFFFF"}}>Get Tickets</button>
-              <button className="mt-3 btn btn-sm btn-block" style={{backgroundColor:"#00A3A3", color:"#FFFFFF"}}>Create a Visit for this museum</button>
+              <button
+                className="mt-3 btn btn-sm btn-block"
+                style={{ backgroundColor: "#00A3A3", color: "#FFFFFF" }}
+                onClick={handleGetTickets}
+              >
+                Get Tickets
+              </button>
+              <button
+                className="mt-3 btn btn-sm btn-block"
+                style={{ backgroundColor: "#00A3A3", color: "#FFFFFF" }}
+                onClick={handleCreateVisit}
+              >
+                Create a Visit for this museum
+              </button>
             </div>
           </div>
         </div>

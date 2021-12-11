@@ -12,3 +12,11 @@ body {
       monospace;
   }
 
+  .color-overlay{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.87);
+    height: 100%;
+    width: 100%;
+    mix-blend-mode: normal;
+  }
+
