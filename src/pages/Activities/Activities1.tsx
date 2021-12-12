@@ -5,24 +5,22 @@ import { Button, Avatar, Box } from '@material-ui/core';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import useStyles from './styles';
 import ActivityItem from './ActivityItem/ActivityItem';
-import ActivityItemJson from "../../json/ActivityItems.json"
+import ActivityItemJson from "../../json/ActivitiesJson.json"
 
-export interface Museum { 
+export interface Activity { 
   activityName: string, 
-  activityocation:string, 
+  activityLocation:string, 
   activityType: string, 
   activityImage: string, 
   activityRating: number, 
-  activityHours: string,
-  activityPrice: string,
+  activityDate: string[],
 }
 
 const Activities = () => {
   const classes = useStyles();
   const [showQuiz, setShowQuiz] = useState(false);
   const data = ActivityItemJson
-  false);
-  };
+
 
   const filtersHandler = (event: React.MouseEvent) => {
     event.preventDefault();
@@ -42,14 +40,10 @@ const Activities = () => {
           </Stack>
           <Button className={classes.filters} onClick={filtersHandler}>See more filters<ArrowForwardIosIcon fontSize="small" /></Button>
         </Grid>
-        <Grid item xs={3} >
-            <div className={`${classes.catStyle} ${classes.alignCenter}`}>Don't know what to visit?</div>
-            <Button className={classes.quizButton} onClick={takeQuizHandler}> Take our quiz </Button>
-        </Grid>
       </Grid>
       <Stack className="mt-4" spacing={4}>
-        {data.museumItems.map((museum) => (
-          <MuseumItem museum={museum} />
+        {data.activities.map((act) => (
+          <ActivityItem act={act} />
         ))}
         </Stack>
         </Box>
@@ -57,5 +51,5 @@ const Activities = () => {
   );
 };
 
-export default Museums;
+export default Activities;
 
