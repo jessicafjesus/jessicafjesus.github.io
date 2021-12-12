@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Stack, Card, Rating } from '@mui/material';
 import { Typography, Grid, Button} from "@material-ui/core";
-import { Museum } from '../museums';
+import { Museum } from '../Museums';
 import useStyles from './styles';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
