@@ -4,7 +4,7 @@ import { Stack, Grid } from '@mui/material';
 import { Button, Avatar, Box } from '@material-ui/core';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import useStyles from './styles';
-import Quiz from './Quiz';
+import Quiz from './quiz';
 import MuseumItem from './MuseumItem/MuseumItem';
 import MuseumItemsJson from "../../json/MuseumItems.json"
 

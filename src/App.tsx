@@ -4,7 +4,7 @@ import Header from './components/header/Header';
 import { Routes, Route} from "react-router-dom";
 import {Activities, Museums, SignIn, VisitTogether} from "./pages";
 import { createTheme, ThemeProvider } from '@material-ui/core/styles'
-import ProfilePage from "./pages/Profiles";
+import ProfilePage from "./pages/profiles";
 import CreateVisit from "./components/museum/CreateVisit";
 
 import GetTickets from "./components/museum/BuyTickets";
@@ -40,10 +40,7 @@ function App() {
         <Route path='/visitTogether' element={<VisitTogether/>} />
         <Route path='/signin' element={<SignIn/>} />
         <Route path='/profile' element={<ProfilePage/>} />
-        
         <Route path='/createVisit' element={<CreateVisit/>} />
-        
-        <Route path='/getTickets' element={<GetTickets/>} />
 
     </Routes>
     </ThemeProvider>
