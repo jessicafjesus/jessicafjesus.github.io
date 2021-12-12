@@ -79,6 +79,26 @@ export default makeStyles((theme) => ({
     },
   },
 
+  pendingRequests: {
+    fontSize: "14px",
+    background: "#FFA552",
+    marginBottom: "5%",
+    color: "white",
+    borderRadius: "5px",
+    padding: "5px 20px",
+    
+    fontWeight: "bold",
+
+    "&:hover": {
+      background: "white" ,
+      boxShadow: "0px 2px 10px #888888",
+      color: "#191f24",
+      fontWeight: "bold",
+      borderColor: "#191f24",
+      borderWidth: "2px",
+    },
+  },
+
   buttonConfirm: {
     fontSize: "14px",
     background: "#191f24",
@@ -164,6 +184,13 @@ export default makeStyles((theme) => ({
     },
   },
 
+  square: {
+    width: "5vw",
+    height: "5vw",
+  },
+
+  
+
   profile: {
     padding: "0px 10px 0px 0px",
   },
@@ -198,6 +225,8 @@ export default makeStyles((theme) => ({
     flex: "1",
     marginRight: "40px",
   }
+
+  
   
 
 }));

@@ -7,10 +7,10 @@ import Profile from "../components/profile/Profile"
 const ProfilePage = () => {
     const data = MuseumsJson
     const pData = ProfilesJson
-    const museumsMap = data.museums.map((act) => {return (<Profile museumP={act} profileP={pData.profiles[0]}/>)})
+    
     return (
         <Fragment>
-            {museumsMap}
+            <Profile museumP={data.museums[0]} profileP={pData.profiles[0]}/>
         </Fragment>
     )
 }
