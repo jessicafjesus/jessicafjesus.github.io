@@ -78,10 +78,11 @@ const Quiz = (qProps: QuizProps) => {
         setAnswer2Selected(false);
         setAnswer3Selected(false);
         setAnswer4Selected(false);
-        if(current === 4)
-        qProps.setShowQuiz(false)
+        if(current === 4) {
+          qProps.setShowQuiz(false)
         }
         setCurrent((state) => state+1)
+      }
       }
   
 
