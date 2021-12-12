@@ -2,52 +2,112 @@
     "museumItems": [
       {
         "museumName": "Solomon R. Guggenheim Museum",
+        "museumLocationImage": "solomon-map.png",
         "museumLocation": "Manhattan, New York",
         "museumType": "Art",
         "museumImage": "solomonMuseum.jpg",
         "museumRating": 4.1,
         "museumHours": "Thursday–Monday, 11 am–6 pm",
-        "museumPrice": "€€€"
+        "museumPrice": "€€€",
+        "museumDescription": "string",
+        "museumReviews": ["string","string"],
+        "museumWebsite": "string",
+        "museumAdmission": [
+          "Adults - $25",
+          "Students and Seniors 65+  - $18",
+          "Visitors with disabilities - $18",
+          "Members - Free",
+          "Children under 12 - Free"
+        ],
+        "museumDescriptionShort": "string"
       },
 
       {
         "museumName": "The Metropolitan Museum of Art",
+        "museumLocationImage": "solomon-map.png",
         "museumLocation": "Manhattan, New York",
         "museumType": "Art",
         "museumImage": "metMuseum.jpg",
         "museumRating": 4.5,
         "museumHours": "Thursday–Tuesday, 10am–5pm",
-        "museumPrice": "€€€"
+        "museumPrice": "€€€",
+        "museumDescription": "string",
+        "museumReviews": ["string","string"],
+        "museumWebsite": "string",
+        "museumAdmission": [
+          "Adults - $25",
+          "Students and Seniors 65+  - $18",
+          "Visitors with disabilities - $18",
+          "Members - Free",
+          "Children under 12 - Free"
+        ],
+        "museumDescriptionShort": "string"
       },
 
       {
         "museumName": "The Museum of Modern Art",
+        "museumLocationImage": "solomon-map.png",
         "museumLocation": "Manhattan, New York",
         "museumType": "Art",
         "museumImage": "MoMa.jpg",
         "museumRating": 4.2,
         "museumHours": "Monday-Sunday, 10.30am–5.30pm",
-        "museumPrice": "€€"
+        "museumPrice": "€€",
+        "museumDescription": "string",
+        "museumReviews": ["string","string"],
+        "museumWebsite": "string",
+        "museumAdmission": [
+          "Adults - $25",
+          "Students and Seniors 65+  - $18",
+          "Visitors with disabilities - $18",
+          "Members - Free",
+          "Children under 12 - Free"
+        ],
+        "museumDescriptionShort": "string"
       },
 
       {
         "museumName": "American Museum of Natural History",
+        "museumLocationImage": "solomon-map.png",
         "museumLocation": "Manhattan, New York",
         "museumType": "History",
         "museumImage": "HistoryMuseum.jpg",
         "museumRating": 4.0,
         "museumHours": "Wednesday-Sunday, 10am–5.30pm",
-        "museumPrice": "€€"
+        "museumPrice": "€€",
+        "museumDescription": "string",
+        "museumReviews": ["string","string"],
+        "museumWebsite": "string",
+        "museumAdmission": [
+          "Adults - $25",
+          "Students and Seniors 65+  - $18",
+          "Visitors with disabilities - $18",
+          "Members - Free",
+          "Children under 12 - Free"
+        ],
+        "museumDescriptionShort": "string"
       },
 
       {
         "museumName": "Museum of the City of New York",
+        "museumLocationImage": "solomon-map.png",
         "museumLocation": "Central Park West, New York",
         "museumType": "History",
         "museumImage": "HistoryNewYorkMuseum.jpg",
         "museumRating": 4.0,
         "museumHours": "Wednesday-Sunday, 11am–5pm",
-        "museumPrice": "€"
+        "museumPrice": "€",
+        "museumDescription": "string",
+        "museumReviews": ["string","string"],
+        "museumWebsite": "string",
+        "museumAdmission": [
+          "Adults - $25",
+          "Students and Seniors 65+  - $18",
+          "Visitors with disabilities - $18",
+          "Members - Free",
+          "Children under 12 - Free"
+        ],
+        "museumDescriptionShort": "string"
       }
     ]
   }

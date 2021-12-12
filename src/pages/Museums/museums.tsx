@@ -7,21 +7,31 @@ import useStyles from './styles';
 import Quiz from './quiz';
 import MuseumItem from './MuseumItem/MuseumItem';
 import MuseumItemsJson from "../../json/MuseumItems.json"
+import Museum from "../../components/museum/Museum";
 
 export interface Museum { 
-  museumName: string, 
-  museumLocation:string, 
-  museumType: string, 
-  museumImage: string, 
-  museumRating: number, 
-  museumHours: string,
-  museumPrice: string,
+  museumName: string;
+  museumLocationImage: string;
+  museumLocation: string;
+  museumType: string;
+  museumImage: string;
+  museumRating: number;
+  museumHours: string;
+  museumPrice: string;
+  museumDescription: string;
+  museumReviews: string[];
+  museumWebsite: string;
+  museumAdmission: string[];
+  museumDescriptionShort: string;
 }
 
 const Museums = () => {
   const classes = useStyles();
-  const [showQuiz, setShowQuiz] = useState(false);
   const data = MuseumItemsJson
+  const [showQuiz, setShowQuiz] = useState(false);
+  const [showDefaultView,setShowDefault] = useState(true)
+  const [showMuseum,setShowMuseum] = useState(false)
+  const [selectedMuseum,setSelectedMuseum] = useState(data.museumItems[0])
   
   const takeQuizHandler = (event: React.MouseEvent) => {
     event.preventDefault();
@@ -38,8 +48,8 @@ const Museums = () => {
     
   };
 
-  return (
-    <Fragment>
+  return (<Fragment>
+    {showDefaultView && (<Fragment>
       {showQuiz && <Quiz showQuiz={showQuiz} setShowQuiz={setShowQuiz} hideQuizHandler={hideQuizHandler} />}
       <Box className={classes.container}>
       <Grid container className="mt-3">
@@ -59,11 +69,13 @@ const Museums = () => {
       </Grid>
       <Stack className="mt-4" spacing={4}>
         {data.museumItems.map((museum) => (
-          <MuseumItem museum={museum} />
+          <MuseumItem museum={museum} viewMuseum={setShowMuseum} viewMain={setShowDefault} setDefault={setSelectedMuseum} />
         ))}
         </Stack>
         </Box>
-    </Fragment>
+    </Fragment>)}
+    {(showMuseum) && <Museum mProps={selectedMuseum}/>}
+  </Fragment>
   );
 };
 

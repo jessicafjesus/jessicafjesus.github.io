@@ -6,11 +6,21 @@ import useStyles from './styles';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
-const MuseumItem = ({museum}:{museum:Museum}) => {
+interface mProps {
+    museum : Museum,
+    viewMuseum : React.Dispatch<React.SetStateAction<boolean>>;
+    viewMain : React.Dispatch<React.SetStateAction<boolean>>;
+    setDefault : React.Dispatch<React.SetStateAction<Museum>>
+}
+
+const MuseumItem = (props : mProps) => {
     const classes = useStyles();
 
-    const goMuseumHandler = () => {
-        
+    const goMuseumHandler = (event : React.MouseEvent) => {
+        event.preventDefault()
+        props.setDefault(props.museum);
+        props.viewMain(false);
+        props.viewMuseum(true);
     }
 
     return (
@@ -18,24 +28,24 @@ const MuseumItem = ({museum}:{museum:Museum}) => {
             <Card className={classes.card}>
                 <Grid container className={classes.titleColor} spacing={4}>
                     <Grid item xs={3}>
-                        <img src={museum.museumImage} style={{ borderRadius: "2%", width: "100%", borderColor : "white", borderWidth : "3px", borderStyle : "solid"}}
+                        <img src={props.museum.museumImage} style={{ borderRadius: "2%", width: "100%", borderColor : "white", borderWidth : "3px", borderStyle : "solid"}}
                     className={`"ml-1 position-relative align-middle" ${classes.imageBox}`}></img>
                     </Grid>
                     <Grid item xs={5}>
                         <Stack spacing={2.5}>
-                        <Typography component="div" variant="h6" className={classes.bold}>{museum.museumName} </Typography>
-                        <Typography variant="subtitle1" component="div" className={classes.bold}><LocationOnIcon fontSize="large" style={{ color: "#FFA552", marginLeft: "-7px"}} />{museum.museumLocation}</Typography>
+                        <Typography component="div" variant="h6" className={classes.bold}>{props.museum.museumName} </Typography>
+                        <Typography variant="subtitle1" component="div" className={classes.bold}><LocationOnIcon fontSize="large" style={{ color: "#FFA552", marginLeft: "-7px"}} />{props.museum.museumLocation}</Typography>
                         <Stack spacing={2} direction="row">
-                            <Rating value={museum.museumRating} readOnly={true} size="large" style={{ color: "#FFA552", marginLeft: "-3px"}}/>
-                            <Typography component="div" variant="h6" className="mt-auto">{museum.museumRating} </Typography>
+                            <Rating value={props.museum.museumRating} readOnly={true} size="large" style={{ color: "#FFA552", marginLeft: "-3px"}}/>
+                            <Typography component="div" variant="h6" className="mt-auto">{props.museum.museumRating} </Typography>
                         </Stack>
                         </Stack>
                     </Grid>
                     <Grid item xs={3} className={classes.insideBoxCenter}>
                         <Stack spacing={2}>
-                        <Typography component="div" variant="h5" className={classes.bold}>Price: {museum.museumPrice} </Typography>
+                        <Typography component="div" variant="h5" className={classes.bold}>Price: {props.museum.museumPrice} </Typography>
                         <Typography component="div" variant="h6" className={classes.bold}>Activities available</Typography>
-                        <Button className={classes.showButton}>Show more</Button>
+                        <Button className={classes.showButton} onClick={goMuseumHandler}>Show more</Button>
                         </Stack>
                     </Grid>
                     <Grid item xs={1} className={classes.insideBoxRight}>
