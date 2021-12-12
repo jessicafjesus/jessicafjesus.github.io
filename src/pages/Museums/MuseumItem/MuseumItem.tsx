@@ -1,13 +1,17 @@
 import React from 'react';
 import { Box, Stack, Card, Rating } from '@mui/material';
 import { Typography, Grid, Button} from "@material-ui/core";
-import { Museum } from '../Museums';
+import { Museum } from '../museums';
 import useStyles from './styles';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 const MuseumItem = ({museum}:{museum:Museum}) => {
     const classes = useStyles();
+
+    const goMuseumHandler = () => {
+        
+    }
 
     return (
         <Box >
@@ -35,7 +39,7 @@ const MuseumItem = ({museum}:{museum:Museum}) => {
                         </Stack>
                     </Grid>
                     <Grid item xs={1} className={classes.insideBoxRight}>
-                        <Button className={classes.goButton}>
+                        <Button className={classes.goButton} onClick={goMuseumHandler}>
                             <ArrowForwardIosIcon fontSize="large"/>
                         </Button>
                     </Grid>

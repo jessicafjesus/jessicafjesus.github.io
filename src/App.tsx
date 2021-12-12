@@ -4,9 +4,10 @@ import Header from './components/header/Header';
 import { Routes, Route} from "react-router-dom";
 import {Activities, Museums, SignIn, VisitTogether} from "./pages";
 import { createTheme, ThemeProvider } from '@material-ui/core/styles'
-import ProfilePage from "./pages/Profiles";
+import ProfilePage from "./pages/profiles";
 import CreateVisit from "./components/museum/CreateVisit";
-
+import Museum from "./components/museum/Museum";
+import Activity from "./components/activity/Activity";
 import GetTickets from "./components/museum/BuyTickets";
 
 
@@ -33,15 +34,14 @@ function App() {
     <ThemeProvider theme={theme}>
       <Header/>
     <Routes>
-        <Route path='/activities' element={<Activities/>} />
+        <Route path='/activities' element={<Activities />} />
         <Route path='/museums' element={<Museums/>} />
         <Route path='/visitTogether' element={<VisitTogether/>} />
         <Route path='/signin' element={<SignIn/>} />
         <Route path='/profile' element={<ProfilePage/>} />
-        
         <Route path='/createVisit' element={<CreateVisit/>} />
-        
-        <Route path='/getTickets' element={<GetTickets/>} />
+        {/* <Route path='/museums/details' element={<Museum />} />
+        <Route path='/activities/details' element={<Activity/>} /> */}
 
     </Routes>
     </ThemeProvider>

@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 export default makeStyles((theme) => ({
 
     card: {
-        height: "180px",
+        height: "160px",
         width: "100%",
     },
 
@@ -20,17 +20,16 @@ export default makeStyles((theme) => ({
 
     imageBox: {
         margin: "0px 10px",
-        height: "150px",
+        height: "130px",
         objectFit: "cover",
     },
 
     titleColor: {
         background: "rgba(0,163,163,0.5)",
-        // width: "800px",
         marginTop: "0px",
-        height: "56px",
-        // marginTop: "-10px",
+        height: "52px",
     },
+
     bold: {
         fontWeight: 600,
         color: "rgba(25,31,36,0.9)",
@@ -40,7 +39,7 @@ export default makeStyles((theme) => ({
         padding: "8px 5px",
         borderRadius: "5px",
         color: "white",
-        background: "#00a3a3",
+        
         fontSize: "18px",
         textAlign: "center",
         transition: "all 0.5s ease-in-out",
@@ -49,8 +48,24 @@ export default makeStyles((theme) => ({
         width: "100%",
 
         "&:hover": {
-            background: "#00a3a3",
+
             boxShadow: "0px 2px 10px #adadad",
+        },
+    },
+
+    blueButton: {
+        background: "#00a3a3",
+
+        "&:hover": {
+            background: "#00a3a3",
+        },
+    },
+
+    orangeButton: {
+        background: "#FFA552",
+
+        "&:hover": {
+            background: "#FFA552",
         },
     },
 
