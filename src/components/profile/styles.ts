@@ -27,7 +27,7 @@ export default makeStyles((theme) => ({
 
   buttonHeader: {
     fontSize: "16px",
-    background: "white",
+    background: "#f6f7f7",
     marginRight: "-10px",
     color: "#191f24",
     borderRadius: "5px",
@@ -42,6 +42,23 @@ export default makeStyles((theme) => ({
     },
   },
 
+  buttonHeaderVS: {
+    fontSize: "16px",
+    background: "#f6f7f7",
+    marginRight: "-10px",
+    color: "#191f24",
+    borderRadius: "5px",
+    padding: "10px 20px",
+
+    "&:hover": {
+      background: "#191f24",
+      boxShadow: "0px 2px 10px #888888",
+     
+      color: "white",
+      padding: "12px 20px",
+    },
+  },
+
   buttonHeaderActive: {
     fontSize: "16px",
     background: "#191f24",
@@ -49,11 +66,30 @@ export default makeStyles((theme) => ({
     color: "white",
     borderRadius: "5px",
     padding: "12px 20px",
+    zIndex: 10,
 
     "&:hover": {
       background: "#191f24",
       boxShadow: "0px 2px 10px #888888",
       zIndex: "10",
+      color: "white",
+      padding: "12px 20px",
+    },
+  },
+
+  buttonHeaderActiveVS: {
+    fontSize: "16px",
+    background: "#191f24",
+    marginRight: "-10px",
+    color: "white",
+    borderRadius: "5px",
+    padding: "12px 20px",
+    
+
+    "&:hover": {
+      background: "#191f24",
+      boxShadow: "0px 2px 10px #888888",
+      
       color: "white",
       padding: "12px 20px",
     },
@@ -91,6 +127,47 @@ export default makeStyles((theme) => ({
 
     "&:hover": {
       background: "white" ,
+      boxShadow: "0px 2px 10px #888888",
+      color: "#191f24",
+      fontWeight: "bold",
+      borderColor: "#191f24",
+      borderWidth: "2px",
+    },
+  },
+
+
+  accept: {
+    fontSize: "14px",
+    background: "#13CE66",
+    marginBottom: "5%",
+    color: "white",
+    borderRadius: "5px",
+    padding: "5px 20px",
+    float:"right",
+    fontWeight: "bold",
+
+    "&:hover": {
+      background: "#5fe39a" ,
+      boxShadow: "0px 2px 10px #888888",
+      color: "#191f24",
+      fontWeight: "bold",
+      borderColor: "#13CE66",
+      borderWidth: "5px",
+    },
+  },
+
+  decline: {
+    fontSize: "14px",
+    background: "#FF0000",
+    marginBottom: "5%",
+    color: "white",
+    borderRadius: "5px",
+    padding: "5px 20px",
+    fontWeight: "bold",
+    
+
+    "&:hover": {
+      background: "#ff6e6e" ,
       boxShadow: "0px 2px 10px #888888",
       color: "#191f24",
       fontWeight: "bold",
@@ -161,7 +238,7 @@ export default makeStyles((theme) => ({
     width: "100%",
 
     "&:hover": {
-      background: "white" ,
+      background: "#f6f7f7" ,
       boxShadow: "0px 2px 10px #888888",
       color: "#191f24",
       fontWeight: "bold",
