@@ -111,6 +111,7 @@
       },
       {
         "museumName": "Whitney Museum of American Art",
+        "museumLocationImage": "solomon-map.png",
         "museumLocation": "Central Park West, New York",
         "museumType": "Modern Art",
         "museumImage": "whitney.jpg",
@@ -131,6 +132,7 @@
       },
       {
         "museumName": "The Art Institute of Chicago",
+        "museumLocationImage": "solomon-map.png",
         "museumLocation": "Chicago, Illinois",
         "museumType": "Fine Arts",
         "museumImage": "artInstituteChic.jpg",
@@ -150,7 +152,7 @@
         "museumDescriptionShort": "The Art Institute of Chicago in Chicago's Grant Park, founded in 1879, is one of the oldest and largest art museums in the world. Recognized for its curatorial efforts and popularity among visitors, the museum hosts approximately 1.5 million people annually."
       },
       {
-        "museumName": "The Children's Museum of Indianapolis",
+        "museumName": "The Children's Museum of Indianapolis", "museumLocationImage": "solomon-map.png",
         "museumLocation": "Indianapolis, Indiana",
         "museumType": "Children's",
         "museumImage": "indianapolisChildM.jpg",
@@ -170,7 +172,7 @@
         "museumDescriptionShort": "The Children's Museum of Indianapolis is the world's largest children's museum. It is located at 3000 North Meridian Street, Indianapolis, Indiana, United States, in the United Northwest Area neighborhood of the city."
       },
       {
-        "museumName": "The Philadelphia Museum of Art",
+        "museumName": "The Philadelphia Museum of Art", "museumLocationImage": "solomon-map.png",
         "museumLocation": "Philadelphia, Pensilvania",
         "museumType": "Art",
         "museumImage": "phili.jpg",
@@ -190,7 +192,7 @@
         "museumDescriptionShort": "The Philadelphia Museum of Art is an art museum originally chartered in 1876 for the Centennial Exposition in Philadelphia."
       },
       {
-        "museumName": "The Henry Ford Museum",
+        "museumName": "The Henry Ford Museum", "museumLocationImage": "solomon-map.png",
         "museumLocation": "Dearborn, Michigan",
         "museumType": "History",
         "museumImage": "fordMuseum.jpg",
