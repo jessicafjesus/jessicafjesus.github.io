@@ -60,37 +60,37 @@ const Filters = (fProps : FiltersProps) => {
     >
       <div className="row h-100 d-flex align-items-center">
         <div className="col w-100 d-flex justify-content-center">
-          <div className="container-sm d-inline-block text-left pb-3 pt-2" style={{ backgroundColor: "#FFFFFF" }}>
+          <div className="container-sm d-inline-block text-left pr-2 pl-4 pb-2 pt-2 rounded" style={{ backgroundColor: "#FFFFFF" }}>
           <h1>Filter By <CloseIcon className="mt-2" style={{float:"right"}} fontSize="large" onClick={(event) => {fProps.setShowFilters(false)}}/></h1>
         <h3>Type{type ? <KeyboardArrowUpIcon onClick={() => {showType(false)}}/> : <KeyboardArrowDownIcon onClick={() => {showType(true)}}/>}</h3>
         {type && 
         <div>
           <div className="row">
-            <div className="col-lg-3">
+            <div className="col-sm-2">
               <CustomizedChip label={"History"} setLabels={selectTypes} col={4} values={selectedTypes}/>
             </div>
-            <div className="col-lg-3">
+            <div className="col-sm-2">
               <CustomizedChip label={"Science"} setLabels={selectTypes} col={5} values={selectedTypes}/>
             </div>
-            <div className="col-lg-3">
+            <div className="col-sm-2">
               <CustomizedChip label={"Musical"} setLabels={selectTypes} col={6} values={selectedTypes}/>
             </div>
-            <div className="col-lg-3">
+            <div className="col-sm-2">
               <CustomizedChip label={"Fashion"} setLabels={selectTypes} col={7} values={selectedTypes}/>
             </div>
           </div>
           <div>
               {seeMoreTypes && <div className ="row">
-                <div className="col-lg-3">
+                <div className="col-sm-2">
               <CustomizedChip label={"Mineral"} setLabels={selectTypes} col={8} values={selectedTypes}/>
             </div>
-            <div className="col-lg-3">
+            <div className="col-sm-2">
               <CustomizedChip label={"Nuclear"} setLabels={selectTypes} col={9} values={selectedTypes}/>
             </div>
-            <div className="col-lg-3">
+            <div className="col-sm-2">
               <CustomizedChip label={"Modern"} setLabels={selectTypes} col={10} values={selectedTypes}/>
             </div>
-            <div className="col-lg-3">
+            <div className="col-sm-2">
               <CustomizedChip label={"Finance"} setLabels={selectTypes} col={11} values={selectedTypes}/>
             </div></div>}
             <div className="row">
@@ -104,32 +104,32 @@ const Filters = (fProps : FiltersProps) => {
         {distance && <CustomizedSlider min={0} max={250} setFilterValue={setDistanceValue} lastValues={distanceValue} />}
         <h3>Age{age ? <KeyboardArrowUpIcon onClick={() => {showAge(false)}}/> : <KeyboardArrowDownIcon onClick={() => {showAge(true)}}/>}</h3>
         {age && <div className="row">
-            <div className="col-lg-3">
+            <div className="col-sm-3">
               <CustomizedChip label={"All Ages"} setLabels={selectAge} col={0} values={selectedAge}/>
             </div>
-            <div className="col-lg-3">
+            <div className="col-sm-3">
               <CustomizedChip label={"For Kids"} setLabels={selectAge} col={1} values={selectedAge}/>
             </div>
-            <div className="col-lg-3">
+            <div className="col-sm-3">
               <CustomizedChip label={"18+"} setLabels={selectAge} col={2} values={selectedAge}/>
             </div>
-            <div className="col-lg-3">
+            <div className="col-sm-1">
             </div>
           </div>}
         <h3>Rating{rating ? <KeyboardArrowUpIcon onClick={() => {showRating(false)}}/> : <KeyboardArrowDownIcon onClick={() => {showRating(true)}}/>}</h3>
         {rating && <CustomizedSlider min={0} max={5} setFilterValue={setRatingValue} lastValues={ratingValue} />}
         <h3>Other Filters{other ? <KeyboardArrowUpIcon onClick={() => {showOther(false)}}/> : <KeyboardArrowDownIcon onClick={() => {showOther(true)}}/>}</h3>
         {other && <div className="row">
-            <div className="col-lg-4">
+            <div className="col-sm-4">
               <CustomizedChip label={"Exhibitions ending soon"} setLabels={selectOther} col={0} values={selectedOther}/>
             </div>
-            <div className="col-lg-2">
+            <div className="col-sm-2">
               <CustomizedChip label={"Online"} setLabels={selectOther} col={1} values={selectedOther}/>
             </div>
-            <div className="col-lg-3">
+            <div className="col-sm-3">
             </div>
           </div>}
-          <div className="mt-5 text-right">
+          <div className="mt-1 text-right">
           <button
                   className="btn btn-lg mr-3"
                   onClick={() => {fProps.setShowFilters(false)}}
