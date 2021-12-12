@@ -87,7 +87,6 @@ const Activity = (props: ActivityProps) => {
       )}
       {createVisit && (<Fragment></Fragment>)}
       {buyTickets && (<BuyTicketsActivity aProps={props.aProps} setBack={defaultHandler}/>)}
-      <Filters/>
     </Fragment>
   );
 };

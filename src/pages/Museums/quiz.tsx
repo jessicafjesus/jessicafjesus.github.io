@@ -94,6 +94,7 @@ const Quiz = (qProps: QuizProps) => {
               onClose={() => qProps.setShowQuiz(false)}
               aria-labelledby="qqcoisa"
               aria-describedby="outracoisa"
+              style={{position:"absolute",overflow:"scroll"}}
             >
               <div className="row h-100 d-flex align-items-center">
                 <div className="col w-100 d-flex justify-content-center text-center">
