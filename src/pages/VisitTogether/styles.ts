@@ -29,12 +29,18 @@ export default makeStyles((theme) => ({
         flex: "1",
         justifyContent: "center",
         alignContent: "center",
+        marginBottom: "30px",
     },
 
     catStyle: {
         color: "#191f24",
-        //   fontFamily: 'Lato, sansSerif
         fontSize: "22px",
+        fontWeight: 600,
+    },
+
+    nearYou: {
+        color: "#191f24",
+        fontSize: "20px",
         fontWeight: 600,
     },
 

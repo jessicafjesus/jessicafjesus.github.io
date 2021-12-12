@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Box, Stack, Card, Rating } from '@mui/material';
 import { Typography, Grid, Button} from "@material-ui/core";
-import { VisitTogether } from "../VisitTogether1";
+import { VisitTogether } from "../visitTogether";
 import useStyles from './styles';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';

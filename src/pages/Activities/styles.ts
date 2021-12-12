@@ -29,8 +29,13 @@ export default makeStyles((theme) => ({
 
     catStyle: {
         color: "#191f24",
-        //   fontFamily: 'Lato, sansSerif
         fontSize: "22px",
+        fontWeight: 600,
+    },
+
+    nearYou: {
+        color: "#191f24",
+        fontSize: "20px",
         fontWeight: 600,
     },
 

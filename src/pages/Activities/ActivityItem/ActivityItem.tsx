@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Box, Stack, Card, Rating } from '@mui/material';
 import { Typography, Grid, Button} from "@material-ui/core";
-import { Activity } from "../Activities1";
+import { Activity } from "../activities";
 import useStyles from './styles';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
