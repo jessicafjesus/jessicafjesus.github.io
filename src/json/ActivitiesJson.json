@@ -59,7 +59,7 @@
     {
       "activityName": "MoMA Film Benefit: Honoring Penélope Cruz",
       "activityLocation": "The Museum of Modern Art",
-      "activityType": "Party",
+      "activityType": "History",
       "activityRating": 3.4,
       "activityDate": ["19:00 14/12/2021","19:00 15/12/2021","19:00 16/12/2021"],
       "activityDescriptionTitle":"Take part in workshops themed around re-use and re-cycling and discover the small actions you can take to have a real impact on our climate future ",
@@ -68,6 +68,56 @@
       "activityImage": "activity4.jpg",
       "fillingFast": true,
       "activityPrices": [18.0,13.0,13.0]
-    }
+    },
+    {
+        "activityName": "Verbal Description Tour",
+        "activityLocation": "Brooklyn Museum",
+        "activityType": "Tour",
+        "activityRating": 4.2,
+        "activityDate": ["10:00 17/12/2021","10:00 18/12/2021","11:00 20/12/2021"],
+        "activityDescriptionTitle":"Take part in workshops themed around re-use and re-cycling and discover the small actions you can take to have a real impact on our climate future ",
+        "activityDescription": "Blind individuals and those with low vision are invited to experience our collections and exhibitions online, by tuning in for vivid, detailed verbal description tours, followed by conversation.",
+        "activityReviews": ["review1", "review2"],
+        "activityImage": "blindTour.jpg",
+        "fillingFast": true,
+        "activityPrices": [18.0,13.0,13.0]
+      },
+      {
+        "activityName": "Artful Explorers After School: Ages 4-6 (Drop Off)",
+        "activityLocation": "Children's Museum of Manhattan",
+        "activityType": "Party",
+        "activityRating": 3.4,
+        "activityDate": ["19:00 14/12/2021","19:00 15/12/2021","19:00 16/12/2021"],
+        "activityDescriptionTitle":"Let your child’s imagination run wild as they explore our interactive exhibit, make art with fun and funky materials, and develop their social-emotional skills with a small group of peers. Your child’s artful guide will facilitate artmaking, games, and adventures to spark creativity and problem solving.",
+        "activityDescription": "Join us at The Museum of Modern Art on Tuesday",
+        "activityReviews": ["review1", "review2"],
+        "activityImage": "manhattanWorkshop.jpg",
+        "fillingFast": false,
+        "activityPrices": [30.0,25.0,18.0]
+      },{
+        "activityName": "Jingle Bell Estravangza",
+        "activityLocation": "Children's Museum of New Hampshire",
+        "activityType": "Party",
+        "activityRating": 3.4,
+        "activityDate": ["19:00 14/12/2021","19:00 15/12/2021","19:00 16/12/2021"],
+        "activityDescriptionTitle":"Enjoy a special ticketed holiday event at the Children's Museum of New Hampshire!",
+        "activityDescription": "Meet Santa for a socially distanced photo opportunity and receive a special gift. Hear a book reading of The Polar Express by Chris Van Allsburg © 1985, engage in hands-on holiday craft activities and a magical science experiment, all while exploring the museum's many interactive exhibits. On your way out, grab a special treat to enjoy on your way home. Pajamas are welcome! Reserve your spots early. Space is limited!",
+        "activityReviews": ["review1", "review2"],
+        "activityImage": "jingleBell.jpg",
+        "fillingFast": true,
+        "activityPrices": [18.0,13.0,0.0]
+      },{
+        "activityName": "Virtual Conversation: André Kertész—Postcards from Paris",
+        "activityLocation": "Art Institute of Chicago",
+        "activityType": "Virtual",
+        "activityRating": 4.7,
+        "activityDate": ["15:00 14/12/2021","15:00 15/12/2021","15:00 16/12/2021"],
+        "activityDescriptionTitle":"The scale, subjects, and circulation of photographer André Kertész’s carte postale prints serve as the starting point for a conversation led by Grace Deveney, David C. and Sarajean Ruttenberg Associate Curator of Photography and Media.",
+        "activityDescription": "Deveney talks with contemporary artists Derrick Woods-Morrow and Felipe Baeza about how intimacy operates in their own work and how proximity, distance, and kinship are navigated through materials and studio process.",
+        "activityReviews": ["review1", "review2"],
+        "activityImage": "aicWorkshop.jpg",
+        "fillingFast": false,
+        "activityPrices": [18.0,13.0,0.0]
+      }
   ]
 }
