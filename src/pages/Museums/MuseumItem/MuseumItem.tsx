@@ -9,6 +9,10 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 const MuseumItem = ({museum}:{museum:Museum}) => {
     const classes = useStyles();
 
+    const goMuseumHandler = () => {
+        
+    }
+
     return (
         <Box >
             <Card className={classes.card}>
@@ -35,7 +39,7 @@ const MuseumItem = ({museum}:{museum:Museum}) => {
                         </Stack>
                     </Grid>
                     <Grid item xs={1} className={classes.insideBoxRight}>
-                        <Button className={classes.goButton}>
+                        <Button className={classes.goButton} onClick={goMuseumHandler}>
                             <ArrowForwardIosIcon fontSize="large"/>
                         </Button>
                     </Grid>
