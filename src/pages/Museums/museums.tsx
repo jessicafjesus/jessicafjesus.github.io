@@ -75,7 +75,7 @@ const Museums = () => {
         </Stack>
         </Box>
     </Fragment>)}
-    {(showMuseum) && <Museum mProps={selectedMuseum}/>}
+    {(showMuseum) && <Museum mProps={selectedMuseum} viewMain={setShowDefault} viewMuseum={setShowMuseum}/>}
   </Fragment>
   );
 };

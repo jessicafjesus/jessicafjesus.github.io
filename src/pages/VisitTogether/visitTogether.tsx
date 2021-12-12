@@ -37,7 +37,7 @@ const VisitTogether = () => {
         <a className={`${classes.nearYou} ${classes.alignLeft}`}>Next visits</a>
         <Stack className="mt-2" spacing={4}>
           {data.visitTogether.map((vis) => (
-            <VisitTogetherItem vis={vis} />
+            <VisitTogetherItem key={Math.random()} vis={vis} />
           ))}
           </Stack>
         </Box>

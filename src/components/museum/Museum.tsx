@@ -3,6 +3,8 @@ import Rating from "@mui/material/Rating";
 import React, { useState, Fragment } from "react";
 import { useNavigate } from "react-router-dom";
 import BuyTickets from "./BuyTickets";
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import CreateVisit from "./CreateVisit";
 
 interface MuseumProps {
   mProps: {
@@ -17,34 +19,41 @@ interface MuseumProps {
     museumWebsite: string;
     museumHours: string;
     museumAdmission: string[];
-  };
+  },
+  viewMain : React.Dispatch<React.SetStateAction<boolean>>;
+  viewMuseum : React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const Museum = (props: MuseumProps) => {
-  const navigateTo = useNavigate();
 
-  const handleCreateVisit = () => {
-    navigateTo("/createVisit");
+  const handleCreateVisit = (event: React.MouseEvent) => {
+    event.preventDefault();
+    setCreateVisit(true);
   };
 
   const [defaultView, setDefaultView] = useState(true);
   const [buyTickets, setBuyTickets] = useState(false);
+  const [createVisit, setCreateVisit] = useState(false);
 
   const handleGetTickets = (event: React.MouseEvent) => {
     event.preventDefault();
     setDefaultView(false);
+    setCreateVisit(false);
     setBuyTickets(true);
   };
 
   const defaultHandler = (event: React.MouseEvent) => {
     event.preventDefault();
     setBuyTickets(false);
+    setCreateVisit(false);
     setDefaultView(true);
   };
 
   return (
     <Fragment>
       {defaultView && (
+        <div>
+        <button className="mt-2 ml-2 btn" style={{backgroundColor:"#FFA552"}} onClick={() => {props.viewMuseum(false);props.viewMain(true)}}><ArrowBackIcon/></button>
         <section
           className="container pr-5 pl-5 pb-3 pt-3 pb-1 border bg rounded-3 shadow mx-auto mt-5 mb-5"
           style={{ backgroundColor: "#FFFFFF" }}
@@ -147,11 +156,12 @@ const Museum = (props: MuseumProps) => {
               </div>
             </div>
           </div>
-        </section>
+        </section></div>
       )}
       {buyTickets && (
         <BuyTickets mProps={props.mProps} setBack={defaultHandler} />
       )}
+      {createVisit && (<CreateVisit showCreate={createVisit} setShowCreate={setCreateVisit}/>)}
     </Fragment>
   );
 };
