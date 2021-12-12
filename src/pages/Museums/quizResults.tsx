@@ -50,14 +50,15 @@ const Museums = () => {
 
   return (
   <Fragment>
-      <Box className={classes.container}>
+      {showDefaultView && (<Box className={classes.container}>
         <a className={`${classes.nearYou} ${classes.alignLeft}`}>Quiz Results</a>
         <Stack className="mt-2" spacing={4}>
             {data.museumItems.map((museum) => (
             <MuseumItem museum={museum} viewMuseum={setShowMuseum} viewMain={setShowDefault} setDefault={setSelectedMuseum} />
             ))}
             </Stack>
-        </Box>
+        </Box>)}
+        {(showMuseum) && <Museum mProps={selectedMuseum} viewMain={setShowDefault} viewMuseum={setShowMuseum}/>}
   </Fragment>
   );
 };
