@@ -94,12 +94,13 @@ const Quiz = (qProps: QuizProps) => {
               onClose={() => qProps.setShowQuiz(false)}
               aria-labelledby="qqcoisa"
               aria-describedby="outracoisa"
+              style={{position:"absolute",overflow:"scroll"}}
             >
-              <div className="row h-100 d-flex align-items-center">
+              <div className="row  align-items-center" style={{overflow:"scroll"}}>
                 <div className="col w-100 d-flex justify-content-center text-center">
-                  <div className="container-sm d-inline-block ">
+                  <div className="container-sm d-inline-block bg-warning h-75" >
                     <div
-                      className="row"
+                      className="row "
                       style={{
                         backgroundColor: "#00A3A3",
                         borderRadius: "7px 7px 0px 0px",
@@ -112,9 +113,9 @@ const Quiz = (qProps: QuizProps) => {
                       </div>
                       <div className="row-sm">
                         {" "}
-                        <h1 className="mt-5 mb-4">
+                        <h2 className=" mb-5" style={{color:"white"}}><b>
                           {titlesData[current]}
-                        </h1>
+                        </b></h2>
                       </div>
                     </div>
                     <div

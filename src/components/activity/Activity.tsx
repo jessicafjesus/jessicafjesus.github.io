@@ -1,6 +1,8 @@
 import Rating from "@mui/material/Rating"
 import React, { Fragment, useState } from "react";
 import BuyTicketsActivity from "./BuyTicketsActivity";
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Filters from "./Filters";
 interface ActivityProps {
   aProps: {
@@ -8,10 +10,12 @@ interface ActivityProps {
     activityType: string;
     activityRating: number;
     activityDate: string[];
+    activityDescriptionTitle: string;
     activityDescription: string;
     activityLocation: string;
     activityReviews: string[];
     activityImage: string;
+    activityPrices: number[]
   };
 }
 
@@ -24,6 +28,7 @@ const Activity = (props: ActivityProps) => {
   const [defaultView,setDefaultView] = useState(true)
   const [buyTickets,setBuyTickets] = useState(false)
   const [createVisit,setCreateVisit] = useState(false)
+  const [seeMore,setSeeMore] = useState(false)
 
   const buyTicketsHandler = (event : React.MouseEvent) => {
     event.preventDefault()
@@ -62,20 +67,26 @@ const Activity = (props: ActivityProps) => {
             <h2 className="text-left" style={{color:"#47525E"}}><b>{props.aProps.activityName}</b></h2>
             <h5 className="text-left" style={{color:"#47525E"}}>{props.aProps.activityLocation}</h5>
             <Rating value={props.aProps.activityRating} readOnly={true} size="large"/>
-            {DateSet}
+            {DateSet.slice(0,seeMore ? DateSet.length  : 2)}
+            {(DateSet.length > 2) &&
+            <div className="row">
+              <p className="text-left">See {seeMore ? "Less" : "More"}
+              {seeMore ? <KeyboardArrowUpIcon fontSize="small" onClick={() => {setSeeMore(false)}}/> : <KeyboardArrowDownIcon fontSize="small" onClick={() => {setSeeMore(true)}}/>}
+              </p>
+            </div>}
             <button className="btn btn-lg btn-block" style={{backgroundColor:"#00A3A3", color:"#FFFFFF"}} onClick={buyTicketsHandler}>Get Tickets</button>
             <button className="btn btn-lg btn-block" style={{backgroundColor:"#00A3A3", color:"#FFFFFF"}} onClick={createVisitHandler}>Create Visit</button>
           </div>
         </div>
         <div className="row mt-3 align-items-center pl-5 pr-5">
-          <hr style={{border:"2px solid #F6AE2D", color:"#F6AE2D" , opacity:"100%", borderRadius:"7px 7px 7px 7px", margin:"auto", width:"93%"}} className="mt-3 mb-3"/>
+          <hr style={{border:"2px solid #F6AE2D", color:"#F6AE2D" , opacity:"100%", borderRadius:"7px 7px 7px 7px", margin:"auto", width:"96%"}} className="mt-3 mb-3"/>
+          <h4 className="text-left"><b>{props.aProps.activityDescriptionTitle}</b></h4>
           <p className="text-left">{props.aProps.activityDescription}</p>
         </div>
       </section>
       )}
       {createVisit && (<Fragment></Fragment>)}
       {buyTickets && (<BuyTicketsActivity aProps={props.aProps} setBack={defaultHandler}/>)}
-      <Filters/>
     </Fragment>
   );
 };

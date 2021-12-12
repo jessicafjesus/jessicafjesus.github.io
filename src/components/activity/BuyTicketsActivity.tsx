@@ -16,11 +16,14 @@ import {
   TextField,
 } from "@mui/material";
 import useStyles from "./styles";
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import DatePicker from "@mui/lab/DatePicker";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import CountriesJson from "../../json/CountriesJson.json";
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import CustomizedDateChip from "./CustomizedDateChip";
 
 interface ActivityProps {
   aProps: {
@@ -28,12 +31,14 @@ interface ActivityProps {
     activityType: string;
     activityRating: number;
     activityDate: string[];
+    activityDescriptionTitle: string;
     activityDescription: string;
     activityLocation: string;
     activityReviews: string[];
     activityImage: string;
+    activityPrices: number[];
   };
-  setBack : (event: React.MouseEvent) => void;
+  setBack: (event: React.MouseEvent) => void;
 }
 
 const BuyTicketsActivity = (props: ActivityProps) => {
@@ -42,9 +47,6 @@ const BuyTicketsActivity = (props: ActivityProps) => {
   const [studentAmount, setStudentAmount] = useState(0);
   const [seniorAmount, setSeniorAmount] = useState(0);
   const [stepValue, setStepValue] = useState(0);
-  const adultPrice = 18.0;
-  const studentPrice = 13.0;
-  const seniorPrice = 13.0;
   const countries = CountriesJson.countries;
   const [country, setCountry] = useState("");
   const [email, setEmail] = useState("");
@@ -56,9 +58,13 @@ const BuyTicketsActivity = (props: ActivityProps) => {
   const [date, setDate] = useState<Date>();
   const [dateInString, setDateInString] = useState("");
   const [type, setType] = useState("");
+  const [activeDate, setActiveDate] = useState(props.aProps.activityDate[0]);
+  const [seeMore,setSeeMore] = useState(false)
   const buttonHandler = (event: React.MouseEvent) => {
     event.preventDefault();
-    setStepValue(stepValue + 1);
+    if (adultAmount > 0 || studentAmount > 0 || seniorAmount > 0) {
+      setStepValue((current) => current + 1);
+    }
   };
 
   const payHandler = (event: React.FormEvent) => {
@@ -66,10 +72,29 @@ const BuyTicketsActivity = (props: ActivityProps) => {
     setStepValue(stepValue + 1);
   };
 
+  const backHandler = (event: React.MouseEvent) => {
+    event.preventDefault();
+    if(stepValue === 0) {
+      props.setBack(event)
+    }
+    setStepValue(stepValue - 1);
+  };
+
   const completeHandler = (event: React.FormEvent) => {
     event.preventDefault();
-    setStepValue(stepValue + 1);
+    if (type !== "") {
+      setStepValue(stepValue + 1);
+    }
   };
+
+  const DateSet = props.aProps.activityDate.map((date) => {
+    return (
+      <div key={Math.random()} onClick={() => {setActiveDate(date)}}>
+      <CustomizedDateChip label={date} active={activeDate}/>
+      <div className="col-12 bg-primary"></div>
+      </div>
+    )
+  })
 
   return (
     <Fragment>
@@ -98,6 +123,15 @@ const BuyTicketsActivity = (props: ActivityProps) => {
                 <h5 className="text-left" style={{ color: "#47525E" }}>
                   {props.aProps.activityLocation}
                 </h5>
+                <div className="text-left">
+                {DateSet.slice(0,seeMore ? DateSet.length : 2)}
+                {(DateSet.length > 2) &&
+            <div className="">
+              <p className="text-left">See {seeMore ? "Less" : "More"}
+              {seeMore ? <KeyboardArrowUpIcon fontSize="small" onClick={() => {setSeeMore(false)}}/> : <KeyboardArrowDownIcon fontSize="small" onClick={() => {setSeeMore(true)}}/>}
+              </p>
+            </div>}
+                </div>
                 <div className="mt-3 mb-3">
                   <div className="row text-center mt-2 mb-2">
                     <div className="col-3">
@@ -118,7 +152,7 @@ const BuyTicketsActivity = (props: ActivityProps) => {
                       <h5>Adult</h5>
                     </div>
                     <div className="col-3">
-                      <h5>€ {adultPrice}</h5>
+                      <h5>€ {props.aProps.activityPrices[0]}</h5>
                     </div>
                     <div className="col-3">
                       <ButtonGroup
@@ -148,7 +182,7 @@ const BuyTicketsActivity = (props: ActivityProps) => {
                     <div className="col-3">
                       <h5>
                         {adultAmount > 0
-                          ? "€ " + adultAmount * adultPrice
+                          ? "€ " + adultAmount * props.aProps.activityPrices[0]
                           : "-"}
                       </h5>
                     </div>
@@ -158,7 +192,7 @@ const BuyTicketsActivity = (props: ActivityProps) => {
                       <h5>Student</h5>
                     </div>
                     <div className="col-3">
-                      <h5>€ {studentPrice}</h5>
+                      <h5>€ {props.aProps.activityPrices[1]}</h5>
                     </div>
                     <div className="col-3">
                       <ButtonGroup
@@ -188,7 +222,7 @@ const BuyTicketsActivity = (props: ActivityProps) => {
                     <div className="col-3">
                       <h5>
                         {studentAmount > 0
-                          ? "€ " + studentAmount * studentPrice
+                          ? "€ " + studentAmount * props.aProps.activityPrices[1]
                           : "-"}
                       </h5>
                     </div>
@@ -198,7 +232,7 @@ const BuyTicketsActivity = (props: ActivityProps) => {
                       <h5>Senior</h5>
                     </div>
                     <div className="col-3">
-                      <h5>€ {seniorPrice}</h5>
+                      <h5>€ {props.aProps.activityPrices[2]}</h5>
                     </div>
                     <div className="col-3">
                       <ButtonGroup
@@ -228,7 +262,7 @@ const BuyTicketsActivity = (props: ActivityProps) => {
                     <div className="col-3">
                       <h5>
                         {seniorAmount > 0
-                          ? "€ " + seniorAmount * seniorPrice
+                          ? "€ " + seniorAmount * props.aProps.activityPrices[2]
                           : "-"}
                       </h5>
                     </div>
@@ -243,14 +277,21 @@ const BuyTicketsActivity = (props: ActivityProps) => {
                         studentAmount > 0 ||
                         adultAmount > 0
                           ? "€ " +
-                            (seniorAmount * seniorPrice +
-                              studentAmount * studentPrice +
-                              adultPrice * adultAmount)
+                            (seniorAmount * props.aProps.activityPrices[2] +
+                              studentAmount * props.aProps.activityPrices[1] +
+                              props.aProps.activityPrices[0] * adultAmount)
                           : "-"}
                       </h5>
                     </div>
                   </div>
                 </div>
+                <button
+                  className="btn btn-lg mr-3 pr-5 pl-5"
+                  onClick={backHandler}
+                  style={{ backgroundColor: "#00A3A3", color: "white" }}
+                >
+                  Back
+                </button>
                 <button
                   className="btn btn-lg"
                   onClick={buttonHandler}
@@ -277,84 +318,90 @@ const BuyTicketsActivity = (props: ActivityProps) => {
                     Number of items:{" "}
                     {studentAmount + adultAmount + seniorAmount}
                   </h5>
-                  <div
-                    className="rounded m-1 p-1"
-                    style={{ backgroundColor: "#FFFFFF" }}
-                  >
-                    <h5
-                      className="pl-3 pr-3 pt-3 pb-1"
-                      style={{ color: "#00A3A3" }}
+                  {adultAmount > 0 && (
+                    <div
+                      className="rounded m-1 p-1"
+                      style={{ backgroundColor: "#FFFFFF" }}
                     >
-                      {adultAmount} x Individual Ticket (Adult) for the workshop
-                      Power To Change
-                    </h5>
-                    <h6
-                      className="pl-3 pr-3 pt-1 pb-1"
-                      style={{ color: "#47525E" }}
+                      <h5
+                        className="pl-3 pr-3 pt-3 pb-1"
+                        style={{ color: "#00A3A3" }}
+                      >
+                        {adultAmount} x Individual Ticket (Adult) for the
+                        workshop Power To Change
+                      </h5>
+                      <h6
+                        className="pl-3 pr-3 pt-1 pb-1"
+                        style={{ color: "#47525E" }}
+                      >
+                        {activeDate}
+                      </h6>
+                      <h6
+                        className="pl-3 pr-3 pt-1 pb-3"
+                        style={{ color: "#47525E" }}
+                      >
+                        Adult: {props.aProps.activityPrices[0]} €
+                      </h6>
+                    </div>
+                  )}
+                  {studentAmount > 0 && (
+                    <div
+                      className="rounded m-1 p-1"
+                      style={{ backgroundColor: "#FFFFFF" }}
                     >
-                      16 November 2021, 17.30
-                    </h6>
-                    <h6
-                      className="pl-3 pr-3 pt-1 pb-3"
-                      style={{ color: "#47525E" }}
+                      <h5
+                        className="pl-3 pr-3 pt-3 pb-1"
+                        style={{ color: "#00A3A3" }}
+                      >
+                        {studentAmount} x Individual Ticket (Student) for the
+                        workshop Power To Change
+                      </h5>
+                      <h6
+                        className="pl-3 pr-3 pt-1 pb-1"
+                        style={{ color: "#47525E" }}
+                      >
+                        {activeDate}
+                      </h6>
+                      <h6
+                        className="pl-3 pr-3 pt-1 pb-3"
+                        style={{ color: "#47525E" }}
+                      >
+                        Student: {props.aProps.activityPrices[1]} €
+                      </h6>
+                    </div>
+                  )}
+                  {seniorAmount > 0 && (
+                    <div
+                      className="rounded m-1 p-1"
+                      style={{ backgroundColor: "#FFFFFF" }}
                     >
-                      Adult: {adultPrice} €
-                    </h6>
-                  </div>
-                  <div
-                    className="rounded m-1 p-1"
-                    style={{ backgroundColor: "#FFFFFF" }}
-                  >
-                    <h5
-                      className="pl-3 pr-3 pt-3 pb-1"
-                      style={{ color: "#00A3A3" }}
-                    >
-                      {studentAmount} x Individual Ticket (Student) for the
-                      workshop Power To Change
-                    </h5>
-                    <h6
-                      className="pl-3 pr-3 pt-1 pb-1"
-                      style={{ color: "#47525E" }}
-                    >
-                      16 November 2021, 17.30
-                    </h6>
-                    <h6
-                      className="pl-3 pr-3 pt-1 pb-3"
-                      style={{ color: "#47525E" }}
-                    >
-                      Student: {studentPrice} €
-                    </h6>
-                  </div>
-                  <div
-                    className="rounded m-1 p-1"
-                    style={{ backgroundColor: "#FFFFFF" }}
-                  >
-                    <h5
-                      className="pl-3 pr-3 pt-3 pb-1"
-                      style={{ color: "#00A3A3" }}
-                    >
-                      {seniorAmount} x Individual Ticket (Senior) for the
-                      workshop Power To Change
-                    </h5>
-                    <h6
-                      className="pl-3 pr-3 pt-1 pb-1"
-                      style={{ color: "#47525E" }}
-                    >
-                      16 November 2021, 17.30
-                    </h6>
-                    <h6
-                      className="pl-3 pr-3 pt-1 pb-3"
-                      style={{ color: "#47525E" }}
-                    >
-                      Senior: {seniorPrice} €
-                    </h6>
-                  </div>
+                      <h5
+                        className="pl-3 pr-3 pt-3 pb-1"
+                        style={{ color: "#00A3A3" }}
+                      >
+                        {seniorAmount} x Individual Ticket (Senior) for the
+                        workshop Power To Change
+                      </h5>
+                      <h6
+                        className="pl-3 pr-3 pt-1 pb-1"
+                        style={{ color: "#47525E" }}
+                      >
+                        {activeDate}
+                      </h6>
+                      <h6
+                        className="pl-3 pr-3 pt-1 pb-3"
+                        style={{ color: "#47525E" }}
+                      >
+                        Senior: {props.aProps.activityPrices[2]} €
+                      </h6>
+                    </div>
+                  )}
                   <div className="text-right">
                     <h1 className="mt-3" style={{ color: "white" }}>
                       Total :{" "}
-                      {seniorAmount * seniorPrice +
-                        studentAmount * studentPrice +
-                        adultPrice * adultAmount}{" "}
+                      {seniorAmount * props.aProps.activityPrices[2] +
+                        studentAmount * props.aProps.activityPrices[1] +
+                        props.aProps.activityPrices[0] * adultAmount}{" "}
                       €
                     </h1>
                   </div>
@@ -380,7 +427,7 @@ const BuyTicketsActivity = (props: ActivityProps) => {
                           required
                           fullWidth
                           id="email"
-                          type="email"
+                          type="text"
                           label="Your e-mail"
                           name="email"
                           value={email}
@@ -454,6 +501,13 @@ const BuyTicketsActivity = (props: ActivityProps) => {
                       style={{ backgroundColor: "#F3F4F4" }}
                     >
                       <button
+                        className="btn btn-lg mr-3"
+                        onClick={backHandler}
+                        style={{ backgroundColor: "#00A3A3", color: "white" }}
+                      >
+                        Back
+                      </button>
+                      <button
                         className="btn btn-lg"
                         style={{ backgroundColor: "#00A3A3", color: "white" }}
                       >
@@ -496,13 +550,13 @@ const BuyTicketsActivity = (props: ActivityProps) => {
                       className="pl-3 pr-3 pt-1 pb-1"
                       style={{ color: "#47525E" }}
                     >
-                      16 November 2021, 17.30
+                      {activeDate}
                     </h6>
                     <h6
                       className="pl-3 pr-3 pt-1 pb-3"
                       style={{ color: "#47525E" }}
                     >
-                      Adult: {adultPrice} €
+                      Adult: {props.aProps.activityPrices[0]} €
                     </h6>
                   </div>
                   <div
@@ -520,13 +574,13 @@ const BuyTicketsActivity = (props: ActivityProps) => {
                       className="pl-3 pr-3 pt-1 pb-1"
                       style={{ color: "#47525E" }}
                     >
-                      16 November 2021, 17.30
+                      {activeDate}
                     </h6>
                     <h6
                       className="pl-3 pr-3 pt-1 pb-3"
                       style={{ color: "#47525E" }}
                     >
-                      Student: {studentPrice} €
+                      Student: {props.aProps.activityPrices[1]} €
                     </h6>
                   </div>
                   <div
@@ -544,21 +598,21 @@ const BuyTicketsActivity = (props: ActivityProps) => {
                       className="pl-3 pr-3 pt-1 pb-1"
                       style={{ color: "#47525E" }}
                     >
-                      16 November 2021, 17.30
+                      {activeDate}
                     </h6>
                     <h6
                       className="pl-3 pr-3 pt-1 pb-3"
                       style={{ color: "#47525E" }}
                     >
-                      Senior: {seniorPrice} €
+                      Senior: {props.aProps.activityPrices[2]} €
                     </h6>
                   </div>
                   <div className="text-right">
                     <h1 className="mt-3" style={{ color: "white" }}>
                       Total :{" "}
-                      {seniorAmount * seniorPrice +
-                        studentAmount * studentPrice +
-                        adultPrice * adultAmount}{" "}
+                      {seniorAmount * props.aProps.activityPrices[2] +
+                        studentAmount * props.aProps.activityPrices[1] +
+                        props.aProps.activityPrices[0] * adultAmount}{" "}
                       €
                     </h1>
                   </div>
@@ -577,44 +631,89 @@ const BuyTicketsActivity = (props: ActivityProps) => {
                     <Grid container spacing={2}>
                       <Grid item xs={12}>
                         <RadioGroup row>
-                          <Grid
-                            item
-                            xs={4}
-                          >
-                            <div style={{display:"inline-block",position:"relative"}}>
-                            <img src="mastercard.png" alt="mastercard" style={{borderRadius:"2%",width:"60%"}} className="img-fluid mx-auto d-block"/>
-                            <Radio
-                              value="mastercard"
-                              onClick={() => {
-                                setType("mastercard");
+                          <Grid item xs={4}>
+                            <div
+                              style={{
+                                display: "inline-block",
+                                position: "relative",
                               }}
-                              checkedIcon={<CheckCircleIcon/>}
-                              style={{position:"absolute",top:"0%",right:"0%",color:"#47525E"}}
-                            /></div>
+                            >
+                              <img
+                                src="mastercard.png"
+                                alt="mastercard"
+                                style={{ borderRadius: "2%", width: "60%" }}
+                                className="img-fluid mx-auto d-block"
+                              />
+                              <Radio
+                                value="mastercard"
+                                onClick={() => {
+                                  setType("mastercard");
+                                }}
+                                checkedIcon={<CheckCircleIcon />}
+                                style={{
+                                  position: "absolute",
+                                  top: "0%",
+                                  right: "0%",
+                                  color: "#47525E",
+                                }}
+                              />
+                            </div>
                           </Grid>
                           <Grid item xs={4}>
-                          <div style={{display:"inline-block",position:"relative"}}>
-                            <img src="visa.png" alt="visa" style={{borderRadius:"2%",width:"60%"}} className="img-fluid mx-auto d-block"/>
-                            <Radio
-                              value="visa"
-                              onClick={() => {
-                                setType("visa");
+                            <div
+                              style={{
+                                display: "inline-block",
+                                position: "relative",
                               }}
-                              checkedIcon={<CheckCircleIcon/>}
-                              style={{position:"absolute",top:"0%",right:"0%",color:"#47525E"}}
-                            /></div>
+                            >
+                              <img
+                                src="visa.png"
+                                alt="visa"
+                                style={{ borderRadius: "2%", width: "60%" }}
+                                className="img-fluid mx-auto d-block"
+                              />
+                              <Radio
+                                value="visa"
+                                onClick={() => {
+                                  setType("visa");
+                                }}
+                                checkedIcon={<CheckCircleIcon />}
+                                style={{
+                                  position: "absolute",
+                                  top: "0%",
+                                  right: "0%",
+                                  color: "#47525E",
+                                }}
+                              />
+                            </div>
                           </Grid>
                           <Grid item xs={4}>
-                          <div style={{display:"inline-block",position:"relative"}}>
-                            <img src="paypal.png" alt="paypal" style={{borderRadius:"2%",width:"60%"}} className="img-fluid mx-auto d-block"/>
-                            <Radio
-                              value="paypal"
-                              onClick={() => {
-                                setType("paypal");
+                            <div
+                              style={{
+                                display: "inline-block",
+                                position: "relative",
                               }}
-                              checkedIcon={<CheckCircleIcon/>}
-                              style={{position:"absolute",top:"0%",right:"0%",color:"#47525E"}}
-                            /></div>
+                            >
+                              <img
+                                src="paypal.png"
+                                alt="paypal"
+                                style={{ borderRadius: "2%", width: "60%" }}
+                                className="img-fluid mx-auto d-block"
+                              />
+                              <Radio
+                                value="paypal"
+                                onClick={() => {
+                                  setType("paypal");
+                                }}
+                                checkedIcon={<CheckCircleIcon />}
+                                style={{
+                                  position: "absolute",
+                                  top: "0%",
+                                  right: "0%",
+                                  color: "#47525E",
+                                }}
+                              />
+                            </div>
                           </Grid>
                         </RadioGroup>
                       </Grid>
@@ -715,6 +814,13 @@ const BuyTicketsActivity = (props: ActivityProps) => {
                       style={{ backgroundColor: "#F3F4F4" }}
                     >
                       <button
+                        className="btn btn-lg mr-3 pr-5 pl-5"
+                        onClick={backHandler}
+                        style={{ backgroundColor: "#00A3A3", color: "white" }}
+                      >
+                        Back
+                      </button>
+                      <button
                         className="btn btn-lg"
                         style={{ backgroundColor: "#00A3A3", color: "white" }}
                       >
@@ -727,8 +833,18 @@ const BuyTicketsActivity = (props: ActivityProps) => {
             </div>
           </Fragment>
         )}
-        {stepValue === 3 && <div className="row h-100 d-flex align-items-center"><div className="col w-100 d-flex justify-content-center text-center">
-          <div className="mt-5 pt-5" onClick={props.setBack}><h1 style={{ color: "#343F4B"}}><b>Purchase successful</b></h1><CheckCircleIcon sx={{ color: "##343F4B", fontSize: "15vh" }}/></div></div></div>}
+        {stepValue === 3 && (
+          <div className="row h-100 d-flex align-items-center">
+            <div className="col w-100 d-flex justify-content-center text-center">
+              <div className="mt-5 pt-5" onClick={props.setBack}>
+                <h1 style={{ color: "#343F4B" }}>
+                  <b>Purchase successful</b>
+                </h1>
+                <CheckCircleIcon sx={{ color: "##343F4B", fontSize: "15vh" }} />
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </Fragment>
   );

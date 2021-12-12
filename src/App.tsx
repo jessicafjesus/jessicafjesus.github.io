@@ -4,7 +4,7 @@ import Header from './components/header/Header';
 import { Routes, Route} from "react-router-dom";
 import {Activities, Museums, SignIn, VisitTogether} from "./pages";
 import { createTheme, ThemeProvider } from '@material-ui/core/styles'
-import ProfilePage from "./pages/profiles";
+import ProfilePage from "./pages/Profiles";
 import CreateVisit from "./components/museum/CreateVisit";
 import Museum from "./components/museum/Museum";
 import Activity from "./components/activity/Activity";
@@ -25,9 +25,7 @@ const theme = createTheme({
     warning: {
       main: '#47525E'
     },
-    error: {
-      main: "#191F24"
-    }
+    
   }
 });
 
