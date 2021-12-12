@@ -7,7 +7,7 @@ export default makeStyles((theme) => ({
   },
   
   container: {
-    margin: "0px 240px",
+    margin: "0px 220px",
 },
 
   AppBar: {
@@ -15,6 +15,28 @@ export default makeStyles((theme) => ({
     backgroundSize: "cover",
   },
 
+  boxSearch: {
+    background: "#00a3a3",
+    height: "50px",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "start",
+    flex: "1",
+  },
+
+  searchBar: {
+    padding: "4px 15px",
+    borderRadius: "8px",
+    background: "white",
+    borderWidth: "0px",
+    width: "380px",
+  },
+
+  searchIcon: {
+    color: "white",
+    fontWeight: 600,
+    paddingRight: "10px",
+  },
 
   logo: {
     maxWidth: 120,
@@ -52,7 +74,7 @@ export default makeStyles((theme) => ({
     borderRadius: "5px",
     padding: "10px 30px",
     zIndex: 10,
-    height: "55px",
+    height: "58px",
 
     "&:hover": {
       background: "#191f24",
@@ -141,7 +163,6 @@ login: {
     alignItems: "center",
     justifyContent: "flex-end",
     flex: "1",
-    // marginRight: "0px",
     textAlign: "center",
   }
   

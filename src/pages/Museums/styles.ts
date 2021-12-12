@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 export default makeStyles((theme) => ({
 
     container: {
-        margin: "50px 240px",
+        margin: "30px 220px",
     },
 
     catButton: {

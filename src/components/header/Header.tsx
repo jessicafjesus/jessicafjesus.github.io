@@ -10,6 +10,7 @@ import {
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import Stack from '@mui/material/Stack';
 import useStyles from './styles'
+import { Search } from "@mui/icons-material";
 
 
 const Header = () => {
@@ -60,7 +61,6 @@ const Header = () => {
     <Fragment>
       <AppBar position="static" color="primary" className={classes.AppBar}>
         <Box  className={classes.container}>
-          {/* <Toolbar> */}
           <div className={classes.divFora}> 
             <div className={classes.div1}> 
               <Grid className={classes.grow}>
@@ -74,11 +74,6 @@ const Header = () => {
             </div>
             {isLoggedIn ? (
               <div className={classes.div3}>
-                {/* <Box className="text-secondary bg-transparent" component="form" sx={{
-                  '& > :not(style)': { mx: 4, width: '10ch'},
-                }} noValidate autoComplete="off">
-                  <TextField id="standard-basic" label="Search" variant="standard" />
-                </Box> */}
                   <Button color="inherit" className={classes.loggedIn} onClick={profileHandler}><PermIdentityIcon className={classes.profile} fontSize="large" /> Profile </Button>
               </div>
             ):(
@@ -91,9 +86,12 @@ const Header = () => {
               </div>
             )}
             </div>
-          {/* </Toolbar> */}
         </Box>
       </AppBar>
+      <form className={classes.boxSearch} >
+          <Search fontSize="large" className={classes.searchIcon}/>   
+          <input className={`$"form-control " ${classes.searchBar}`} type="search" placeholder="Search" ></input>
+      </form>
     </Fragment>
   );
 };

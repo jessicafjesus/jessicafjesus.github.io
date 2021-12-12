@@ -21,14 +21,11 @@ export interface Museum {
 const Museums = () => {
   const classes = useStyles();
   const [showQuiz, setShowQuiz] = useState(false);
-  const [museums, setMuseums] = useState<Museum[]>([])
   const data = MuseumItemsJson
-  const history = useNavigate();
   
   const takeQuizHandler = (event: React.MouseEvent) => {
     event.preventDefault();
     setShowQuiz(true);
-    // history("/quiz");
   };
 
   const hideQuizHandler = (event: React.MouseEvent) => {
@@ -45,7 +42,7 @@ const Museums = () => {
     <Fragment>
       {showQuiz && <Quiz showQuiz={showQuiz} setShowQuiz={setShowQuiz} hideQuizHandler={hideQuizHandler} />}
       <Box className={classes.container}>
-      <Grid container className="mt-5">
+      <Grid container className="mt-3">
         <Grid item xs={9} >
           <a className={`${classes.catStyle} ${classes.alignLeft}`}> Suggested Categories</a>
           <Stack className="mt-3" spacing={3} direction="row">
@@ -60,7 +57,7 @@ const Museums = () => {
             <Button className={classes.quizButton} onClick={takeQuizHandler}> Take our quiz </Button>
         </Grid>
       </Grid>
-      <Stack className="mt-5" spacing={2}>
+      <Stack className="mt-4" spacing={4}>
         {data.museumItems.map((museum) => (
           <MuseumItem museum={museum} />
         ))}
