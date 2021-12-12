@@ -6,13 +6,37 @@ export default makeStyles((theme) => ({
     flexGrow: 1,
   },
   
-  container: {},
+  container: {
+    margin: "0px 220px",
+},
 
   AppBar: {
     colorSecondary: "#00a3a3",
     backgroundSize: "cover",
   },
 
+  boxSearch: {
+    background: "#00a3a3",
+    height: "50px",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "start",
+    flex: "1",
+  },
+
+  searchBar: {
+    padding: "4px 15px",
+    borderRadius: "8px",
+    background: "white",
+    borderWidth: "0px",
+    width: "380px",
+  },
+
+  searchIcon: {
+    color: "white",
+    fontWeight: 600,
+    paddingRight: "10px",
+  },
 
   logo: {
     maxWidth: 120,
@@ -29,7 +53,7 @@ export default makeStyles((theme) => ({
     marginRight: "-10px",
     color: "#191f24",
     borderRadius: "5px",
-    padding: "10px 20px",
+    padding: "0px 30px",
     height: "50px",
 
     "&:hover": {
@@ -48,9 +72,9 @@ export default makeStyles((theme) => ({
     marginRight: "-10px",
     color: "white",
     borderRadius: "5px",
-    padding: "10px 20px",
+    padding: "10px 30px",
     zIndex: 10,
-    height: "55px",
+    height: "58px",
 
     "&:hover": {
       background: "#191f24",
@@ -99,10 +123,12 @@ login: {
     alignContent: "center",
     justifyContent: "center",
     flex: 1,
+    fontWeight: 600,
 
     "&:hover": {
       color: "#000000",
-      textDecoration: "underline #000000"
+      textDecoration: "underline #000000",
+      fontWeight: 600,
     },
   },
 
@@ -122,7 +148,7 @@ login: {
     display: "flex",
     alignItems: "center",
     flex: "1",
-    marginLeft: "40px",
+    // marginLeft: "40px",
   },
 
   div2: {
@@ -137,7 +163,6 @@ login: {
     alignItems: "center",
     justifyContent: "flex-end",
     flex: "1",
-    marginRight: "40px",
     textAlign: "center",
   }
   

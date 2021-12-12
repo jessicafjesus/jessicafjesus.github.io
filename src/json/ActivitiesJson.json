@@ -9,6 +9,39 @@
       "activityDescription": "Take part in workshops themed around re-use and re-cycling and discover the small actions you can take to have a real impact on our climate future Pick up a pencil for an illustration workshop that asks big questions about small acts for the environment. Sam Ayre and Claire Ratinon (re)use discarded items from Tate Modern and invites you to reflect on use and reuse.",
       "activityReviews": ["review1", "review2"],
       "activityImage": "activity1.jpg"
+    },
+
+    {
+      "activityName": "Power To Change: Action Workshop",
+      "activityLocation": "Tate Museum",
+      "activityType": "Workshop",
+      "activityRating": 2,
+      "activityDate": ["12:00 12/12/2021"],
+      "activityDescription": "Take part in workshops themed around re-use and re-cycling and discover the small actions you can take to have a real impact on our climate future Pick up a pencil for an illustration workshop that asks big questions about small acts for the environment. Sam Ayre and Claire Ratinon (re)use discarded items from Tate Modern and invites you to reflect on use and reuse.",
+      "activityReviews": ["review1", "review2"],
+      "activityImage": "activity1.jpg"
+    },
+
+    {
+      "activityName": "Power To Change: Action Workshop",
+      "activityLocation": "Tate Museum",
+      "activityType": "Workshop",
+      "activityRating": 2,
+      "activityDate": ["12:00 12/12/2021"],
+      "activityDescription": "Take part in workshops themed around re-use and re-cycling and discover the small actions you can take to have a real impact on our climate future Pick up a pencil for an illustration workshop that asks big questions about small acts for the environment. Sam Ayre and Claire Ratinon (re)use discarded items from Tate Modern and invites you to reflect on use and reuse.",
+      "activityReviews": ["review1", "review2"],
+      "activityImage": "activity1.jpg"
+    },
+    
+    {
+      "activityName": "Power To Change: Action Workshop",
+      "activityLocation": "Tate Museum",
+      "activityType": "Workshop",
+      "activityRating": 2,
+      "activityDate": ["12:00 12/12/2021"],
+      "activityDescription": "Take part in workshops themed around re-use and re-cycling and discover the small actions you can take to have a real impact on our climate future Pick up a pencil for an illustration workshop that asks big questions about small acts for the environment. Sam Ayre and Claire Ratinon (re)use discarded items from Tate Modern and invites you to reflect on use and reuse.",
+      "activityReviews": ["review1", "review2"],
+      "activityImage": "activity1.jpg"
     }
   ]
 }

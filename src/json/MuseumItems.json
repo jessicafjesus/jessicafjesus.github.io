@@ -1,0 +1,54 @@
+{
+    "museumItems": [
+      {
+        "museumName": "Solomon R. Guggenheim Museum",
+        "museumLocation": "Manhattan, New York",
+        "museumType": "Art",
+        "museumImage": "solomonMuseum.jpg",
+        "museumRating": 4.1,
+        "museumHours": "Thursday–Monday, 11 am–6 pm",
+        "museumPrice": "€€€"
+      },
+
+      {
+        "museumName": "The Metropolitan Museum of Art",
+        "museumLocation": "Manhattan, New York",
+        "museumType": "Art",
+        "museumImage": "metMuseum.jpg",
+        "museumRating": 4.5,
+        "museumHours": "Thursday–Tuesday, 10am–5pm",
+        "museumPrice": "€€€"
+      },
+
+      {
+        "museumName": "The Museum of Modern Art",
+        "museumLocation": "Manhattan, New York",
+        "museumType": "Art",
+        "museumImage": "MoMa.jpg",
+        "museumRating": 4.2,
+        "museumHours": "Monday-Sunday, 10.30am–5.30pm",
+        "museumPrice": "€€"
+      },
+
+      {
+        "museumName": "American Museum of Natural History",
+        "museumLocation": "Manhattan, New York",
+        "museumType": "History",
+        "museumImage": "HistoryMuseum.jpg",
+        "museumRating": 4.0,
+        "museumHours": "Wednesday-Sunday, 10am–5.30pm",
+        "museumPrice": "€€"
+      },
+
+      {
+        "museumName": "Museum of the City of New York",
+        "museumLocation": "Central Park West, New York",
+        "museumType": "History",
+        "museumImage": "HistoryNewYorkMuseum.jpg",
+        "museumRating": 4.0,
+        "museumHours": "Wednesday-Sunday, 11am–5pm",
+        "museumPrice": "€"
+      }
+    ]
+  }
+  
