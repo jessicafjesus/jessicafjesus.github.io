@@ -61,7 +61,7 @@ export default makeStyles((theme) => ({
       boxShadow: "0px 2px 10px #888888",
       zIndex: "10",
       color: "white",
-      height: "55px",
+      height: "58px",
     },
   },
 
