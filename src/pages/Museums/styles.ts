@@ -34,6 +34,13 @@ export default makeStyles((theme) => ({
         fontWeight: 600,
     },
 
+
+    nearYou: {
+        color: "#191f24",
+        fontSize: "20px",
+        fontWeight: 600,
+    },
+
     alignCenter: {
         textAlign: "center",
     },

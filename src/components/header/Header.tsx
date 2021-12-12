@@ -1,4 +1,4 @@
-import { Fragment, useState, useEffect } from "react";
+import { Fragment, useState, useContext,useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {
@@ -8,6 +8,7 @@ import {
   Box,
 } from "@material-ui/core";
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
+import TokenHandler from "../../token/TokenHandler";
 import Stack from '@mui/material/Stack';
 import useStyles from './styles'
 import { Search } from "@mui/icons-material";
@@ -16,13 +17,13 @@ import { Search } from "@mui/icons-material";
 const Header = () => {
   const classes = useStyles();
   const [search,setSearch] = useState("");
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [activitiesActive, setActivitiesActive] = useState(false);
   const [museumsActive, setMuseumsActive] = useState(true);
   const [visitTogetherActive, setVisitTogetherActive] = useState(false);
   const history = useNavigate();
 
   const [value, setValue] = useState('one');
+  const tokenContext = useContext(TokenHandler);
 
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
@@ -50,7 +51,7 @@ const Header = () => {
   };
 
   const profileHandler = () => {
-    history("/");
+    history("/profile");
   };
 
   const loginHandler = () => {
@@ -72,14 +73,14 @@ const Header = () => {
                 <Button color="inherit" className={museumsActive ? classes.buttonHeaderActive : classes.buttonHeader} onClick={museumsHandler}> Museums </Button>
                 <Button color="inherit" className={visitTogetherActive ? classes.buttonHeaderActive : classes.buttonHeader} onClick={visitTogetherHandler}> Visit Together </Button>
             </div>
-            {isLoggedIn ? (
+            {tokenContext.isLoggedIn ? (
               <div className={classes.div3}>
                   <Button color="inherit" className={classes.loggedIn} onClick={profileHandler}><PermIdentityIcon className={classes.profile} fontSize="large" /> Profile </Button>
               </div>
             ):(
               <div className={classes.div3} >
                 <Stack spacing={0.1}>
-                <Button color="inherit" className={classes.login} variant="outlined" onClick={profileHandler}> Log in </Button>
+                <Button color="inherit" className={classes.login} variant="outlined" onClick={loginHandler}> Log in </Button>
                   <p className={classes.smallText}>or</p>
                   <a href="#" className={classes.smallText}>Sign up</a>
                 </Stack>

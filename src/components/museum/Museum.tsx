@@ -10,6 +10,7 @@ interface MuseumProps {
     museumType: string;
     museumRating: number;
     museumDescription: string;
+    museumLocationImage: string;
     museumLocation: string;
     museumReviews: string[];
     museumImage: string;
@@ -95,7 +96,7 @@ const Museum = (props: MuseumProps) => {
                 </div>
               </div>
               <img
-                src={props.mProps.museumLocation}
+                src={props.mProps.museumLocationImage}
                 alt="imageMuseumLoc"
                 style={{ borderRadius: "1%" }}
                 className="img-fluid mx-auto d-block mt-3"

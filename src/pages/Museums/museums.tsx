@@ -7,21 +7,31 @@ import useStyles from './styles';
 import Quiz from './quiz';
 import MuseumItem from './MuseumItem/MuseumItem';
 import MuseumItemsJson from "../../json/MuseumItems.json"
+import Museum from "../../components/museum/Museum";
 
 export interface Museum { 
-  museumName: string, 
-  museumLocation:string, 
-  museumType: string, 
-  museumImage: string, 
-  museumRating: number, 
-  museumHours: string,
-  museumPrice: string,
+  museumName: string;
+  museumLocationImage: string;
+  museumLocation: string;
+  museumType: string;
+  museumImage: string;
+  museumRating: number;
+  museumHours: string;
+  museumPrice: string;
+  museumDescription: string;
+  museumReviews: string[];
+  museumWebsite: string;
+  museumAdmission: string[];
+  museumDescriptionShort: string;
 }
 
 const Museums = () => {
   const classes = useStyles();
-  const [showQuiz, setShowQuiz] = useState(false);
   const data = MuseumItemsJson
+  const [showQuiz, setShowQuiz] = useState(false);
+  const [showDefaultView,setShowDefault] = useState(true)
+  const [showMuseum,setShowMuseum] = useState(false)
+  const [selectedMuseum,setSelectedMuseum] = useState(data.museumItems[0])
   
   const takeQuizHandler = (event: React.MouseEvent) => {
     event.preventDefault();
@@ -38,11 +48,11 @@ const Museums = () => {
     
   };
 
-  return (
-    <Fragment>
+  return (<Fragment>
+    {showDefaultView && (<Fragment>
       {showQuiz && <Quiz showQuiz={showQuiz} setShowQuiz={setShowQuiz} hideQuizHandler={hideQuizHandler} />}
       <Box className={classes.container}>
-      <Grid container className="mt-3">
+      <Grid container className="mt-3 mb-3">
         <Grid item xs={9} >
           <a className={`${classes.catStyle} ${classes.alignLeft}`}> Suggested Categories</a>
           <Stack className="mt-3" spacing={3} direction="row">
@@ -57,13 +67,16 @@ const Museums = () => {
             <Button className={classes.quizButton} onClick={takeQuizHandler}> Take our quiz </Button>
         </Grid>
       </Grid>
-      <Stack className="mt-4" spacing={4}>
+      <a className={`${classes.nearYou} ${classes.alignLeft}`}>Near you</a>
+      <Stack className="mt-2" spacing={4}>
         {data.museumItems.map((museum) => (
-          <MuseumItem museum={museum} />
+          <MuseumItem museum={museum} viewMuseum={setShowMuseum} viewMain={setShowDefault} setDefault={setSelectedMuseum} />
         ))}
         </Stack>
         </Box>
-    </Fragment>
+    </Fragment>)}
+    {(showMuseum) && <Museum mProps={selectedMuseum}/>}
+  </Fragment>
   );
 };
 
