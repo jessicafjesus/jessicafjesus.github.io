@@ -96,9 +96,9 @@ const Quiz = (qProps: QuizProps) => {
               aria-describedby="outracoisa"
               style={{position:"absolute",overflow:"scroll"}}
             >
-              <div className="row  align-items-center" style={{overflow:"scroll"}}>
+              <div className="row  align-items-center" style={{overflowY:"scroll"}}>
                 <div className="col w-100 d-flex justify-content-center text-center">
-                  <div className="container-sm d-inline-block bg-warning h-75" >
+                  <div className="container-sm d-inline-block mt-5 h-75" style={{height :"50vw"}}>
                     <div
                       className="row "
                       style={{
@@ -132,13 +132,13 @@ const Quiz = (qProps: QuizProps) => {
                             }}
                             onClick={answer1Handler}
                           >
-                            <div className="row">
-                              <div className="col-sm">
+                            <div className="row ">
+                              <div className="col-sm d-flex justify-content-center align-items-center  ">
                                 <img
                                   src={questionData[current][0].image}
                                   alt="option1"
-                                  className="m-2 rounded img-fluid"
-                                  style={{ height: "250px", width: "250px" }}
+                                  className=" m-2 rounded img-fluid"
+                                  style={{ height: "75%", width: "auto" }}
                                 ></img>
                               </div>
                               <div className="col-sm d-flex justify-content-center align-items-center">
@@ -157,12 +157,12 @@ const Quiz = (qProps: QuizProps) => {
                             onClick={answer2Handler}
                           >
                             <div className="row">
-                              <div className="col-sm">
+                              <div className="col-sm d-flex justify-content-center align-items-center">
                                 <img
                                   src={questionData[current][1].image}
                                   alt="option1"
                                   className="m-2 rounded img-fluid"
-                                  style={{ height: "250px", width: "250px" }}
+                                  style={{ height: "75%", width: "auto" }}
                                 ></img>
                               </div>
                               <div className="col-sm d-flex justify-content-center align-items-center">
@@ -183,12 +183,12 @@ const Quiz = (qProps: QuizProps) => {
                             onClick={answer3Handler}
                           >
                             <div className="row">
-                              <div className="col-sm">
+                              <div className="col-sm d-flex justify-content-center align-items-center  ">
                                 <img
                                   src={questionData[current][2].image}
                                   alt="option1"
                                   className="m-2 rounded img-fluid"
-                                  style={{ height: "250px", width: "250px" }}
+                                  style={{ height: "75%", width: "auto" }}
                                 ></img>
                               </div>
                               <div className="col-sm d-flex justify-content-center align-items-center">
@@ -207,12 +207,12 @@ const Quiz = (qProps: QuizProps) => {
                             onClick={answer4Handler}
                           >
                             <div className="row">
-                              <div className="col-sm">
+                              <div className="col-sm d-flex justify-content-center align-items-center ">
                                 <img
                                   src={questionData[current][3].image}
                                   alt="option1"
                                   className="m-2 rounded img-fluid"
-                                  style={{ height: "250px", width: "250px" }}
+                                  style={{ height: "75%", width: "auto" }}
                                 ></img>
                               </div>
                               <div className="col-sm d-flex justify-content-center align-items-center">
