@@ -79,7 +79,7 @@ const CustomizedSlider = (props : sliderProps) => {
     return (<Box sx={{ width: 400 }}><CustomSlider
         min={props.min}
         max={props.max}
-        valueLabelDisplay='on'
+        valueLabelDisplay='auto'
         components={{ Thumb: CustomThumbComponent }}
         onChangeCommitted={(event,newValue) => {setValue(newValue as number[]);props.setFilterValue(newValue as number[])}}
         getAriaLabel={(index) => (index === 0 ? 'Minimum price' : 'Maximum price')}
