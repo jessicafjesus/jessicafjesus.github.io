@@ -1,47 +1,63 @@
 {
   "activities": [
     {
-      "activityName": "Power To Change: Action Workshop",
-      "activityLocation": "Tate Museum",
-      "activityType": "Workshop",
-      "activityRating": 2,
+      "activityName": "Second Sunday Family Tours",
+      "activityLocation": "Solomon R. Guggenheim Museum",
+      "activityType": "Tour",
+      "activityRating": 4.0,
       "activityDate": ["12:00 12/12/2021"],
       "activityDescription": "Take part in workshops themed around re-use and re-cycling and discover the small actions you can take to have a real impact on our climate future Pick up a pencil for an illustration workshop that asks big questions about small acts for the environment. Sam Ayre and Claire Ratinon (re)use discarded items from Tate Modern and invites you to reflect on use and reuse.",
       "activityReviews": ["review1", "review2"],
-      "activityImage": "activity1.jpg"
+      "activityImage": "activity2.jpg",
+      "fillingFast": true
+    },
+
+    {
+      "activityName": "Online Course: Portraits",
+      "activityLocation": "Solomon R. Guggenheim Museum",
+      "activityType": "Online workshop",
+      "activityRating": 3.8,
+      "activityDate": ["18:00 15/12/2021"],
+      "activityDescription": "In this course, we’ll explore the history of portraiture, in its many forms, through works from the Guggenheim’s collection. Historically, painted portraits were commissioned by wealthy patrons, state officials, and clergy often to convey beauty, wealth, and power.",
+      "activityReviews": ["review1", "review2"],
+      "activityImage": "activity3.jpg",
+      "fillingFast": false
     },
 
     {
       "activityName": "Power To Change: Action Workshop",
       "activityLocation": "Tate Museum",
       "activityType": "Workshop",
-      "activityRating": 2,
+      "activityRating": 4.2,
       "activityDate": ["12:00 12/12/2021"],
       "activityDescription": "Take part in workshops themed around re-use and re-cycling and discover the small actions you can take to have a real impact on our climate future Pick up a pencil for an illustration workshop that asks big questions about small acts for the environment. Sam Ayre and Claire Ratinon (re)use discarded items from Tate Modern and invites you to reflect on use and reuse.",
       "activityReviews": ["review1", "review2"],
-      "activityImage": "activity1.jpg"
+      "activityImage": "activity1.jpg",
+      "fillingFast": true
     },
 
     {
-      "activityName": "Power To Change: Action Workshop",
-      "activityLocation": "Tate Museum",
-      "activityType": "Workshop",
-      "activityRating": 2,
-      "activityDate": ["12:00 12/12/2021"],
-      "activityDescription": "Take part in workshops themed around re-use and re-cycling and discover the small actions you can take to have a real impact on our climate future Pick up a pencil for an illustration workshop that asks big questions about small acts for the environment. Sam Ayre and Claire Ratinon (re)use discarded items from Tate Modern and invites you to reflect on use and reuse.",
+      "activityName": "Frontiers Lecture: Spinning the Cosmic Web",
+      "activityLocation": "American Museum of Natural History",
+      "activityType": "Planetarium Programs",
+      "activityRating": 4.1,
+      "activityDate": ["19:00 17/12/2021"],
+      "activityDescription": "Astronomers investigating this question recently constructed the cosmic web of galaxies, a complete census of the local universe. Join Tom Jarrett, lead scientist of the IDIA Visualisation Lab at the University of Cape Town’s Department of Astronomy, and Brian Abbott, assistant director of the Hayden Planetarium, as they unpack how small perturbations, gravitational instabilities, and spacetime expansion provide insight into the structure of the very early universe and its evolution over eons.",
       "activityReviews": ["review1", "review2"],
-      "activityImage": "activity1.jpg"
+      "activityImage": "activity5.jpg",
+      "fillingFast": false
     },
-    
+
     {
-      "activityName": "Power To Change: Action Workshop",
-      "activityLocation": "Tate Museum",
-      "activityType": "Workshop",
-      "activityRating": 2,
-      "activityDate": ["12:00 12/12/2021"],
-      "activityDescription": "Take part in workshops themed around re-use and re-cycling and discover the small actions you can take to have a real impact on our climate future Pick up a pencil for an illustration workshop that asks big questions about small acts for the environment. Sam Ayre and Claire Ratinon (re)use discarded items from Tate Modern and invites you to reflect on use and reuse.",
+      "activityName": "MoMA Film Benefit: Honoring Penélope Cruz",
+      "activityLocation": "The Museum of Modern Art",
+      "activityType": "Party",
+      "activityRating": 3.4,
+      "activityDate": ["19:00 14/12/2021"],
+      "activityDescription": "Join us at The Museum of Modern Art on Tuesday, December 14, at 7:00 p.m. ET for the 2021 MoMA Film Benefit, as we honor Academy Award–winning actress Penélope Cruz.",
       "activityReviews": ["review1", "review2"],
-      "activityImage": "activity1.jpg"
+      "activityImage": "activity4.jpg",
+      "fillingFast": true
     }
   ]
 }
