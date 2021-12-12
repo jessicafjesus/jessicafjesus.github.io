@@ -4,6 +4,8 @@ import CloseIcon from "@mui/icons-material/Close";
 import { IconButton } from "@mui/material";
 import LinearProgress from '@mui/material/LinearProgress';
 import QuizJson from "../../json/QuizJson.json"
+// import Results from "./quizResults"
+import { useNavigate } from "react-router-dom";
 
 interface QuizProps {
     showQuiz : boolean;
@@ -19,7 +21,9 @@ const Quiz = (qProps: QuizProps) => {
     const [answer2Selected, setAnswer2Selected] = useState(false);
     const [answer3Selected, setAnswer3Selected] = useState(false);
     const [answer4Selected, setAnswer4Selected] = useState(false);
+    const [end, setEnd] = useState(false);
     const [current,setCurrent] = useState(0)
+    let navigate = useNavigate();
     
     const answer1Handler = (event : React.MouseEvent) => {
         event.preventDefault();
@@ -78,15 +82,23 @@ const Quiz = (qProps: QuizProps) => {
         setAnswer2Selected(false);
         setAnswer3Selected(false);
         setAnswer4Selected(false);
-        if(current === 4) {
-          qProps.setShowQuiz(false)
+        if(current == 3) {
+          setEnd(true)
         }
+
         setCurrent((state) => state+1)
       }
-      }
+    }
+
+    const resultsHandler = (event : React.MouseEvent) => {
+      event.preventDefault();
+        if(current === 4) {
+          navigate("/results")
+          qProps.setShowQuiz(false)
+        }
+        
+    }
   
-
-
     return (
         <Fragment>
         { <Modal
@@ -231,7 +243,12 @@ const Quiz = (qProps: QuizProps) => {
                       }}
                     >
                     <div className="col p-3 text-center"><LinearProgress color="error" variant="determinate" style={{borderColor:"black"}} value={current*20} /></div>
-                    <div className="col col-lg-2 text-right"><button className="btn" style={{backgroundColor:"#FFA552"}} onClick={buttonHandler}><b>Next</b></button></div>
+                    {end ? (
+                        <div className="col col-lg-2 text-right"><button className="btn" style={{backgroundColor:"#FFA552"}} onClick={resultsHandler}><b>Results</b></button></div>
+                    ) : (
+                        <div className="col col-lg-2 text-right"><button className="btn" style={{backgroundColor:"#FFA552"}} onClick={buttonHandler}><b>Next</b></button></div>
+                    )}
+                    
                     </div>
                   </div>
                 </div>
