@@ -139,10 +139,10 @@ const Profile = (props: DualProps) => {
             <div className="row pl-4 pt-3 rounded ml-5 mt-3 mr-5 align-items-center "
              style={{ borderRadius: "5px", backgroundColor:"#cbd1d1"}}>
               
-              <p className="text-left fw-bold"> <b>Name :</b> {props.profileP.profileName}</p>
-              <p className="text-left fw-bold"> <b>Email :</b> {props.profileP.profileEmail}</p>
-              <p className="text-left fw-bold"> <b>Bio :</b> {props.profileP.profileBio}</p>
-              <p className="text-left fw-bold"> <b>Interests :</b> {props.profileP.profileInterests[0]}</p>
+              <p className="text-left "> <b>Name :</b> {props.profileP.profileName}</p>
+              <p className="text-left "> <b>Email :</b> {props.profileP.profileEmail}</p>
+              <p className="text-left "> <b>Bio :</b> {props.profileP.profileBio}</p>
+              <p className="text-left "> <b>Interests :</b> {props.profileP.profileInterests[0]}</p>
             </div>
         
         </div>
@@ -708,12 +708,10 @@ const Profile = (props: DualProps) => {
             )}
                     {activitiesActive && (
             <Fragment>
-              <h2 className="text-left" style={{ color: "#47525E" }}>
-                <b>{props.museumP.museumName}</b>
+              <h2 className="text-left mt-5 ml-5" style={{ color: "#47525E" }}>
+                <b>You haven´t attended any activity yet</b>
               </h2>
-              <h5 className="text-left" style={{ color: "#47525E" }}>
-                {props.museumP.museumLocation}
-              </h5>
+              
             </Fragment>
            )}
         </div>

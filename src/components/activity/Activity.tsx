@@ -3,6 +3,7 @@ import React, { Fragment, useState } from "react";
 import BuyTicketsActivity from "./BuyTicketsActivity";
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import Filters from "./Filters";
 interface ActivityProps {
   aProps: {
@@ -17,6 +18,8 @@ interface ActivityProps {
     activityImage: string;
     activityPrices: number[]
   };
+  viewMain : React.Dispatch<React.SetStateAction<boolean>>;
+  viewActivity : React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const Activity = (props: ActivityProps) => {
@@ -54,6 +57,8 @@ const Activity = (props: ActivityProps) => {
   return (
     <Fragment>
       {defaultView && (
+        <div>
+        <button className="mt-2 ml-2 btn" style={{backgroundColor:"#FFA552"}} onClick={() => {props.viewActivity(false);props.viewMain(true)}}><ArrowBackIcon/></button>
         <section
         className="container pr-5 pl-5 pb-3 pt-3 pb-1 border bg rounded-3 shadow mx-auto mt-5 mb-5"
         style={{ backgroundColor: "#FFFFFF" }}
@@ -84,6 +89,7 @@ const Activity = (props: ActivityProps) => {
           <p className="text-left">{props.aProps.activityDescription}</p>
         </div>
       </section>
+      </div>
       )}
       {createVisit && (<Fragment></Fragment>)}
       {buyTickets && (<BuyTicketsActivity aProps={props.aProps} setBack={defaultHandler}/>)}

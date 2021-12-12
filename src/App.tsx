@@ -39,7 +39,6 @@ function App() {
         <Route path='/visitTogether' element={<VisitTogether/>} />
         <Route path='/signin' element={<SignIn/>} />
         <Route path='/profile' element={<ProfilePage/>} />
-        <Route path='/createVisit' element={<CreateVisit/>} />
         {/* <Route path='/museums/details' element={<Museum />} />
         <Route path='/activities/details' element={<Activity/>} /> */}
 

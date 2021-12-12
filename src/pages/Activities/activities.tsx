@@ -52,8 +52,6 @@ const Activities = () => {
     let copy = [...activeFilter];
     copy[row] = value;
     setActiveFilter(copy);
-
-    console.log(activeFilter);
   };
 
   return (
@@ -106,11 +104,11 @@ const Activities = () => {
         && (activeAge.includes(act.activityType) || (activeAge.filter((a) => a !== "").length === 0)) 
         && (act.activityRating >= activeRating[0] && act.activityRating <= activeRating[1]) 
         && (activeOther.includes(act.activityType) || (activeOther.filter((a) => a !== "").length === 0)))).map((act) => (
-          <ActivityItem act={act} viewActivity={setActivityView} setDefault={setSelectedActivity} viewMain={setMainView}/>
+          <ActivityItem key={Math.random()} act={act} viewActivity={setActivityView} setDefault={setSelectedActivity} viewMain={setMainView}/>
         ))}
         </Stack>
         </Box>
-    </Fragment>}{ActivityView && <Activity aProps={selectedActivity}/>}</Fragment>
+    </Fragment>}{ActivityView && <Activity aProps={selectedActivity} viewActivity={setActivityView} viewMain={setMainView}/>}</Fragment>
   );
 };
 
