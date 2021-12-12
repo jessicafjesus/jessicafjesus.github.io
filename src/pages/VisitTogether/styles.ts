@@ -8,23 +8,28 @@ export default makeStyles((theme) => ({
     },
 
     catButton: {
-        background: "white",
-        padding: "5px 10px",
-        color: "#00a3a3",
-        fontSize: "18px",
+        color: "white",
+        padding: "10px 15px",
+        background: "#ffa552",
+        fontSize: "22px",
         cursor: "pointer",
         transition: "all 0.3s ease-in-out",
         fontWeight: 600,
         borderRadius: "6px",
-        borderWidth: "2px",
-        borderColor: "#00a3a3",
-        border: "2px solid",
         textTransform: "none",
-
+        
         "&:hover": {
             color: "white",
             background: "#00a3a3",
         },
+    },
+
+    centerButton: {
+        display: "flex",
+        flex: "1",
+        justifyContent: "center",
+        alignContent: "center",
+        marginBottom: "30px",
     },
 
     catStyle: {
