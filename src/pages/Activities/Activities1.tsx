@@ -4,34 +4,23 @@ import { Stack, Grid } from '@mui/material';
 import { Button, Avatar, Box } from '@material-ui/core';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import useStyles from './styles';
-import Quiz from './Quiz';
-import MuseumItem from './MuseumItem/MuseumItem';
-import MuseumItemsJson from "../../json/MuseumItems.json"
+import ActivityItem from './ActivityItem/ActivityItem';
+import ActivityItemJson from "../../json/ActivitiesJson.json"
 
-export interface Museum { 
-  museumName: string, 
-  museumLocation:string, 
-  museumType: string, 
-  museumImage: string, 
-  museumRating: number, 
-  museumHours: string,
-  museumPrice: string,
+export interface Activity { 
+  activityName: string, 
+  activityLocation:string, 
+  activityType: string, 
+  activityImage: string, 
+  activityRating: number, 
+  activityDate: string[],
 }
 
-const Museums = () => {
+const Activities = () => {
   const classes = useStyles();
   const [showQuiz, setShowQuiz] = useState(false);
-  const data = MuseumItemsJson
-  
-  const takeQuizHandler = (event: React.MouseEvent) => {
-    event.preventDefault();
-    setShowQuiz(true);
-  };
+  const data = ActivityItemJson
 
-  const hideQuizHandler = (event: React.MouseEvent) => {
-    event.preventDefault();
-    setShowQuiz(false);
-  };
 
   const filtersHandler = (event: React.MouseEvent) => {
     event.preventDefault();
@@ -40,7 +29,6 @@ const Museums = () => {
 
   return (
     <Fragment>
-      {showQuiz && <Quiz showQuiz={showQuiz} setShowQuiz={setShowQuiz} hideQuizHandler={hideQuizHandler} />}
       <Box className={classes.container}>
       <Grid container className="mt-3">
         <Grid item xs={9} >
@@ -52,14 +40,10 @@ const Museums = () => {
           </Stack>
           <Button className={classes.filters} onClick={filtersHandler}>See more filters<ArrowForwardIosIcon fontSize="small" /></Button>
         </Grid>
-        <Grid item xs={3} >
-            <div className={`${classes.catStyle} ${classes.alignCenter}`}>Don't know what to visit?</div>
-            <Button className={classes.quizButton} onClick={takeQuizHandler}> Take our quiz </Button>
-        </Grid>
       </Grid>
       <Stack className="mt-4" spacing={4}>
-        {data.museumItems.map((museum) => (
-          <MuseumItem museum={museum} />
+        {data.activities.map((act) => (
+          <ActivityItem act={act} />
         ))}
         </Stack>
         </Box>
@@ -67,5 +51,5 @@ const Museums = () => {
   );
 };
 
-export default Museums;
+export default Activities;
 

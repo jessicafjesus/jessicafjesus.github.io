@@ -1,6 +1,7 @@
 import Rating from "@mui/material/Rating"
 import React, { Fragment, useState } from "react";
 import BuyTicketsActivity from "./BuyTicketsActivity";
+import Filters from "./Filters";
 interface ActivityProps {
   aProps: {
     activityName: string;
@@ -17,7 +18,7 @@ interface ActivityProps {
 const Activity = (props: ActivityProps) => {
   const DateSet = props.aProps.activityDate.map((date) => {
     return (
-      <h4>{date}</h4>
+      <h4 key={Math.random()}>{date}</h4>
     )
   })
   const [defaultView,setDefaultView] = useState(true)
@@ -36,6 +37,13 @@ const Activity = (props: ActivityProps) => {
     setDefaultView(false)
     setBuyTickets(false)
     setCreateVisit(true)
+  }
+
+  const defaultHandler = (event : React.MouseEvent) => {
+    event.preventDefault()
+    setBuyTickets(false)
+    setCreateVisit(false)
+    setDefaultView(true)
   }
 
   return (
@@ -66,7 +74,8 @@ const Activity = (props: ActivityProps) => {
       </section>
       )}
       {createVisit && (<Fragment></Fragment>)}
-      {buyTickets && (<BuyTicketsActivity aProps={props.aProps}/>)}
+      {buyTickets && (<BuyTicketsActivity aProps={props.aProps} setBack={defaultHandler}/>)}
+      <Filters/>
     </Fragment>
   );
 };

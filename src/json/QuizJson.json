@@ -1,0 +1,23 @@
+{
+    "quiz":[[{"question":"Watching documentaries","image":"answer11.jpeg"}
+        ,{"question":"Going on a hike","image":"answer12.jpeg"}
+        ,{"question":"Shopping","image":"answer11.jpeg"}
+        ,{"question":"Listening to music","image":"answer11.jpeg"}],
+    [{"question":"Architecture","image":"answer11.jpeg"}
+        ,{"question":"Sculpture","image":"answer11.jpeg"}
+        ,{"question":"Film","image":"answer11.jpeg"}
+        ,{"question":"Painting","image":"answer11.jpeg"}],
+    [{"question":"Questao31","image":"answer11.jpeg"}
+        ,{"question":"Questao32","image":"answer11.jpeg"}
+        ,{"question":"Questao33","image":"answer11.jpeg"}
+        ,{"question":"Questao34","image":"answer11.jpeg"}],
+    [{"question":"Questao41","image":"answer11.jpeg"}
+        ,{"question":"Questao42","image":"answer11.jpeg"}
+        ,{"question":"Questao43","image":"answer11.jpeg"}
+        ,{"question":"Questao44","image":"answer11.jpeg"}],
+    [{"question":"Questao51","image":"answer11.jpeg"}
+            ,{"question":"Questao52","image":"answer11.jpeg"}
+            ,{"question":"Questao53","image":"answer11.jpeg"}
+            ,{"question":"Questao54","image":"answer11.jpeg"}]],
+    "title" : ["If you had some time off, what would you rather be doing?","Pick one of these art forms.","title3","title4","title5"]
+}

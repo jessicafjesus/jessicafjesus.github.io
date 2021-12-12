@@ -5,10 +5,12 @@ import {
   AppBar,
   Button,
   Grid,
+  Box,
 } from "@material-ui/core";
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import Stack from '@mui/material/Stack';
 import useStyles from './styles'
+import { Search } from "@mui/icons-material";
 
 
 const Header = () => {
@@ -58,26 +60,20 @@ const Header = () => {
   return (
     <Fragment>
       <AppBar position="static" color="primary" className={classes.AppBar}>
-        {/* <Grid  className={classes.container}> */}
-          {/* <Toolbar> */}
+        <Box  className={classes.container}>
           <div className={classes.divFora}> 
             <div className={classes.div1}> 
               <Grid className={classes.grow}>
                 <img src="amuseBranco.png" alt="logo" className={classes.logo} />
               </Grid>
-              </div>
-              <div className={classes.div2}> 
-                  <Button color="inherit" className={activitiesActive ? classes.buttonHeaderActive : classes.buttonHeader} onClick={activitiesHandler}> Activities </Button>
-                  <Button color="inherit" className={museumsActive ? classes.buttonHeaderActive : classes.buttonHeader} onClick={museumsHandler}> Museums </Button>
-                  <Button color="inherit" className={visitTogetherActive ? classes.buttonHeaderActive : classes.buttonHeader} onClick={visitTogetherHandler}> Visit Together </Button>
-              </div>
+            </div>
+            <div className={classes.div2}> 
+                <Button color="inherit" className={activitiesActive ? classes.buttonHeaderActive : classes.buttonHeader} onClick={activitiesHandler}> Activities </Button>
+                <Button color="inherit" className={museumsActive ? classes.buttonHeaderActive : classes.buttonHeader} onClick={museumsHandler}> Museums </Button>
+                <Button color="inherit" className={visitTogetherActive ? classes.buttonHeaderActive : classes.buttonHeader} onClick={visitTogetherHandler}> Visit Together </Button>
+            </div>
             {isLoggedIn ? (
               <div className={classes.div3}>
-                {/* <Box className="text-secondary bg-transparent" component="form" sx={{
-                  '& > :not(style)': { mx: 4, width: '10ch'},
-                }} noValidate autoComplete="off">
-                  <TextField id="standard-basic" label="Search" variant="standard" />
-                </Box> */}
                   <Button color="inherit" className={classes.loggedIn} onClick={profileHandler}><PermIdentityIcon className={classes.profile} fontSize="large" /> Profile </Button>
               </div>
             ):(
@@ -90,9 +86,12 @@ const Header = () => {
               </div>
             )}
             </div>
-          {/* </Toolbar> */}
-        {/* </Grid> */}
+        </Box>
       </AppBar>
+      <form className={classes.boxSearch} >
+          <Search fontSize="large" className={classes.searchIcon}/>   
+          <input className={`$"form-control " ${classes.searchBar}`} type="search" placeholder="Search" ></input>
+      </form>
     </Fragment>
   );
 };

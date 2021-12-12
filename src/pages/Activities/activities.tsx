@@ -4,7 +4,7 @@ import ActivitiesJson from "../../json/ActivitiesJson.json"
 
 function activities() {
     const data = ActivitiesJson
-    const activitiesMap = data.activities.map((act) => {return (<Activity aProps={act}/>)})
+    const activitiesMap = data.activities.map((act) => {return (<Activity aProps={act} key={Math.random()}/>)})
     return (
         <Fragment>
             {activitiesMap}
