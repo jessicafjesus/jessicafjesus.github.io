@@ -1,0 +1,49 @@
+{
+  "museums": [
+    {
+      "museumName": "Solomon R. Guggenheim Museum",
+      "museumLocation": "solomon-map.png",
+      "museumType": "Art",
+      "museumRating": 4,
+      "museumDescription": "Founded in 1937, the Solomon R. Guggenheim Foundation is dedicated to promoting the understanding and appreciation of art, primarily of the modern and contemporary periods, through exhibitions, education programs, research initiatives, and publications. The Guggenheim network that began in the 1970s when the Solomon R. Guggenheim Museum, New York, was joined by the Peggy Guggenheim Collection, Venice, has since expanded to include the Guggenheim Museum Bilbao (opened 1997), and the Guggenheim Abu Dhabi (currently in development).",
+      "museumReviews": [
+        "I loved the museum, such a great exxperience!",
+        "review2"
+      ],
+      "museumImage": "solomonMuseum.jpg",
+      "museumWebsite": "https://www.guggenheim.org/",
+      "museumHours": "Thursday–Monday, 11 am–6 pm",
+      "museumAdmission": [
+        "Adults - $25",
+        "Students and Seniors 65+  - $18",
+        "Visitors with disabilities - $18",
+        "Members - Free",
+        "Children under 12 - Free"
+      ],
+      "museumDescriptionShort": "Founded in 1937, the Solomon R. Guggenheim Foundation is dedicated to promoting the understanding and appreciation of art, primarily of the modern and contemporary periods, through exhibitions, education programs, research initiatives, and publications."
+    },
+
+    {
+      "museumName": "Solomon R. Guggenheim Museum 2",
+      "museumLocation": "solomon-map.png",
+      "museumType": "Art",
+      "museumRating": 4,
+      "museumDescription": "Founded in 1937, the Solomon R. Guggenheim Foundation is dedicated to promoting the understanding and appreciation of art, primarily of the modern and contemporary periods, through exhibitions, education programs, research initiatives, and publications. The Guggenheim network that began in the 1970s when the Solomon R. Guggenheim Museum, New York, was joined by the Peggy Guggenheim Collection, Venice, has since expanded to include the Guggenheim Museum Bilbao (opened 1997), and the Guggenheim Abu Dhabi (currently in development).",
+      "museumReviews": [
+        "I loved the museum, such a great exxperience!",
+        "review2"
+      ],
+      "museumImage": "solomonMuseum.jpg",
+      "museumWebsite": "https://www.guggenheim.org/",
+      "museumHours": "Thursday–Monday, 11 am–6 pm",
+      "museumAdmission": [
+        "Adults - $25",
+        "Students and Seniors 65+  - $18",
+        "Visitors with disabilities - $18",
+        "Members - Free",
+        "Children under 12 - Free"
+      ],
+      "museumDescriptionShort": "Founded in 1937, the Solomon R. Guggenheim Foundation is dedicated to promoting the understanding and appreciation of art, primarily of the modern and contemporary periods, through exhibitions, education programs, research initiatives, and publications."
+    }
+  ]
+}

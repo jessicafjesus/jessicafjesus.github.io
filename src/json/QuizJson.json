@@ -1,0 +1,23 @@
+{
+    "quiz":[[{"question":"Watching documentaries","image":"documentario.jpg"}
+        ,{"question":"Going on a hike","image":"hike.jpg"}
+        ,{"question":"Shopping","image":"shooping.jpg"}
+        ,{"question":"Listening to music","image":"music.jpg"}],
+    [{"question":"Architecture","image":"zaha-hadid-architecture.jpg"}
+        ,{"question":"Sculpture","image":"sculpture.jpg"}
+        ,{"question":"Film","image":"film.jpg"}
+        ,{"question":"Painting","image":"painting.jpeg"}],
+    [{"question":"Starry night","image":"van-gogh.jpg"}
+        ,{"question":"Birth of Venus","image":"venus.jpg"}
+        ,{"question":"Luncheon on the Grass","image":"pablo-picasso-luncheon-on-the-grass-after-manet-1962-linocut.jpg"}
+        ,{"question":"Campbell's Soup Cans","image":"warhol.jpg"}],
+    [{"question":"The future","image":"future.jpeg"}
+        ,{"question":"Ancient Rome","image":"ancient-rome.jpg"}
+        ,{"question":"The 20s","image":"20s.jpg"}
+        ,{"question":"Renaissance","image":"reneissance.jpg"}],
+    [{"question":"History","image":"history.jpg"}
+            ,{"question":"Art","image":"art.jpg"}
+            ,{"question":"Music","image":"music.jpg"}
+            ,{"question":"Science","image":"science.png"}]],
+    "title" : ["If you had some time off, what would you rather be doing?","Pick one of these art forms.","Which of these is your favourite painting?","If you could time travel where would you go?","What was your favourite subject in school?"]
+}
