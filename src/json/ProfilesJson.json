@@ -1,0 +1,12 @@
+{
+    "profiles": [
+      {
+        "profileName": "Joana Moura",
+        "profileEmail": "j.moura@gmail.com",
+        "profileBio": "Museum lover. Writer. Travel  ",
+        "profileInterests": ["Modern Art", "Science", "Kandinsky"],
+        "profileImage": "perfil.png"
+      }
+    ]
+  }
+  
