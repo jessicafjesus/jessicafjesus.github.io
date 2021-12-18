@@ -58,5 +58,28 @@ export default makeStyles((theme) => ({
     cursor: 'pointer',
     margin: 0,
     color: 'rgba(0, 0, 0, 0.6)'
-  }
+  },
+
+  hoursButton: {
+    backgroundColor: "#fff",
+    color: "#47525E",
+    border: "3px solid #00A3A3",
+    borderRadius: "9px",
+    width: "80px",
+    marginTop: "20px",
+  },
+
+  hoursButtonSelected: {
+    backgroundColor: "#00A3A3",
+    color: "#fff",
+    border: "3px solid #00A3A3",
+    borderRadius: "9px",
+    width: "80px",
+    marginTop: "20px",
+
+    "&:hover": {
+      backgroundColor: "#008282",
+    }
+  },
+
 }));
