@@ -35,6 +35,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <Header/>
     <Routes>
+        <Route path='/' element={<Museums />} />
         <Route path='/activities' element={<Activities />} />
         <Route path='/museums' element={<Museums/>} />
         <Route path='/visitTogether' element={<VisitTogether/>} />
