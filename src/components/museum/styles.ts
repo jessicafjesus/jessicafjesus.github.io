@@ -31,7 +31,7 @@ export default makeStyles((theme) => ({
     borderStyle : "solid",
     display: 'inline-flex',
     boxSizing: 'border-box',
-    borderRadius: '25px 25px 25px 25px',
+    borderRadius: '25px',
   },      
   rootActive: {
     paddingTop : 2,
@@ -43,7 +43,7 @@ export default makeStyles((theme) => ({
     borderStyle : "solid",
     display: 'inline-flex',
     boxSizing: 'border-box',
-    borderRadius: '25px 25px 25px 25px',
+    borderRadius: '25px',
   },
   label: {
     verticalAlign : "middle",
@@ -79,6 +79,16 @@ export default makeStyles((theme) => ({
 
     "&:hover": {
       backgroundColor: "#008282",
+    }
+  },
+
+  disableButton: {
+    color: "#191f24",
+    cursor: "default",
+
+    "&:hover": {
+      backgroundColor: "transparent",
+      cursor: "default",
     }
   },
 

@@ -117,15 +117,15 @@ const CreateVisit = (props : CreateProps) => {
                             size="small"
                             aria-label="small outlined button group"
                           >
-                            <Button style={{border: "1px solid #969FAA"}}
+                            <Button style={{border: "1px solid #969FAA", fontWeight: 600}}
                               disabled={numPeople <= 0}
                               onClick={() => {
                                 setNumPeople(numPeople - 1);
                               }}
                             > - </Button>
-                            {<Button disableElevation>{numPeople}</Button>}
+                            {<Button className={classes.disableButton}>{numPeople}</Button>}
                             {
-                              <Button style={{border: "1px solid #969FAA", width: "10%"}}
+                              <Button style={{border: "1px solid #969FAA", fontWeight: 600}}
                                 onClick={() => {
                                   setNumPeople(numPeople + 1);
                                 }}

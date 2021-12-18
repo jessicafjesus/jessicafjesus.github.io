@@ -51,6 +51,9 @@ const Header = () => {
   };
 
   const profileHandler = () => {
+    setVisitTogetherActive(false);
+    setActivitiesActive(false);
+    setMuseumsActive(false);
     history("/profile");
   };
 
