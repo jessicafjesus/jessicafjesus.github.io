@@ -31,7 +31,7 @@ const Signin = () => {
   const submitHandler = (event: React.FormEvent) => {
     event.preventDefault();
     tokenContext.login();
-    history("/myprofile");
+    history("/profile");
   }
         
   return (

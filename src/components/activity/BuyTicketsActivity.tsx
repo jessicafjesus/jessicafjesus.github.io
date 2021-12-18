@@ -841,6 +841,7 @@ const BuyTicketsActivity = (props: ActivityProps) => {
                   <b>Purchase successful</b>
                 </h1>
                 <CheckCircleIcon sx={{ color: "##343F4B", fontSize: "15vh" }} />
+                <h3 style={{ color: "#343F4B"}}><b>Check your inbox and click to continue</b></h3>
               </div>
             </div>
           </div>

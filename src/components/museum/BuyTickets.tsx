@@ -70,7 +70,17 @@ function BuyTickets(props: MuseumProps) {
 
   const buttonHandler = (event: React.MouseEvent) => {
     event.preventDefault();
-    setStepValue(stepValue + 1);
+    if (adultAmount > 0 || studentAmount > 0 || seniorAmount > 0) {
+      setStepValue((current) => current + 1);
+    }
+  };
+
+  const backHandler = (event: React.MouseEvent) => {
+    event.preventDefault();
+    if(stepValue === 0) {
+      props.setBack(event)
+    }
+    setStepValue(stepValue - 1);
   };
 
   const payHandler = (event: React.FormEvent) => {
@@ -80,7 +90,9 @@ function BuyTickets(props: MuseumProps) {
 
   const completeHandler = (event: React.FormEvent) => {
     event.preventDefault();
-    setStepValue(stepValue + 1);
+    if (type !== "") {
+      setStepValue(stepValue + 1);
+    }
   };
 
   return (
@@ -261,6 +273,13 @@ function BuyTickets(props: MuseumProps) {
                   </div>
                 </div>
                 <button
+                  className="btn btn-lg mr-3 pr-5 pl-5"
+                  onClick={backHandler}
+                  style={{ backgroundColor: "#00A3A3", color: "white" }}
+                >
+                  Back
+                </button>
+                <button
                   className="btn btn-lg"
                   onClick={buttonHandler}
                   style={{ backgroundColor: "#00A3A3", color: "white" }}
@@ -286,6 +305,7 @@ function BuyTickets(props: MuseumProps) {
                     Number of items:{" "}
                     {studentAmount + adultAmount + seniorAmount}
                   </h5>
+                  {(adultAmount > 0) &&
                   <div
                     className="rounded m-1 p-1"
                     style={{ backgroundColor: "#FFFFFF" }}
@@ -308,8 +328,8 @@ function BuyTickets(props: MuseumProps) {
                     >
                       Adult: {adultPrice} €
                     </h6>
-                  </div>
-                  <div
+                  </div>}
+                  {(studentAmount > 0) && <div
                     className="rounded m-1 p-1"
                     style={{ backgroundColor: "#FFFFFF" }}
                   >
@@ -332,8 +352,8 @@ function BuyTickets(props: MuseumProps) {
                     >
                       Student: {studentPrice} €
                     </h6>
-                  </div>
-                  <div
+                  </div>}
+                  {(seniorAmount > 0) && <div
                     className="rounded m-1 p-1"
                     style={{ backgroundColor: "#FFFFFF" }}
                   >
@@ -356,7 +376,7 @@ function BuyTickets(props: MuseumProps) {
                     >
                       Senior: {seniorPrice} €
                     </h6>
-                  </div>
+                  </div>}
                   <div className="text-right">
                     <h1 className="mt-3" style={{ color: "white" }}>
                       Total :{" "}
@@ -388,7 +408,7 @@ function BuyTickets(props: MuseumProps) {
                           required
                           fullWidth
                           id="email"
-                          type="email"
+                          type="text"
                           label="Your e-mail"
                           name="email"
                           value={email}
@@ -461,6 +481,13 @@ function BuyTickets(props: MuseumProps) {
                       className="text-right mt-5"
                       style={{ backgroundColor: "#F3F4F4" }}
                     >
+                                      <button
+                  className="btn btn-lg mr-3 pr-5 pl-5"
+                  onClick={backHandler}
+                  style={{ backgroundColor: "#00A3A3", color: "white" }}
+                >
+                  Back
+                </button>
                       <button
                         className="btn btn-lg"
                         style={{ backgroundColor: "#00A3A3", color: "white" }}
@@ -489,6 +516,7 @@ function BuyTickets(props: MuseumProps) {
                     Number of items:{" "}
                     {studentAmount + adultAmount + seniorAmount}
                   </h5>
+                  {(adultAmount > 0) &&
                   <div
                     className="rounded m-1 p-1"
                     style={{ backgroundColor: "#FFFFFF" }}
@@ -511,8 +539,8 @@ function BuyTickets(props: MuseumProps) {
                     >
                       Adult: {adultPrice} €
                     </h6>
-                  </div>
-                  <div
+                  </div>}
+                  {(studentAmount > 0) && <div
                     className="rounded m-1 p-1"
                     style={{ backgroundColor: "#FFFFFF" }}
                   >
@@ -535,8 +563,8 @@ function BuyTickets(props: MuseumProps) {
                     >
                       Student: {studentPrice} €
                     </h6>
-                  </div>
-                  <div
+                  </div>}
+                  {(seniorAmount > 0) && <div
                     className="rounded m-1 p-1"
                     style={{ backgroundColor: "#FFFFFF" }}
                   >
@@ -559,7 +587,7 @@ function BuyTickets(props: MuseumProps) {
                     >
                       Senior: {seniorPrice} €
                     </h6>
-                  </div>
+                  </div>}
                   <div className="text-right">
                     <h1 className="mt-3" style={{ color: "white" }}>
                       Total :{" "}
@@ -721,6 +749,13 @@ function BuyTickets(props: MuseumProps) {
                       className="text-right mt-5"
                       style={{ backgroundColor: "#F3F4F4" }}
                     >
+                                      <button
+                  className="btn btn-lg mr-3 pr-5 pl-5"
+                  onClick={backHandler}
+                  style={{ backgroundColor: "#00A3A3", color: "white" }}
+                >
+                  Back
+                </button>
                       <button
                         className="btn btn-lg"
                         style={{ backgroundColor: "#00A3A3", color: "white" }}
@@ -735,7 +770,7 @@ function BuyTickets(props: MuseumProps) {
           </Fragment>
         )}
         {stepValue === 3 && <div className="row h-100 d-flex align-items-center"><div className="col w-100 d-flex justify-content-center text-center">
-          <div className="mt-5 pt-5" onClick={props.setBack}><h1 style={{ color: "#343F4B"}}><b>Purchase successful</b></h1><CheckCircleIcon sx={{ color: "##343F4B", fontSize: "15vh" }}/></div></div></div>}
+          <div className="mt-5 pt-5" onClick={props.setBack}><h1 style={{ color: "#343F4B"}}><b>Purchase successful</b></h1><CheckCircleIcon sx={{ color: "##343F4B", fontSize: "15vh" }}/><h3 style={{ color: "#343F4B"}}><b>Check your inbox and click to continue</b></h3></div></div></div>}
       </div>
     </Fragment>
   );

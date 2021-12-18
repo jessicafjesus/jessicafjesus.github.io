@@ -161,7 +161,7 @@ const Museum = (props: MuseumProps) => {
       {buyTickets && (
         <BuyTickets mProps={props.mProps} setBack={defaultHandler} />
       )}
-      {createVisit && (<CreateVisit showCreate={createVisit} setShowCreate={setCreateVisit}/>)}
+      {createVisit && (<CreateVisit showCreate={createVisit} setShowCreate={setCreateVisit} museumName={props.mProps.museumName}/>)}
     </Fragment>
   );
 };
