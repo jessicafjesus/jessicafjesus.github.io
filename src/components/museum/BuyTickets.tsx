@@ -618,7 +618,7 @@ function BuyTickets(props: MuseumProps) {
                           >
                             <div style={{display:"inline-block",position:"relative"}}>
                             <img src="mastercard.png" alt="mastercard" style={{borderRadius:"2%",width:"60%"}} className="img-fluid mx-auto d-block"/>
-                            <Radio
+                            <Radio required
                               value="mastercard"
                               onClick={() => {
                                 setType("mastercard");

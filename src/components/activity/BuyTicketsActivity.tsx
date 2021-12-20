@@ -644,7 +644,7 @@ const BuyTicketsActivity = (props: ActivityProps) => {
                                 style={{ borderRadius: "2%", width: "60%" }}
                                 className="img-fluid mx-auto d-block"
                               />
-                              <Radio
+                              <Radio required
                                 value="mastercard"
                                 onClick={() => {
                                   setType("mastercard");
